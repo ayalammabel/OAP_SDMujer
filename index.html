@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oficina Asesora de Planeación – SDMujer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e;
+      --gris:#c3caca;
+      --negro:#111;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+    /* Barra superior */
+    .topbar{
+      background:var(--rosa);
+      color:#fff;
+      padding:16px 14px;
+      position:sticky;top:0;z-index:10;
+    }
+    .topbar .wrap{
+      max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px;
+    }
+    .logo{
+      height:40px;width:auto;display:block;
+    }
+    .title{
+      flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px;
+    }
+
+    /* Contenido */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 18px;font-size:28px;color:#000}
+    .grid{
+      display:grid;gap:16px;
+      grid-template-columns:1fr; 
+    }
+    @media (min-width:800px){
+      .grid{grid-template-columns:1fr 1fr}
+    }
+
+    /* Tarjetas */
+    .card{
+      background:var(--gris);
+      border:1px solid #b6bcbc;
+      border-radius:12px;
+      padding:18px;
+      display:flex;flex-direction:column;gap:10px;
+      min-height:150px;
+    }
+    .card .icon{
+      width:42px;height:42px;border-radius:50%;
+      background:#ffffff55;border:1px solid #b6bcbc;
+      display:grid;place-items:center;font-size:20px;
+    }
+    .card a{
+      text-decoration:none;color:var(--negro);font-weight:800;display:inline-block;
+    }
+    .card a:hover{opacity:.85;text-decoration:underline}
+    .card .subtitle{
+      margin-top:auto;font-size:14px;color:#333
+    }
+
+    /* Utilidades */
+    .left{ text-align:left }
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.jpeg" class="logo" alt="Logo Secretaría de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <!-- espacio a la derecha para balancear -->
+      <div style="width:40px"></div>
+    </div>
+  </header>
+
+  <!-- Contenido -->
+  <main class="wrap">
+    <h1 class="left">Funciones de la Oficina Asesora de Planeación</h1>
+
+    <section class="grid">
+      <!-- Tarjeta 1 -->
+      <article class="card">
+        <div class="icon">📊</div>
+        <a href="proyectos_inversion_8225.html">Gerencia del proyecto de inversión 8225</a>
+        <div class="subtitle">Seguimiento técnico, cronograma, metas e hitos.</div>
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="card">
+        <div class="icon">📋</div>
+        <a href="responsabilidades.html">Responsabilidades de la Oficina</a>
+        <div class="subtitle">Funciones misionales y tareas clave.</div>
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="card">
+        <div class="icon">🤝</div>
+        <a href="articulacion_interinstitucional.html">Articulación interinstitucional</a>
+        <div class="subtitle">Vínculos con sectores y entidades aliadas.</div>
+      </article>
+
+      <!-- Tarjeta 4 -->
+      <article class="card">
+        <div class="icon">🧭</div>
+        <a href="gestion_proyectos.html">Gestión por procesos</a>
+        <div class="subtitle">Mapas, procedimientos y mejora continua.</div>
+      </article>
+    </section>
+  </main>
+
+</body>
+</html>
