@@ -50,21 +50,25 @@
       padding:18px;
       display:flex;flex-direction:column;gap:10px;
       min-height:150px;
+      align-items:flex-start;
     }
-    .card .icon{
-      width:42px;height:42px;border-radius:50%;
-      background:#ffffff55;border:1px solid #b6bcbc;
-      display:grid;place-items:center;font-size:20px;
+    .card img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+      display:block;
     }
     .card a{
-      text-decoration:none;color:var(--negro);font-weight:800;display:inline-block;
+      text-decoration:none;
+      color:var(--negro);
+      font-weight:800;
+      display:inline-block;
     }
     .card a:hover{opacity:.85;text-decoration:underline}
     .card .subtitle{
-      margin-top:auto;font-size:14px;color:#333
+      font-size:14px;
+      color:#333;
     }
-
-    /* Utilidades */
     .left{ text-align:left }
   </style>
 </head>
@@ -75,7 +79,6 @@
     <div class="wrap">
       <img src="logo_sdmujer_2.jpeg" class="logo" alt="Logo Secretaría de la Mujer">
       <div class="title">Oficina Asesora de Planeación</div>
-      <!-- espacio a la derecha para balancear -->
       <div style="width:40px"></div>
     </div>
   </header>
@@ -87,28 +90,28 @@
     <section class="grid">
       <!-- Tarjeta 1 -->
       <article class="card">
-        <div class="icon">📊</div>
+        <img src="barras_finanzas.png" alt="Icono barras finanzas">
         <a href="proyectos_inversion_8225.html">Gerencia del proyecto de inversión 8225</a>
         <div class="subtitle">Seguimiento técnico, cronograma, metas e hitos.</div>
       </article>
 
       <!-- Tarjeta 2 -->
       <article class="card">
-        <div class="icon">📋</div>
+        <img src="lista_chequeo.png" alt="Icono lista chequeo">
         <a href="responsabilidades.html">Responsabilidades de la Oficina</a>
         <div class="subtitle">Funciones misionales y tareas clave.</div>
       </article>
 
       <!-- Tarjeta 3 -->
       <article class="card">
-        <div class="icon">🤝</div>
+        <img src="redes_mujer.png" alt="Icono redes mujer">
         <a href="articulacion_interinstitucional.html">Articulación interinstitucional</a>
         <div class="subtitle">Vínculos con sectores y entidades aliadas.</div>
       </article>
 
       <!-- Tarjeta 4 -->
       <article class="card">
-        <div class="icon">🧭</div>
+        <img src="logo_idea_ajuste.png" alt="Icono gestión procesos">
         <a href="gestion_proyectos.html">Gestión por procesos</a>
         <div class="subtitle">Mapas, procedimientos y mejora continua.</div>
       </article>
