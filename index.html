@@ -48,28 +48,26 @@
       border:1px solid #b6bcbc;
       border-radius:12px;
       padding:18px;
-      display:flex;flex-direction:column;gap:10px;
-      min-height:150px;
-      align-items:flex-start;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:220px;
+      text-align:center;
     }
     .card img{
-      width:48px;
-      height:48px;
+      max-width:100px;
+      max-height:100px;
       object-fit:contain;
-      display:block;
+      margin-bottom:14px;
     }
     .card a{
       text-decoration:none;
       color:var(--negro);
       font-weight:800;
-      display:inline-block;
+      font-size:16px;
     }
     .card a:hover{opacity:.85;text-decoration:underline}
-    .card .subtitle{
-      font-size:14px;
-      color:#333;
-    }
-    .left{ text-align:left }
   </style>
 </head>
 <body>
@@ -85,38 +83,15 @@
 
   <!-- Contenido -->
   <main class="wrap">
-    <h1 class="left">Funciones de la Oficina Asesora de Planeación</h1>
+    <h1>Funciones de la Oficina Asesora de Planeación</h1>
 
     <section class="grid">
       <!-- Tarjeta 1 -->
       <article class="card">
         <img src="barras_finanzas.png" alt="Icono barras finanzas">
         <a href="proyectos_inversion_8225.html">Gerencia del proyecto de inversión 8225</a>
-        <div class="subtitle">Seguimiento técnico, cronograma, metas e hitos.</div>
       </article>
 
       <!-- Tarjeta 2 -->
-      <article class="card">
-        <img src="lista_chequeo.png" alt="Icono lista chequeo">
-        <a href="responsabilidades.html">Responsabilidades de la Oficina</a>
-        <div class="subtitle">Funciones misionales y tareas clave.</div>
-      </article>
+      <artic
 
-      <!-- Tarjeta 3 -->
-      <article class="card">
-        <img src="redes_mujer.png" alt="Icono redes mujer">
-        <a href="articulacion_interinstitucional.html">Articulación interinstitucional</a>
-        <div class="subtitle">Vínculos con sectores y entidades aliadas.</div>
-      </article>
-
-      <!-- Tarjeta 4 -->
-      <article class="card">
-        <img src="logo_idea_ajuste.png" alt="Icono gestión procesos">
-        <a href="gestion_proyectos.html">Gestión por procesos</a>
-        <div class="subtitle">Mapas, procedimientos y mejora continua.</div>
-      </article>
-    </section>
-  </main>
-
-</body>
-</html>
