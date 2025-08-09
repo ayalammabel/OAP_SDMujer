@@ -6,38 +6,25 @@
   <title>Oficina Asesora de Planeación – SDMujer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --rosa:#e5706e;
-      --gris:#c3caca;
-      --negro:#111;
-      --maxw:1100px;
-    }
+    :root{ --rosa:#e5706e; --gris:#c3caca; --negro:#111; --maxw:1100px; }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
 
     /* Barra superior */
-    .topbar{
-      background:var(--rosa);
-      color:#fff;
-      padding:10px 14px;
-      position:sticky;top:0;z-index:10;
-    }
-    .topbar .wrap{
-      max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px;
-    }
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
     .logo{height:40px;width:auto;display:block}
     .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
 
     /* Submenú */
     .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
     .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
-    .subnav a{
+    .pill{
       text-decoration:none;padding:8px 12px;border-radius:999px;
       color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px;
     }
-    .subnav a:hover{background:#fff;border-color:#d8d8d8}
-    .subnav a.btn-rosa{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-    .subnav a.btn-rosa:hover{opacity:.9}
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
 
     /* Contenido */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
@@ -47,10 +34,9 @@
     .grid{display:grid;gap:16px;grid-template-columns:1fr}
     @media (min-width:800px){.grid{grid-template-columns:1fr 1fr}}
 
-    /* Tarjetas grandes */
+    /* Tarjetas */
     .card{
-      background:var(--gris);
-      border:1px solid #b6bcbc;border-radius:12px;
+      background:var(--gris);border:1px solid #b6bcbc;border-radius:12px;
       padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;
       height:220px;text-align:center
     }
@@ -76,8 +62,8 @@
   <!-- Submenú -->
   <nav class="subnav" aria-label="Navegación secundaria">
     <div class="wrap">
-      <a href="#funciones" class="btn-rosa">Funciones</a>
-      <a href="organigrama.html">Organigrama</a>
+      <a href="#funciones" class="pill active">Funciones</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
     </div>
   </nav>
 
@@ -86,25 +72,21 @@
     <h1 id="funciones">Funciones de la Oficina Asesora de Planeación</h1>
 
     <section class="grid" aria-label="Funciones principales">
-      <!-- Tarjeta 1 -->
       <article class="card">
         <img src="barras_finanzas.png" alt="Icono de barras y finanzas">
         <a href="proyectos_inversion_8225.html">Gerencia del proyecto de inversión 8225</a>
       </article>
 
-      <!-- Tarjeta 2 -->
       <article class="card">
         <img src="lista_chequeo.png" alt="Icono lista de chequeo">
         <a href="responsabilidades.html">Responsabilidades de la Oficina</a>
       </article>
 
-      <!-- Tarjeta 3 -->
       <article class="card">
         <img src="redes_mujer.png" alt="Icono articulación interinstitucional">
         <a href="articulacion_interinstitucional.html">Articulación interinstitucional</a>
       </article>
 
-      <!-- Tarjeta 4 -->
       <article class="card">
         <img src="logo_idea_ajuste_.png" alt="Icono gestión por procesos">
         <a href="gestion_proyectos.html">Gestión por procesos</a>
@@ -118,5 +100,3 @@
 
 </body>
 </html>
-
-
