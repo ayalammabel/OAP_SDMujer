@@ -1,1 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Articulación interinstitucional – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{ --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
 
+    /* Barra superior */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Submenú */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{
+      text-decoration:none;padding:8px 12px;border-radius:999px;
+      color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px
+    }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+    /* Contenido */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 8px;font-size:28px;color:#000}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:8px 0 18px}
+    .back:hover{text-decoration:underline}
+
+    /* Grid entidades */
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:770px){.grid{grid-template-columns:1fr 1fr}}
+    @media (min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+    .card{
+      background:var(--gris);border:1px solid var(--borde);border-radius:14px;
+      padding:16px;display:flex;gap:12px;align-items:center;
+      transition:transform .08s ease, box-shadow .08s ease
+    }
+    .card:hover{transform:translateY(-1px);box-shadow:0 2px 10px rgba(0,0,0,.04)}
+    .icon{flex:0 0 38px;height:38px;display:grid;place-items:center;background:#fff;border:1px solid var(--borde);border-radius:10px}
+    .name{margin:0;font-weight:700}
+
+    /* Footer */
+    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Submenú -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Funciones</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Articulación interinstitucional</h1>
+    <a class="back" href="index.html">← Volver a Funciones</a>
+
+    <section class="grid" aria-label="Entidades articuladas">
+      <!-- SDH -->
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <!-- building -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="3" width="16" height="18" rx="2" stroke="#c2c6cc" stroke-width="2"/>
+            <path d="M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M4 19h16" stroke="#e5706e" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="name">SDH</p>
+      </article>
+
+      <!-- SDP -->
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="3" width="16" height="18" rx="2" stroke="#c2c6cc" stroke-width="2"/>
+            <path d="M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M4 19h16" stroke="#e5706e" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="name">SDP</p>
+      </article>
+
+      <!-- Alta Consejería TIC -->
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <!-- chip -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="6" y="6" width="12" height="12" rx="2" stroke="#c2c6cc" stroke-width="2"/>
+            <rect x="10" y="10" width="4" height="4" fill="#e5706e"/>
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#c2c6cc" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="name">Alta Consejería TIC</p>
+      </article>
+
+      <!-- SDA -->
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <!-- leaf -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M4 20c8 0 12-6 12-12 2 2 4 6 4 8-2 4-6 6-10 6H4z" stroke="#c2c6cc" stroke-width="2"/>
+            <path d="M8 18c3-2 5-5 6-10" stroke="#e5706e" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="name">SDA</p>
+      </article>
+
+      <!-- Secretaría General -->
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <!-- shield/check -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z" stroke="#c2c6cc" stroke-width="2"/>
+            <path d="M9 12l2 2 4-4" stroke="#e5706e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="name">Secretaría General</p>
+      </article>
+
+      <!-- Cooperación internacional -->
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <!-- globe -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="#c2c6cc" stroke-width="2"/>
+            <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" stroke="#e5706e" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <p class="name">Cooperación internacional</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+
+  <script>
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  </script>
+</body>
+</html>
