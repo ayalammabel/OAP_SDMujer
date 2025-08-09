@@ -42,7 +42,7 @@
     }
     .chip{margin-left:auto;background:#eef1f3;border:1px solid var(--borde);padding:2px 8px;border-radius:999px;font-size:12px;color:#555;font-weight:700}
 
-    /* Lista con filas clicables */
+    /* Lista con filas (iguales para links o divs) */
     .list{display:grid}
     .row{
       display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;
@@ -89,11 +89,8 @@
     <section class="grid">
       <!-- PLANES -->
       <article class="card" aria-label="Planes relacionados">
-        <div class="card-head">
-          Planes
-        </div>
+        <div class="card-head">Planes</div>
         <div class="list">
-          <!-- Cada fila puedes enlazarla cambiando href="#" -->
           <a class="row" href="#">
             <span class="dot" aria-hidden="true"></span>
             <b>Plan Distrital de Desarrollo</b>
@@ -125,18 +122,39 @@
         </div>
       </article>
 
-      <!-- POLÍTICAS PÚBLICAS -->
-      <div class="card">
-        <div class="card-header">
-          <strong>Políticas públicas</strong>
+      <!-- POLÍTICAS PÚBLICAS (mismo estilo) -->
+      <article class="card" aria-label="Políticas públicas">
+        <div class="card-head">Políticas públicas</div>
+        <div class="list">
+          <div class="row">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Líder PPMYEG</b>
+          </div>
+          <div class="row">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Líder PP ASP</b>
+          </div>
+          <div class="row">
+            <span class="dot" aria-hidden="true"></span>
+            <span><b>Responsable en 27 PP</b> <span class="chip">167 productos</span></span>
+          </div>
+          <div class="row">
+            <span class="dot" aria-hidden="true"></span>
+            <span><b>Corresponsable en 23 PP</b> <span class="chip">138 productos</span></span>
+          </div>
         </div>
-        <div class="card-body">
-          <ul style="margin:0; padding-left:18px; line-height:1.5;">
-            <li>Líder PPMYEG</li>
-            <li>Líder PP ASP</li>
-            <li>Responsable en 27 PP, 167 productos</li>
-            <li>Corresponsable en 23 PP, 138 productos</li>
-          </ul>
-        </div>
-      </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+
+  <script>
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  </script>
+</body>
+</html>
+
 
