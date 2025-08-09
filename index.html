@@ -42,7 +42,6 @@
     /* Contenido */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 18px;font-size:28px;color:#000}
-    .section-title{margin:36px 0 14px;font-size:22px;color:#000;font-weight:800}
 
     /* Grid principal */
     .grid{display:grid;gap:16px;grid-template-columns:1fr}
@@ -58,17 +57,6 @@
     .card img{max-width:100px;max-height:100px;object-fit:contain;margin-bottom:14px}
     .card a{text-decoration:none;color:var(--negro);font-weight:800;font-size:16px}
     .card a:hover{opacity:.85;text-decoration:underline}
-
-    /* Grid secundaria (recursos) */
-    .grid-mini{display:grid;gap:14px;grid-template-columns:1fr}
-    @media (min-width:700px){.grid-mini{grid-template-columns:repeat(3,1fr)}}
-    .card-mini{
-      background:#fafafa;border:1px solid #e7e7e7;border-radius:12px;padding:16px;
-      display:flex;align-items:center;gap:12px;min-height:72px
-    }
-    .card-mini img{width:36px;height:36px;object-fit:contain;opacity:.9}
-    .card-mini a{font-weight:700;text-decoration:none;color:#222}
-    .card-mini a:hover{text-decoration:underline}
 
     /* Footer */
     .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
@@ -90,8 +78,6 @@
     <div class="wrap">
       <a href="#funciones" class="btn-rosa">Funciones</a>
       <a href="organigrama.html">Organigrama</a>
-      <a href="documentos.html">Documentos</a>
-      <a href="proyectos_inversion_8225.html">Proyecto 8225</a>
     </div>
   </nav>
 
@@ -124,23 +110,6 @@
         <a href="gestion_proyectos.html">Gestión por procesos</a>
       </article>
     </section>
-
-    <!-- Recursos -->
-    <h2 class="section-title">Recursos institucionales</h2>
-    <section class="grid-mini" aria-label="Recursos institucionales">
-      <article class="card-mini">
-        <img src="icon_organigrama.png" alt="Icono organigrama">
-        <a href="organigrama.html">Organigrama de la Secretaría</a>
-      </article>
-      <article class="card-mini">
-        <img src="icon_doc.png" alt="Icono documentos">
-        <a href="documentos.html">Documentos / Normativa</a>
-      </article>
-      <article class="card-mini">
-        <img src="icon_contacto.png" alt="Icono contacto">
-        <a href="contacto.html">Contacto OAP</a>
-      </article>
-    </section>
   </main>
 
   <footer class="footer" role="contentinfo">
@@ -149,6 +118,5 @@
 
 </body>
 </html>
-
 
 
