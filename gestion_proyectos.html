@@ -29,35 +29,49 @@
     /* Contenido */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 8px;font-size:28px;color:#000}
-    h2{margin:24px 0 12px;font-size:20px}
+    h2{margin:20px 0 12px;font-size:20px}
     .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:8px 0 18px}
     .back:hover{text-decoration:underline}
 
-    /* Tarjetas simples */
-    .grid{display:grid;gap:16px;grid-template-columns:1fr}
-    @media (min-width:770px){.grid{grid-template-columns:repeat(3,1fr)}}
+    /* Columna vertical de roles */
+    .stack{display:grid;gap:12px}
     .card{
       background:var(--gris);border:1px solid var(--borde);border-radius:14px;
-      padding:16px;display:flex;gap:10px;align-items:flex-start
+      padding:14px 16px;display:flex;align-items:center;gap:10px
     }
-    .card .dot{width:10px;height:10px;border-radius:999px;background:var(--rosa);margin-top:6px;flex:0 0 10px}
-    .card p{margin:0;font-weight:700}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--rosa)}
+    .card b{font-size:15px}
 
-    /* Acordeón de índices */
-    .accordion{display:grid;gap:10px}
-    details{
-      background:#fff;border:1px solid var(--borde);border-radius:12px;overflow:hidden;
+    /* Tarjeta desplegable (solo la tercera) */
+    details.card{
+      padding:0;overflow:hidden;
     }
-    summary{
+    details.card > summary{
       list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
-      padding:14px 16px;font-weight:700;
+      padding:14px 16px;font-weight:700
     }
-    summary::-webkit-details-marker{display:none}
-    .caret{transition:transform .2s ease}
-    details[open] .caret{transform:rotate(90deg)}
-    .badge{margin-left:auto;background:var(--gris);border:1px solid var(--borde);
-      padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;color:#555}
-    .panel{padding:12px 16px 16px;color:#555;line-height:1.55;border-top:1px solid var(--borde);background:#fafafa}
+    details.card > summary::-webkit-details-marker{display:none}
+    .plus{
+      margin-left:auto;display:inline-grid;place-items:center;width:28px;height:28px;
+      border:1px solid var(--borde);border-radius:999px;background:#fff;
+      transition:transform .2s ease;
+    }
+    /* Gira el + para verse como × al abrir */
+    details[open] .plus{transform:rotate(45deg)}
+    .panel{
+      border-top:1px solid var(--borde);background:#fff;padding:12px 14px 6px;
+    }
+    .index-list{
+      display:grid;gap:8px;margin:0;padding:0;list-style:none
+    }
+    .index-item{
+      background:#fafafa;border:1px solid var(--borde);border-radius:12px;
+      padding:10px 12px;font-weight:600;display:flex;align-items:center;gap:8px
+    }
+    .badge{
+      margin-left:8px;background:#eef1f3;border:1px solid var(--borde);
+      padding:2px 8px;border-radius:999px;font-size:12px;color:#555;font-weight:700
+    }
 
     /* Footer */
     .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
@@ -87,39 +101,48 @@
     <h1>Gestión por procesos</h1>
     <a class="back" href="index.html">← Volver a Funciones</a>
 
-    <!-- Gestión por procesos: tarjetas -->
-    <h2>Roles clave</h2>
-    <section class="grid" aria-label="Roles en gestión por procesos">
+    <h2>Roles</h2>
+    <section class="stack" aria-label="Roles de gestión por procesos">
+      <!-- 1 -->
       <div class="card">
         <span class="dot" aria-hidden="true"></span>
-        <p>Representante de la alta dirección del MIPG</p>
+        <b>Representante de la alta dirección del MIPG</b>
       </div>
-      <div class="card">
-        <span class="dot" aria-hidden="true"></span>
-        <p>Responsable gestión de índices</p>
-      </div>
-      <div class="card">
-        <span class="dot" aria-hidden="true"></span>
-        <p>Responsable gestión ambiental</p>
-      </div>
-    </section>
 
-    <!-- Índices: acordeones -->
-    <h2 style="margin-top:28px">Índices</h2>
-    <section class="accordion" aria-label="Índices desplegables">
-      <!-- FURAG -->
-      <details>
+      <!-- 2 -->
+      <div class="card">
+        <span class="dot" aria-hidden="true"></span>
+        <b>Responsable gestión ambiental</b>
+      </div>
+
+      <!-- 3 (desplegable) -->
+      <details class="card">
         <summary>
-          <svg class="caret" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Desarrollo Institucional <span class="badge">FURAG</span>
+          <span class="dot" aria-hidden="true"></span>
+          <b>Responsable de la gestión de índices</b>
+          <span class="plus" aria-label="Desplegar">+</span>
         </summary>
         <div class="panel">
-          <!-- Texto editable libre -->
-          <p>Marco de evaluación del desempeño institucional. Aquí puedes describir dimensiones, periodicidad, responsables y enlaces a evidencias.</p>
+          <ul class="index-list" aria-label="Índices asociados">
+            <li class="index-item">Desarrollo Institucional <span class="badge">FURAG</span></li>
+            <li class="index-item">Gestión Pública <span class="badge">IGP</span></li>
+            <li class="index-item">Transparencia <span class="badge">ITA</span></li>
+            <li class="index-item">Transparencia por Bogotá <span class="badge">ITB</span></li>
+            <li class="index-item">Innovación Pública <span class="badge">IIP</span></li>
+            <li class="index-item">Gobierno Abierto <span class="badge">IGA</span></li>
+          </ul>
         </div>
       </details>
+    </section>
+  </main>
 
-      <!-- IGP -->
-      <details>
-        <summary>
-          <svg class="caret" w
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+
+  <script>
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  </script>
+</body>
+</html>
+
