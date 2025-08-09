@@ -1,1 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proyecto de inversión 8225 – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{ --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+
+    /* Barra superior */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Submenú */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{
+      text-decoration:none;padding:8px 12px;border-radius:999px;
+      color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px
+    }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+    /* Contenido */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 8px;font-size:28px;color:#000}
+    h2{margin:24px 0 12px;font-size:20px}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:8px 0 18px}
+    .back:hover{text-decoration:underline}
+
+    /* Tarjetas contenedor */
+    .card{
+      background:#fff;border:1px solid var(--borde);border-radius:14px;overflow:hidden
+    }
+    .card-head{
+      display:flex;align-items:center;gap:10px;padding:12px 16px;font-weight:800;background:#fafafa;border-bottom:1px solid var(--borde)
+    }
+    .chip{margin-left:auto;background:#eef1f3;border:1px solid var(--borde);padding:2px 8px;border-radius:999px;font-size:12px;color:#555;font-weight:700}
+
+    /* Lista con filas clicables */
+    .list{display:grid}
+    .row{
+      display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;
+      border-top:1px solid var(--borde);text-decoration:none;color:inherit
+    }
+    .row:first-child{border-top:none}
+    .row:hover{background:#f9fbfc}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--rosa)}
+    .arrow{margin-left:auto;opacity:.5}
+    .arrow svg{display:block}
+
+    /* Grid de secciones */
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+
+    /* Footer */
+    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Submenú -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Funciones</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Proyecto de inversión 8225</h1>
+    <a class="back" href="index.html">← Volver a Funciones</a>
+
+    <section class="grid">
+      <!-- PLANES -->
+      <article class="card" aria-label="Planes relacionados">
+        <div class="card-head">
+          Planes
+        </div>
+        <div class="list">
+          <!-- Cada fila puedes enlazarla cambiando href="#" -->
+          <a class="row" href="#">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Plan Distrital de Desarrollo</b>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="row" href="#">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Programas</b>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="row" href="#">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Proyectos</b>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="row" href="#">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Presupuesto</b>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </article>
+
+      <!-- POLÍTICAS PÚBLICAS -->
+      <article class="card" aria-label="Políticas públicas">
+        <div class="card-head">
+          Políticas públicas
+        </div>
+        <div class="list">
+          <div c
 
