@@ -35,30 +35,38 @@
 
     /* --------- ORGANIGRAMA --------- */
     .org-scroll{overflow-x:auto;padding-bottom:14px}
-    .org{display:inline-block}
-    .org, .org ul{ padding-top:20px; position:relative; }
+    .org{display:inline-block; text-align:center;}           /* centra el conjunto */
+    .org, .org ul{ padding-top:28px; position:relative; }    /* un poco más de aire */
+
     .org li{
-      list-style:none; position:relative; text-align:center;
-      padding:20px 5px 0; white-space:nowrap;
+      display:inline-block;          /* <- hace que los hijos queden en fila */
+      vertical-align:top;
+      text-align:center;
+      list-style:none;
+      position:relative;
+      padding:20px 8px 0;
+      white-space:nowrap;
     }
+
     /* conectores horizontales a hijos */
     .org li::before, .org li::after{
       content:""; position:absolute; top:0; right:50%;
-      border-top:1px solid #cfd6dc; width:50%; height:20px;
+      border-top:1px solid #cfd6dc; width:50%; height:28px;
     }
     .org li::after{ right:auto; left:50%; border-left:1px solid #cfd6dc; }
     .org li:only-child::before, .org li:only-child::after{display:none}
     .org li:only-child{padding-top:0}
     .org li:first-child::before{border:0}
     .org li:last-child::after{border:0}
+
     /* conector vertical del padre al grupo de hijos */
     .org ul::before{
       content:""; position:absolute; top:0; left:50%;
-      border-left:1px solid #cfd6dc; height:20px;
+      border-left:1px solid #cfd6dc; height:28px;
     }
 
     /* Cajas */
-    .box{display:inline-block; text-align:center; min-width:220px; max-width:280px}
+    .box{display:inline-block; text-align:center; min-width:240px; max-width:300px}
     .box .dark{
       background:var(--morado); color:#fff; font-weight:800;
       border-radius:10px; padding:10px 12px;
@@ -165,5 +173,6 @@
   </main>
 </body>
 </html>
+
 
 
