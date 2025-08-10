@@ -8,7 +8,7 @@
   <style>
     :root{
       --rosa:#e5706e;          /* barra superior */
-      --morado:#6d28d9;        /* morado oscuro */
+      --morado:#6d28d9;        /* morado oscuro (títulos) */
       --morado-clar:#ede9fe;   /* morado claro */
       --morado-borde:#d7ccff;  /* borde para claros */
       --maxw:1100px; --borde:#e5e7ea;
@@ -33,14 +33,14 @@
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 12px;font-size:28px}
 
-    /* --------- ORGANIGRAMA --------- */
+    /* --------- ORGANIGRAMA GENÉRICO --------- */
     .org-scroll{overflow-x:auto;padding-bottom:14px}
-    .org{display:inline-block; text-align:center;}           /* centra el conjunto */
-    .org, .org ul{ padding-top:28px; position:relative; }
+    .org{display:inline-block;text-align:center}
+    .org, .org ul{padding-top:28px;position:relative}
 
-    /* Hermanos en fila */
+    /* Hermanos en FILA */
     .org li{
-      display:inline-block;     /* <- clave para que no quede en una sola columna */
+      display:inline-block;
       vertical-align:top;
       text-align:center;
       list-style:none;
@@ -49,7 +49,7 @@
       white-space:nowrap;
     }
 
-    /* conectores horizontales a hijos (estándar) */
+    /* conectores horizontales a hijos */
     .org li::before, .org li::after{
       content:""; position:absolute; top:0; right:50%;
       border-top:1px solid #cfd6dc; width:50%; height:28px;
@@ -67,7 +67,7 @@
     }
 
     /* Cajas */
-    .box{display:inline-block; text-align:center; min-width:240px; max-width:300px}
+    .box{display:inline-block;text-align:center;min-width:240px;max-width:320px}
     .box .dark{
       background:var(--morado); color:#fff; font-weight:800;
       border-radius:10px; padding:10px 12px;
@@ -78,33 +78,24 @@
       border-radius:10px; padding:10px 12px;
     }
 
-    /* --------- LISTA VERTICAL ESPECIAL (para Transversales OAP) --------- */
-    /* Desactiva conectores estándar y muestra una “llave” a la izquierda con items apilados */
-    .org ul.vlist{ padding-top:14px; margin-left:0; }
-    .org ul.vlist::before{               /* caída corta desde el nodo padre */
-      content:""; position:absolute; top:0; left:50%;
-      border-left:1px solid #cfd6dc; height:14px;
-    }
-    .org ul.vlist::after{                /* línea vertical izquierda de la lista */
-      content:""; position:absolute; top:14px; bottom:0; left:12px;
-      border-left:1px solid #cfd6dc;
-    }
-    .org ul.vlist > li{
-      display:block;                     /* apilado vertical */
-      padding:10px 0 0 28px;             /* espacio para la “llave” */
-      text-align:left; white-space:normal; position:relative;
-    }
-    .org ul.vlist > li::before,
-    .org ul.vlist > li::after{ content:none }  /* sin conectores estándar */
-    .org ul.vlist > li .box{ display:inline-block; position:relative; }
-    .org ul.vlist > li .box::before{     /* conector horizontal desde la llave al item */
-      content:""; position:absolute; left:-16px; top:50%;
-      width:16px; border-top:1px solid #cfd6dc; transform:translateY(-50%);
-    }
+    /* --------- LISTA VERTICAL (para Transversales OAP) --------- */
+    .org ul.vlist{padding-top:14px;margin-left:0}
+    .org ul.vlist::before{content:"";position:absolute;top:0;left:50%;border-left:1px solid #cfd6dc;height:14px}
+    .org ul.vlist::after{content:"";position:absolute;top:14px;bottom:0;left:12px;border-left:1px solid #cfd6dc}
+    .org ul.vlist>li{display:block;padding:10px 0 0 28px;text-align:left;white-space:normal;position:relative}
+    .org ul.vlist>li::before,.org ul.vlist>li::after{content:none}
+    .org ul.vlist>li .box{display:inline-block;position:relative}
+    .org ul.vlist>li .box::before{content:"";position:absolute;left:-16px;top:50%;width:16px;border-top:1px solid #cfd6dc;transform:translateY(-50%)}
 
-    /* tamaños responsive */
+    /* --------- “Riel” ancho (Equipo TI) --------- */
+    .box.rail{min-width:520px}               /* riel largo */
+    .sub-mini .box{min-width:190px;max-width:220px} /* subáreas más angostas */
+
+    /* Responsive chico */
     @media (max-width:700px){
       .box{min-width:200px}
+      .box.rail{min-width:420px}
+      .sub-mini .box{min-width:170px}
     }
   </style>
 </head>
@@ -131,35 +122,40 @@
 
     <div class="org-scroll">
       <ul class="org">
-        <!-- Jefe Oficina -->
+        <!-- Nivel 0: Jefe -->
         <li>
           <div class="box"><div class="dark">Jefe Oficina</div></div>
 
-          <!-- Hijos de Jefe Oficina -->
+          <!-- Nivel 1 -->
           <ul>
-            <!-- Coordinación de Equipos (claro) -->
+            <!-- Izquierda: dos cajas con un hijo cada una -->
             <li>
               <div class="box"><div class="light">Coordinación de equipos</div></div>
+              <ul>
+                <li><div class="box"><div class="light">Equipo de Coordinación</div></div></li>
+              </ul>
             </li>
 
-            <!-- Gestión de Conocimiento (claro) -->
             <li>
               <div class="box"><div class="light">Gestión de conocimiento</div></div>
+              <ul>
+                <li><div class="box"><div class="light">Gestión documental / KM</div></div></li>
+              </ul>
             </li>
 
-            <!-- Transversales OAP (oscuro) con LISTA VERTICAL -->
+            <!-- Rama derecha en VERTICAL -->
             <li>
               <div class="box"><div class="dark">Transversales OAP</div></div>
               <ul class="vlist">
                 <li><div class="box"><div class="light">Auxiliar administrativo</div></div></li>
                 <li><div class="box"><div class="light">Técnico administrativo</div></div></li>
                 <li><div class="box"><div class="light">Jurídico contractual</div></div></li>
-                <li><div class="box"><div class="light">Apoyo a la supervisión /<br> Líder técnico 8225</div></div></li>
+                <li><div class="box"><div class="light">Apoyo a la supervisión / Líder técnico 8225</div></div></li>
                 <li><div class="box"><div class="light">Digitadoras</div></div></li>
               </ul>
             </li>
 
-            <!-- Equipo P4 -->
+            <!-- Centro-izquierda: Equipos P4 y MIPG (con un hijo) -->
             <li>
               <div class="box"><div class="dark">Equipo P4<br>(Planes, Programas, Proyectos y Políticas)</div></div>
               <ul>
@@ -167,7 +163,6 @@
               </ul>
             </li>
 
-            <!-- Equipo MIPG -->
             <li>
               <div class="box"><div class="dark">Equipo MIPG</div></div>
               <ul>
@@ -175,10 +170,10 @@
               </ul>
             </li>
 
-            <!-- Equipo TI y sus subáreas -->
+            <!-- Riel ancho: Equipo TI con cuatro subáreas y “Soporte” debajo de Infraestructura -->
             <li>
-              <div class="box"><div class="dark">Equipo TI</div></div>
-              <ul>
+              <div class="box rail"><div class="dark">Equipo TI</div></div>
+              <ul class="sub-mini">
                 <li>
                   <div class="box"><div class="dark">Infraestructura y soporte</div></div>
                   <ul>
