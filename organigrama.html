@@ -8,10 +8,11 @@
   <style>
     :root{
       --rosa:#e5706e;          /* barra superior */
-      --morado:#6d28d9;        /* morado oscuro (cajas principales) */
-      --morado-clar:#ede9fe;   /* morado claro (cajas secundarias) */
-      --morado-borde:#d7ccff;  /* borde de cajas claras */
-      --maxw:1100px; --borde:#cfd6dc;
+      --morado:#6d28d9;        /* morado oscuro */
+      --light:#ede9fe;         /* morado claro */
+      --light-b:#d7ccff;       /* borde morado claro */
+      --line:#cfd6dc;          /* color líneas */
+      --maxw:1100px;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
@@ -33,64 +34,15 @@
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 12px;font-size:28px}
 
-    /* --------- ORGANIGRAMA --------- */
-    .org-scroll{overflow-x:auto;padding-bottom:14px}
-    .org{display:inline-block;text-align:center}
-    .org, .org ul{padding-top:28px;position:relative}
+    /* SVG responsive */
+    .org-wrap{overflow-x:auto}
+    svg{width:100%;height:auto;display:block}
 
-    /* Hermanos en FILA */
-    .org li{
-      display:inline-block;
-      vertical-align:top;
-      text-align:center;
-      list-style:none;
-      position:relative;
-      padding:20px 8px 0;
-      white-space:nowrap;
-    }
-
-    /* Conectores horizontales a hijos */
-    .org li::before, .org li::after{
-      content:""; position:absolute; top:0; right:50%;
-      border-top:1px solid var(--borde); width:50%; height:28px;
-    }
-    .org li::after{ right:auto; left:50%; border-left:1px solid var(--borde); }
-    .org li:only-child::before, .org li:only-child::after{display:none}
-    .org li:only-child{padding-top:0}
-    .org li:first-child::before{border:0}
-    .org li:last-child::after{border:0}
-
-    /* Conector vertical del padre al grupo de hijos */
-    .org ul::before{
-      content:""; position:absolute; top:0; left:50%;
-      border-left:1px solid var(--borde); height:28px;
-    }
-
-    /* Cajas */
-    .node{
-      display:inline-block; text-align:center;
-      min-width:200px; height:38px; border-radius:10px; line-height:38px;
-    }
-    .node.dark{ background:var(--morado); color:#fff; }
-    .node.light{
-      background:var(--morado-clar); color:#3b2870;
-      border:1px solid var(--morado-borde);
-    }
-    .node.rail{ min-width:520px }           /* riel ancho (Equipo TI) */
-
-    /* “Ghosts” para crear niveles/espacios sin caja visible */
-    .node.ghost{ visibility:hidden }
-    .drop-1 .node.ghost{ height:44px }      /* baja al siguiente “nivel visual” */
-
-    /* Subáreas más compactas */
-    .mini .node{ min-width:170px }
-
-    /* Responsive */
-    @media (max-width:700px){
-      .node{ min-width:180px }
-      .node.rail{ min-width:420px }
-      .mini .node{ min-width:160px }
-    }
+    .darkRect{fill:var(--morado)}
+    .lightRect{fill:var(--light);stroke:var(--light-b)}
+    .railRect{fill:var(--morado)}
+    .line{stroke:var(--line);stroke-width:2}
+    .round{rx:10;ry:10}
   </style>
 </head>
 <body>
@@ -114,55 +66,72 @@
   <main class="wrap" role="main">
     <h1>¿Quiénes somos?</h1>
 
-    <div class="org-scroll">
-      <ul class="org">
+    <div class="org-wrap">
+      <!--
+        viewBox grande para que quepa todo el esquema horizontal.
+        Si necesitas más ancho/alto, ajusta los 1400x600.
+      -->
+      <svg viewBox="0 0 1400 600" role="img" aria-label="Esquema del organigrama (sin textos)">
+        <!-- ===== LÍNEAS (conectores) ===== -->
+        <!-- Tronco principal -->
+        <line class="line" x1="700" y1="100" x2="700" y2="300"/>
+
+        <!-- Rama lateral derecha (caja media) -->
+        <line class="line" x1="700" y1="180" x2="900" y2="180"/>
+
+        <!-- Línea base inferior -->
+        <line class="line" x1="200" y1="300" x2="1280" y2="300"/>
+
+        <!-- Conectores a cajas inferiores izquierdas -->
+        <line class="line" x1="350" y1="300" x2="350" y2="320"/>
+        <line class="line" x1="550" y1="300" x2="550" y2="320"/>
+
+        <!-- Conectores entre cajas superiores izquierdas y sus hijas -->
+        <line class="line" x1="350" y1="260" x2="350" y2="320"/>
+        <line class="line" x1="550" y1="260" x2="550" y2="320"/>
+
+        <!-- Conector desde línea base al riel derecho -->
+        <line class="line" x1="1110" y1="300" x2="1110" y2="320"/>
+
+        <!-- Conectores desde riel a sus cuatro subcajas -->
+        <line class="line" x1="920"  y1="360" x2="920"  y2="380"/>
+        <line class="line" x1="1080" y1="360" x2="1080" y2="380"/>
+        <line class="line" x1="1240" y1="360" x2="1240" y2="380"/>
+        <line class="line" x1="1400" y1="360" x2="1400" y2="380"/>
+
+        <!-- Conector de la subcaja 1 hacia su caja inferior -->
+        <line class="line" x1="920" y1="430" x2="920" y2="470"/>
+
+        <!-- ===== CAJAS (sin texto) ===== -->
         <!-- Raíz -->
-        <li>
-          <div class="node dark">&nbsp;</div>
+        <rect class="darkRect round" x="610" y="60" width="180" height="40"/>
 
-          <!-- Nivel siguiente -->
-          <ul>
-            <!-- Dos cajas arriba a la izquierda -->
-            <li><div class="node light">&nbsp;</div></li>
-            <li><div class="node light">&nbsp;</div></li>
+        <!-- Caja media derecha conectada al tronco -->
+        <rect class="darkRect round" x="900" y="160" width="180" height="40"/>
 
-            <!-- Caja media a la derecha (misma fila) -->
-            <li><div class="node light">&nbsp;</div></li>
+        <!-- Cajas superiores izquierda (dos) -->
+        <rect class="lightRect round" x="260" y="220" width="180" height="40"/>
+        <rect class="lightRect round" x="460" y="220" width="180" height="40"/>
 
-            <!-- Bloque inferior: línea base + izquierda x2 + riel a la derecha -->
-            <li class="drop-1">
-              <!-- ghost crea el “salto” hacia abajo (línea base) -->
-              <div class="node ghost">&nbsp;</div>
-              <ul>
-                <!-- Izquierda (dos cajitas) -->
-                <li><div class="node light">&nbsp;</div></li>
-                <li><div class="node light">&nbsp;</div></li>
+        <!-- Cajas inferiores izquierda (dos) -->
+        <rect class="lightRect round" x="260" y="320" width="180" height="40"/>
+        <rect class="lightRect round" x="460" y="320" width="180" height="40"/>
 
-                <!-- Derecha: riel ancho con 4 subcajas y 1 debajo de la primera -->
-                <li>
-                  <div class="node dark rail">&nbsp;</div>
-                  <ul class="mini">
-                    <li>
-                      <div class="node light">&nbsp;</div>
-                      <ul>
-                        <li><div class="node light">&nbsp;</div></li> <!-- la de abajo -->
-                      </ul>
-                    </li>
-                    <li><div class="node light">&nbsp;</div></li>
-                    <li><div class="node light">&nbsp;</div></li>
-                    <li><div class="node light">&nbsp;</div></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
+        <!-- Riel ancho derecha (Equipo TI) -->
+        <rect class="railRect round" x="840" y="320" width="540" height="40"/>
 
-          </ul>
-        </li>
-      </ul>
+        <!-- Cuatro subcajas bajo el riel -->
+        <rect class="lightRect round" x="860"  y="380" width="120" height="40"/>
+        <rect class="lightRect round" x="1040" y="380" width="120" height="40"/>
+        <rect class="lightRect round" x="1220" y="380" width="120" height="40"/>
+        <rect class="lightRect round" x="1400" y="380" width="120" height="40"/>
+
+        <!-- Caja inferior adicional bajo la primera subcaja -->
+        <rect class="lightRect round" x="860" y="470" width="120" height="40"/>
+      </svg>
     </div>
   </main>
 </body>
 </html>
-
 
 
