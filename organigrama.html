@@ -7,34 +7,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --rosa:#e5706e;          /* barra superior */
-      --morado:#6d28d9;        /* morado oscuro */
-      --light:#ede9fe;         /* morado claro */
-      --light-b:#d7ccff;       /* borde morado claro */
-      --line:#cfd6dc;          /* color líneas */
+      --rosa:#e5706e;      /* barra superior */
+      --morado:#6d28d9;    /* morado oscuro */
+      --light:#ede9fe;     /* morado claro */
+      --light-b:#d7ccff;   /* borde morado claro */
+      --line:#cfd6dc;      /* líneas */
       --maxw:1100px;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
-
-    /* Barra superior */
     .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
     .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
     .logo{height:40px;width:auto;display:block}
     .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
-
-    /* Submenú */
     .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
     .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
     .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
-    .pill:hover{background:#fff;border-color:#d8d8d8}
     .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-
-    /* Contenido */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 12px;font-size:28px}
 
-    /* SVG responsive */
     .org-wrap{overflow-x:auto}
     svg{width:100%;height:auto;display:block}
 
@@ -46,16 +38,14 @@
   </style>
 </head>
 <body>
-  <!-- Barra superior -->
   <header class="topbar" role="banner">
     <div class="wrap">
-      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <img src="logo_sdmujer_2.png" class="logo" alt="">
       <div class="title">Oficina Asesora de Planeación</div>
-      <div style="width:40px" aria-hidden="true"></div>
+      <div style="width:40px"></div>
     </div>
   </header>
 
-  <!-- Submenú -->
   <nav class="subnav" aria-label="Navegación secundaria">
     <div class="wrap">
       <a href="index.html" class="pill">Funciones</a>
@@ -67,71 +57,76 @@
     <h1>¿Quiénes somos?</h1>
 
     <div class="org-wrap">
-      <!--
-        viewBox grande para que quepa todo el esquema horizontal.
-        Si necesitas más ancho/alto, ajusta los 1400x600.
-      -->
-      <svg viewBox="0 0 1400 600" role="img" aria-label="Esquema del organigrama (sin textos)">
-        <!-- ===== LÍNEAS (conectores) ===== -->
+      <!-- Amplié el ancho a 1600 para evitar recortes del último nodo -->
+      <svg viewBox="0 0 1600 600" role="img" aria-label="Esquema del organigrama sin textos">
+        <!-- ===== LÍNEAS ===== -->
         <!-- Tronco principal -->
         <line class="line" x1="700" y1="100" x2="700" y2="300"/>
 
         <!-- Rama lateral derecha (caja media) -->
         <line class="line" x1="700" y1="180" x2="900" y2="180"/>
 
-        <!-- Línea base inferior -->
-        <line class="line" x1="200" y1="300" x2="1280" y2="300"/>
+        <!-- NUEVA barra horizontal superior que une las dos cajas izq. con el tronco -->
+        <line class="line" x1="350" y1="200" x2="700" y2="200"/>
+        <!-- Caídas cortas desde esa barra a cada caja superior -->
+        <line class="line" x1="350" y1="200" x2="350" y2="220"/>
+        <line class="line" x1="550" y1="200" x2="550" y2="220"/>
 
-        <!-- Conectores a cajas inferiores izquierdas -->
+        <!-- Línea base inferior -->
+        <line class="line" x1="200" y1="300" x2="1500" y2="300"/>
+
+        <!-- (Quitadas) líneas amarillas que bajaban de las dos cajas superiores a la base -->
+        <!--
+        <line class="line" x1="350" y1="300" x2="350" y2="320"/>
+        <line class="line" x1="550" y1="300" x2="550" y2="320"/>
+        -->
+        <!-- Conectores desde la base a las dos cajas inferiores izquierdas -->
         <line class="line" x1="350" y1="300" x2="350" y2="320"/>
         <line class="line" x1="550" y1="300" x2="550" y2="320"/>
 
-        <!-- Conectores entre cajas superiores izquierdas y sus hijas -->
-        <line class="line" x1="350" y1="260" x2="350" y2="320"/>
-        <line class="line" x1="550" y1="260" x2="550" y2="320"/>
-
-        <!-- Conector desde línea base al riel derecho -->
+        <!-- Conector desde la base al riel derecho -->
         <line class="line" x1="1110" y1="300" x2="1110" y2="320"/>
 
-        <!-- Conectores desde riel a sus cuatro subcajas -->
+        <!-- Conectores riel -> subcajas -->
         <line class="line" x1="920"  y1="360" x2="920"  y2="380"/>
         <line class="line" x1="1080" y1="360" x2="1080" y2="380"/>
         <line class="line" x1="1240" y1="360" x2="1240" y2="380"/>
         <line class="line" x1="1400" y1="360" x2="1400" y2="380"/>
 
-        <!-- Conector de la subcaja 1 hacia su caja inferior -->
+        <!-- Conector subcaja 1 -> caja inferior -->
         <line class="line" x1="920" y1="430" x2="920" y2="470"/>
 
-        <!-- ===== CAJAS (sin texto) ===== -->
+        <!-- ===== CAJAS ===== -->
         <!-- Raíz -->
         <rect class="darkRect round" x="610" y="60" width="180" height="40"/>
 
-        <!-- Caja media derecha conectada al tronco -->
+        <!-- Caja media derecha -->
         <rect class="darkRect round" x="900" y="160" width="180" height="40"/>
 
-        <!-- Cajas superiores izquierda (dos) -->
+        <!-- Superiores izquierda (2) -->
         <rect class="lightRect round" x="260" y="220" width="180" height="40"/>
         <rect class="lightRect round" x="460" y="220" width="180" height="40"/>
 
-        <!-- Cajas inferiores izquierda (dos) -->
+        <!-- Inferiores izquierda (2) -->
         <rect class="lightRect round" x="260" y="320" width="180" height="40"/>
         <rect class="lightRect round" x="460" y="320" width="180" height="40"/>
 
-        <!-- Riel ancho derecha (Equipo TI) -->
+        <!-- Riel derecho -->
         <rect class="railRect round" x="840" y="320" width="540" height="40"/>
 
-        <!-- Cuatro subcajas bajo el riel -->
+        <!-- Subcajas del riel -->
         <rect class="lightRect round" x="860"  y="380" width="120" height="40"/>
         <rect class="lightRect round" x="1040" y="380" width="120" height="40"/>
         <rect class="lightRect round" x="1220" y="380" width="120" height="40"/>
         <rect class="lightRect round" x="1400" y="380" width="120" height="40"/>
 
-        <!-- Caja inferior adicional bajo la primera subcaja -->
+        <!-- Caja inferior bajo la primera subcaja -->
         <rect class="lightRect round" x="860" y="470" width="120" height="40"/>
       </svg>
     </div>
   </main>
 </body>
 </html>
+
 
 
