@@ -8,10 +8,10 @@
   <style>
     :root{
       --rosa:#e5706e;          /* barra superior */
-      --morado:#6d28d9;        /* morado oscuro (títulos) */
-      --morado-clar:#ede9fe;   /* morado claro */
-      --morado-borde:#d7ccff;  /* borde para claros */
-      --maxw:1100px; --borde:#e5e7ea;
+      --morado:#6d28d9;        /* morado oscuro (cajas principales) */
+      --morado-clar:#ede9fe;   /* morado claro (cajas secundarias) */
+      --morado-borde:#d7ccff;  /* borde de cajas claras */
+      --maxw:1100px; --borde:#cfd6dc;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
@@ -33,7 +33,7 @@
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 12px;font-size:28px}
 
-    /* --------- ORGANIGRAMA GENÉRICO --------- */
+    /* --------- ORGANIGRAMA --------- */
     .org-scroll{overflow-x:auto;padding-bottom:14px}
     .org{display:inline-block;text-align:center}
     .org, .org ul{padding-top:28px;position:relative}
@@ -49,53 +49,47 @@
       white-space:nowrap;
     }
 
-    /* conectores horizontales a hijos */
+    /* Conectores horizontales a hijos */
     .org li::before, .org li::after{
       content:""; position:absolute; top:0; right:50%;
-      border-top:1px solid #cfd6dc; width:50%; height:28px;
+      border-top:1px solid var(--borde); width:50%; height:28px;
     }
-    .org li::after{ right:auto; left:50%; border-left:1px solid #cfd6dc; }
+    .org li::after{ right:auto; left:50%; border-left:1px solid var(--borde); }
     .org li:only-child::before, .org li:only-child::after{display:none}
     .org li:only-child{padding-top:0}
     .org li:first-child::before{border:0}
     .org li:last-child::after{border:0}
 
-    /* conector vertical del padre al grupo de hijos */
+    /* Conector vertical del padre al grupo de hijos */
     .org ul::before{
       content:""; position:absolute; top:0; left:50%;
-      border-left:1px solid #cfd6dc; height:28px;
+      border-left:1px solid var(--borde); height:28px;
     }
 
     /* Cajas */
-    .box{display:inline-block;text-align:center;min-width:240px;max-width:320px}
-    .box .dark{
-      background:var(--morado); color:#fff; font-weight:800;
-      border-radius:10px; padding:10px 12px;
+    .node{
+      display:inline-block; text-align:center;
+      min-width:200px; height:38px; border-radius:10px; line-height:38px;
     }
-    .box .light{
-      background:var(--morado-clar); color:#3b2870; font-weight:700;
+    .node.dark{ background:var(--morado); color:#fff; }
+    .node.light{
+      background:var(--morado-clar); color:#3b2870;
       border:1px solid var(--morado-borde);
-      border-radius:10px; padding:10px 12px;
     }
+    .node.rail{ min-width:520px }           /* riel ancho (Equipo TI) */
 
-    /* --------- LISTA VERTICAL (para Transversales OAP) --------- */
-    .org ul.vlist{padding-top:14px;margin-left:0}
-    .org ul.vlist::before{content:"";position:absolute;top:0;left:50%;border-left:1px solid #cfd6dc;height:14px}
-    .org ul.vlist::after{content:"";position:absolute;top:14px;bottom:0;left:12px;border-left:1px solid #cfd6dc}
-    .org ul.vlist>li{display:block;padding:10px 0 0 28px;text-align:left;white-space:normal;position:relative}
-    .org ul.vlist>li::before,.org ul.vlist>li::after{content:none}
-    .org ul.vlist>li .box{display:inline-block;position:relative}
-    .org ul.vlist>li .box::before{content:"";position:absolute;left:-16px;top:50%;width:16px;border-top:1px solid #cfd6dc;transform:translateY(-50%)}
+    /* “Ghosts” para crear niveles/espacios sin caja visible */
+    .node.ghost{ visibility:hidden }
+    .drop-1 .node.ghost{ height:44px }      /* baja al siguiente “nivel visual” */
 
-    /* --------- “Riel” ancho (Equipo TI) --------- */
-    .box.rail{min-width:520px}               /* riel largo */
-    .sub-mini .box{min-width:190px;max-width:220px} /* subáreas más angostas */
+    /* Subáreas más compactas */
+    .mini .node{ min-width:170px }
 
-    /* Responsive chico */
+    /* Responsive */
     @media (max-width:700px){
-      .box{min-width:200px}
-      .box.rail{min-width:420px}
-      .sub-mini .box{min-width:170px}
+      .node{ min-width:180px }
+      .node.rail{ min-width:420px }
+      .mini .node{ min-width:160px }
     }
   </style>
 </head>
@@ -122,67 +116,43 @@
 
     <div class="org-scroll">
       <ul class="org">
-        <!-- Nivel 0: Jefe -->
+        <!-- Raíz -->
         <li>
-          <div class="box"><div class="dark">Jefe Oficina</div></div>
+          <div class="node dark">&nbsp;</div>
 
-          <!-- Nivel 1 -->
+          <!-- Nivel siguiente -->
           <ul>
-            <!-- Izquierda: dos cajas con un hijo cada una -->
-            <li>
-              <div class="box"><div class="light">Coordinación de equipos</div></div>
+            <!-- Dos cajas arriba a la izquierda -->
+            <li><div class="node light">&nbsp;</div></li>
+            <li><div class="node light">&nbsp;</div></li>
+
+            <!-- Caja media a la derecha (misma fila) -->
+            <li><div class="node light">&nbsp;</div></li>
+
+            <!-- Bloque inferior: línea base + izquierda x2 + riel a la derecha -->
+            <li class="drop-1">
+              <!-- ghost crea el “salto” hacia abajo (línea base) -->
+              <div class="node ghost">&nbsp;</div>
               <ul>
-                <li><div class="box"><div class="light">Equipo de Coordinación</div></div></li>
-              </ul>
-            </li>
+                <!-- Izquierda (dos cajitas) -->
+                <li><div class="node light">&nbsp;</div></li>
+                <li><div class="node light">&nbsp;</div></li>
 
-            <li>
-              <div class="box"><div class="light">Gestión de conocimiento</div></div>
-              <ul>
-                <li><div class="box"><div class="light">Gestión documental / KM</div></div></li>
-              </ul>
-            </li>
-
-            <!-- Rama derecha en VERTICAL -->
-            <li>
-              <div class="box"><div class="dark">Transversales OAP</div></div>
-              <ul class="vlist">
-                <li><div class="box"><div class="light">Auxiliar administrativo</div></div></li>
-                <li><div class="box"><div class="light">Técnico administrativo</div></div></li>
-                <li><div class="box"><div class="light">Jurídico contractual</div></div></li>
-                <li><div class="box"><div class="light">Apoyo a la supervisión / Líder técnico 8225</div></div></li>
-                <li><div class="box"><div class="light">Digitadoras</div></div></li>
-              </ul>
-            </li>
-
-            <!-- Centro-izquierda: Equipos P4 y MIPG (con un hijo) -->
-            <li>
-              <div class="box"><div class="dark">Equipo P4<br>(Planes, Programas, Proyectos y Políticas)</div></div>
-              <ul>
-                <li><div class="box"><div class="light">Líder Equipo P4</div></div></li>
-              </ul>
-            </li>
-
-            <li>
-              <div class="box"><div class="dark">Equipo MIPG</div></div>
-              <ul>
-                <li><div class="box"><div class="light">Líder Equipo MIPG</div></div></li>
-              </ul>
-            </li>
-
-            <!-- Riel ancho: Equipo TI con cuatro subáreas y “Soporte” debajo de Infraestructura -->
-            <li>
-              <div class="box rail"><div class="dark">Equipo TI</div></div>
-              <ul class="sub-mini">
+                <!-- Derecha: riel ancho con 4 subcajas y 1 debajo de la primera -->
                 <li>
-                  <div class="box"><div class="dark">Infraestructura y soporte</div></div>
-                  <ul>
-                    <li><div class="box"><div class="light">Soporte</div></div></li>
+                  <div class="node dark rail">&nbsp;</div>
+                  <ul class="mini">
+                    <li>
+                      <div class="node light">&nbsp;</div>
+                      <ul>
+                        <li><div class="node light">&nbsp;</div></li> <!-- la de abajo -->
+                      </ul>
+                    </li>
+                    <li><div class="node light">&nbsp;</div></li>
+                    <li><div class="node light">&nbsp;</div></li>
+                    <li><div class="node light">&nbsp;</div></li>
                   </ul>
                 </li>
-                <li><div class="box"><div class="dark">Desarrollo</div></div></li>
-                <li><div class="box"><div class="dark">Seguridad</div></div></li>
-                <li><div class="box"><div class="dark">SiMisional</div></div></li>
               </ul>
             </li>
 
