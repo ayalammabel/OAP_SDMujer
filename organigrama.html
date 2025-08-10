@@ -36,10 +36,11 @@
     /* --------- ORGANIGRAMA --------- */
     .org-scroll{overflow-x:auto;padding-bottom:14px}
     .org{display:inline-block; text-align:center;}           /* centra el conjunto */
-    .org, .org ul{ padding-top:28px; position:relative; }    /* un poco más de aire */
+    .org, .org ul{ padding-top:28px; position:relative; }
 
+    /* Hermanos en fila */
     .org li{
-      display:inline-block;          /* <- hace que los hijos queden en fila */
+      display:inline-block;     /* <- clave para que no quede en una sola columna */
       vertical-align:top;
       text-align:center;
       list-style:none;
@@ -48,7 +49,7 @@
       white-space:nowrap;
     }
 
-    /* conectores horizontales a hijos */
+    /* conectores horizontales a hijos (estándar) */
     .org li::before, .org li::after{
       content:""; position:absolute; top:0; right:50%;
       border-top:1px solid #cfd6dc; width:50%; height:28px;
@@ -75,6 +76,30 @@
       background:var(--morado-clar); color:#3b2870; font-weight:700;
       border:1px solid var(--morado-borde);
       border-radius:10px; padding:10px 12px;
+    }
+
+    /* --------- LISTA VERTICAL ESPECIAL (para Transversales OAP) --------- */
+    /* Desactiva conectores estándar y muestra una “llave” a la izquierda con items apilados */
+    .org ul.vlist{ padding-top:14px; margin-left:0; }
+    .org ul.vlist::before{               /* caída corta desde el nodo padre */
+      content:""; position:absolute; top:0; left:50%;
+      border-left:1px solid #cfd6dc; height:14px;
+    }
+    .org ul.vlist::after{                /* línea vertical izquierda de la lista */
+      content:""; position:absolute; top:14px; bottom:0; left:12px;
+      border-left:1px solid #cfd6dc;
+    }
+    .org ul.vlist > li{
+      display:block;                     /* apilado vertical */
+      padding:10px 0 0 28px;             /* espacio para la “llave” */
+      text-align:left; white-space:normal; position:relative;
+    }
+    .org ul.vlist > li::before,
+    .org ul.vlist > li::after{ content:none }  /* sin conectores estándar */
+    .org ul.vlist > li .box{ display:inline-block; position:relative; }
+    .org ul.vlist > li .box::before{     /* conector horizontal desde la llave al item */
+      content:""; position:absolute; left:-16px; top:50%;
+      width:16px; border-top:1px solid #cfd6dc; transform:translateY(-50%);
     }
 
     /* tamaños responsive */
@@ -122,10 +147,10 @@
               <div class="box"><div class="light">Gestión de conocimiento</div></div>
             </li>
 
-            <!-- Transversales OAP (oscuro) con subcajas claras -->
+            <!-- Transversales OAP (oscuro) con LISTA VERTICAL -->
             <li>
               <div class="box"><div class="dark">Transversales OAP</div></div>
-              <ul>
+              <ul class="vlist">
                 <li><div class="box"><div class="light">Auxiliar administrativo</div></div></li>
                 <li><div class="box"><div class="light">Técnico administrativo</div></div></li>
                 <li><div class="box"><div class="light">Jurídico contractual</div></div></li>
