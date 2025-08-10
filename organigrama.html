@@ -1,45 +1,87 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Organigrama – Oficina Asesora de Planeación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{ --rosa:#e5706e; --gris:#c3caca; --negro:#111; --maxw:1100px; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organigrama – Oficina Asesora de Planeación</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
 
-    /* Barra superior */
-    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
-    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
-    .logo{height:40px;width:auto;display:block}
-    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+  /* Barra superior */
+  .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+  .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+  .logo{height:40px;width:auto;display:block}
+  .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
 
-    /* Submenú */
-    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
-    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
-    .pill{
-      text-decoration:none;padding:8px 12px;border-radius:999px;
-      color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px;
-    }
-    .pill:hover{background:#fff;border-color:#d8d8d8}
-    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  /* Submenú */
+  .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+  .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+  .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+  .pill:hover{background:#fff;border-color:#d8d8d8}
+  .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
 
-    /* Contenido */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
-    h1{margin:0 0 18px;font-size:28px;color:#000}
+  /* Contenido */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+  h1{margin:0 0 8px;font-size:28px;color:#000}
+  .hint{font-size:13px;color:#666;margin:8px 0 18px}
 
-    /* Área en blanco para insertar el organigrama */
-    .canvas-organigrama{
-      background:#fff;border:1px dashed #ddd;border-radius:12px;
-      min-height:420px;display:flex;align-items:center;justify-content:center;
-      color:#888;font-weight:600
-    }
+  /* --------- ORGANIGRAMA (ul/li con conectores) --------- */
+  .org-scroll{overflow-x:auto;padding-bottom:14px}
+  .org{display:inline-block; /* para que el scroll sea ancho exacto */ }
+  .org, .org ul{ padding-top:20px; position:relative; }
+  .org li{
+    text-align:center; list-style:none; position:relative;
+    padding:20px 5px 0 5px; white-space:nowrap;
+  }
 
-    /* Footer */
-    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
-  </style>
+  /* Conectores horizontales desde el padre a los hijos */
+  .org li::before, .org li::after{
+    content:""; position:absolute; top:0; right:50%;
+    border-top:1px solid #cfd6dc; width:50%; height:20px;
+  }
+  .org li::after{ right:auto; left:50%; border-left:1px solid #cfd6dc; }
+  .org li:only-child::before, .org li:only-child::after{ display:none; }
+  .org li:only-child{ padding-top:0; }
+  .org li:first-child::before{ border:0 none; }
+  .org li:last-child::after{ border:0 none; }
+
+  /* Conector vertical que baja desde el padre al grupo de hijos */
+  .org ul::before{
+    content:""; position:absolute; top:0; left:50%;
+    border-left:1px solid #cfd6dc; width:0; height:20px;
+  }
+
+  /* Caja (nodo) */
+  .node{
+    display:inline-block; vertical-align:top; text-align:left;
+    background:#fff; border:1px solid var(--borde); border-radius:12px;
+    min-width:210px; max-width:280px; padding:10px 12px; white-space:normal;
+    box-shadow:0 1px 0 rgba(0,0,0,.02);
+  }
+  .node .title{
+    font-weight:800; font-size:14px; background:#fafafa; border-bottom:1px solid var(--borde);
+    margin:-10px -12px 8px; padding:8px 12px; border-radius:12px 12px 0 0;
+  }
+  .node .name{ font-weight:700; }
+  .node .small{ color:#666; font-size:13px; }
+
+  /* Chips para integrantes */
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0}
+  .chip{list-style:none;background:#eef1f3;border:1px solid var(--borde);border-radius:999px;padding:4px 8px;font-size:12px}
+
+  /* Colorear algunos encabezados por grupo (opcional, suave) */
+  .g-ti   .title{background:#f1f6ff}
+  .g-mipg .title{background:#fff5f2}
+  .g-p4   .title{background:#f5f7f0}
+
+  /* En pantallas chicas, hacemos que las cajas quepan mejor */
+  @media (max-width:700px){
+    .node{min-width:190px}
+  }
+</style>
 </head>
 <body>
 
@@ -55,24 +97,159 @@
   <!-- Submenú -->
   <nav class="subnav" aria-label="Navegación secundaria">
     <div class="wrap">
-     <a href="index.html" class="pill">Funciones</a>
-     <span class="pill active" aria-current="page">Organigrama</span>
+      <a href="index.html" class="pill">Funciones</a>
+      <span class="pill active" aria-current="page">Organigrama</span>
     </div>
   </nav>
-  
-  <!-- Contenido -->
+
   <main class="wrap" role="main">
-    <h1>Organigrama</h1>
+    <h1>¿Quiénes somos?</h1>
+    <div class="hint">Sugerencia: si no cabe en tu pantalla, desplázate horizontalmente.</div>
 
-    <!-- Aquí luego insertas tu imagen/PDF del organigrama -->
-    <section class="canvas-organigrama">
-      Inserta aquí el organigrama (imagen o PDF embebido)
-    </section>
+    <div class="org-scroll">
+      <ul class="org">
+        <!-- Jefe Oficina -->
+        <li>
+          <div class="node">
+            <div class="title">Jefe Oficina</div>
+            <div class="name">Carlos Alfonso Gaitán</div>
+          </div>
+
+          <!-- Hijos de Jefe Oficina -->
+          <ul>
+            <!-- Coordinación de equipos -->
+            <li>
+              <div class="node">
+                <div class="title">Coordinación de equipos</div>
+                <ul class="chips">
+                  <li class="chip">Catalina Sánchez</li>
+                  <li class="chip">Mabel Ayala (TI)</li>
+                  <li class="chip">Ángela Barón</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Gestión de conocimiento -->
+            <li>
+              <div class="node">
+                <div class="title">Gestión de conocimiento</div>
+                <div class="small">—</div>
+              </div>
+            </li>
+
+            <!-- Auxiliar / Técnico / Jurídico / Apoyo / Digitadoras -->
+            <li>
+              <div class="node">
+                <div class="title">Apoyo administrativo</div>
+                <ul class="chips">
+                  <li class="chip">Aux. Administrativo – Adelaida Rojas</li>
+                  <li class="chip">Téc. Administrativo – Jorge Vidal</li>
+                  <li class="chip">Jurídico contractual – Paola Moreno</li>
+                </ul>
+                <div class="small" style="margin-top:8px">
+                  Apoyo a la supervisión – Camila López<br>
+                  Líder técnico 8225 – Diego Grondona
+                </div>
+                <ul class="chips" style="margin-top:8px">
+                  <li class="chip">Digitadoras: Valentina Echeverry</li>
+                  <li class="chip">Carol Gaona</li>
+                  <li class="chip">Paula Vera</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Equipo P4 -->
+            <li>
+              <div class="node g-p4">
+                <div class="title">Equipo P4 (Planes, Programas, Proyectos y Políticas)</div>
+                <div class="name">Líder: Nelly García</div>
+                <ul class="chips">
+                  <!-- Ejemplos, completa/edita libremente -->
+                  <li class="chip">Yuly Sánchez</li>
+                  <li class="chip">Liliana Hernández</li>
+                  <li class="chip">Andrea Bello</li>
+                  <li class="chip">Michael Gil</li>
+                  <li class="chip">McAllister Granados</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Equipo MIPG -->
+            <li>
+              <div class="node g-mipg">
+                <div class="title">Equipo MIPG</div>
+                <div class="name">Líder: Paula Sosa</div>
+                <ul class="chips">
+                  <li class="chip">Adriana Blanco</li>
+                  <li class="chip">Diana Hernández</li>
+                  <li class="chip">Luz Ángela Andrade</li>
+                  <li class="chip">Zareth Doncel</li>
+                  <li class="chip">Jhoan Ayala</li>
+                  <li class="chip">William Arias</li>
+                  <li class="chip">Miguel Acuña</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Equipo TI con subáreas -->
+            <li>
+              <div class="node g-ti">
+                <div class="title">Equipo TI</div>
+                <div class="name">Líder: Leonardo Buitrago</div>
+              </div>
+              <!-- Subniveles del Equipo TI -->
+              <ul>
+                <li>
+                  <div class="node">
+                    <div class="title">Infraestructura y soporte</div>
+                    <div class="name">Miguel Bernal</div>
+                    <ul class="chips">
+                      <li class="chip">Fabián Puentes</li>
+                      <li class="chip">Oscar Carvajal</li>
+                      <li class="chip">Jorge Escalante</li>
+                      <li class="chip">Soporte: Carlos Moreno, Leonardo Becerra, John Ventura</li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="node">
+                    <div class="title">Desarrollo</div>
+                    <div class="name">Gleidy Jerez</div>
+                    <ul class="chips">
+                      <li class="chip">Laura Gómez</li>
+                      <li class="chip">Giovanny Benítez</li>
+                      <li class="chip">Laura Cruz</li>
+                      <li class="chip">Javier García</li>
+                      <li class="chip">Santiago Carreño</li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="node">
+                    <div class="title">Seguridad</div>
+                    <div class="name">Camilo Calderón</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="node">
+                    <div class="title">SiMisional</div>
+                    <ul class="chips">
+                      <li class="chip">Yamile Reyes</li>
+                      <li class="chip">Mauricio Rincón</li>
+                      <li class="chip">Steven Ariza</li>
+                      <li class="chip">Fabián Acevedo</li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
   </main>
-
-  <footer class="footer" role="contentinfo">
-    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
-  </footer>
 
 </body>
 </html>
+
