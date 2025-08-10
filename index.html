@@ -6,7 +6,15 @@
   <title>Oficina Asesora de Planeación – SDMujer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{ --rosa:#e5706e; --gris:#c3caca; --negro:#111; --maxw:1100px; }
+    :root{
+      --rosa:#e5706e;
+      --negro:#111;
+      --maxw:1100px;
+
+      /* NUEVO: tonos para tarjetas */
+      --card-bg:#eef3f4;        /* fondo más claro */
+      --card-border:#8f9aa1;    /* borde más oscuro */
+    }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
 
@@ -34,15 +42,28 @@
     .grid{display:grid;gap:16px;grid-template-columns:1fr}
     @media (min-width:800px){.grid{grid-template-columns:1fr 1fr}}
 
-    /* Tarjetas */
+    /* Tarjetas (fondo claro + borde más oscuro) */
     .card{
-      background:var(--gris);border:1px solid #b6bcbc;border-radius:12px;
-      padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-      height:220px;text-align:center
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:220px;
+      text-align:center;
+      transition:border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    .card:hover{
+      border-color:#7f8a91;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+      transform:translateY(-1px);
     }
     .card img{max-width:100px;max-height:100px;object-fit:contain;margin-bottom:14px}
     .card a{text-decoration:none;color:var(--negro);font-weight:800;font-size:16px}
-    .card a:hover{opacity:.85;text-decoration:underline}
+    .card a:hover{text-decoration:underline}
 
     /* Footer */
     .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
