@@ -13,10 +13,10 @@
       --maxw:1100px;
       --borde:#e5e7ea;
 
-      /* Morados solicitados */
-      --morado:#8d5497;                  /* principal */
-      --morado-ink:#5b3561;              /* para texto sobre fondos suaves */
-      --morado-10: rgba(141,84,151,.10); /* suaves para fondos */
+      /* Morados */
+      --morado:#8d5497;
+      --morado-ink:#5b3561;
+      --morado-10: rgba(141,84,151,.10);
       --morado-16: rgba(141,84,151,.16);
       --morado-24: rgba(141,84,151,.24);
     }
@@ -46,7 +46,7 @@
     .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:8px 0 18px}
     .back:hover{text-decoration:underline}
 
-    /* Columna vertical de roles */
+    /* Columna de roles */
     .stack{display:grid;gap:12px}
     .card{
       background:var(--gris);border:1px solid var(--borde);border-radius:14px;
@@ -55,14 +55,13 @@
     .dot{width:10px;height:10px;border-radius:999px;background:var(--rosa)}
     .card b{font-size:15px}
 
-    /* Tarjeta desplegable: base */
+    /* Desplegable */
     details.card{ padding:0; overflow:hidden; border:1px solid var(--borde); }
     details.card > summary{
       list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
       padding:14px 16px;font-weight:700
     }
     details.card > summary::-webkit-details-marker{display:none}
-    /* + redondo */
     .plus{
       margin-left:auto;display:inline-grid;place-items:center;width:28px;height:28px;
       border:1.5px solid var(--morado);color:var(--morado);
@@ -71,34 +70,34 @@
     }
     details[open] .plus{transform:rotate(45deg);background:var(--morado);color:#fff}
 
-    /* Panel morado elegante */
+    /* Panel morado */
     .panel{
-      background:linear-gradient(0deg,#fff, #fff), var(--morado-10);
+      background:linear-gradient(0deg,#fff,#fff), var(--morado-10);
       border-top:1px solid var(--borde);
       padding:0;
     }
     .panel-body{
       display:grid; gap:12px; padding:14px;
       border-left:4px solid var(--morado);
-      background:
-        radial-gradient(120% 60% at 0% 0%, var(--morado-10), transparent 60%);
+      background:radial-gradient(120% 60% at 0% 0%, var(--morado-10), transparent 60%);
       border-bottom-left-radius:14px;
     }
 
-    /* Secciones dentro del panel */
+    /* Secciones en Title Case y tamaño consistente */
     .group{margin:2px 0 8px}
     .group-title{
       display:inline-flex;align-items:center;gap:8px;
-      padding:4px 10px;border-radius:999px;
-      font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+      padding:6px 12px;border-radius:999px;
+      font-size:15px; letter-spacing:.01em; text-transform:none;
       color:#fff;background:var(--morado);font-weight:800;
     }
 
-    /* Listas estilo “botón” */
+    /* Ítems tipo botón */
     .link-list, .index-list{display:grid;gap:8px;margin:8px 0 0;padding:0;list-style:none}
     .link-item, .index-item{
       background:#fff;border:1px solid var(--borde);border-radius:12px;
-      padding:12px 14px;font-weight:700;display:flex;align-items:center;gap:10px;
+      padding:12px 14px;font-weight:700;font-size:15px;
+      display:flex;align-items:center;gap:10px;
       text-decoration:none;color:#1f2430;
       transition:box-shadow .15s ease, border-color .15s ease, transform .06s ease;
     }
@@ -225,7 +224,7 @@
         <b>Responsable gestión ambiental</b>
       </div>
 
-      <!-- 3: Índices, con mismo estilo morado -->
+      <!-- 3: Índices -->
       <details class="card">
         <summary>
           <span class="dot" aria-hidden="true"></span>
@@ -259,4 +258,5 @@
   </script>
 </body>
 </html>
+
 
