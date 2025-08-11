@@ -6,7 +6,11 @@
   <title>Proyecto de inversión 8225 – Oficina Asesora de Planeación</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{ --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea }
+    :root{
+      --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea;
+      /* morados para el subtítulo y detalles */
+      --morado:#8d5497; --morado-10:rgba(141,84,151,.10); --morado-24:rgba(141,84,151,.24);
+    }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
 
@@ -19,30 +23,35 @@
     /* Submenú */
     .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
     .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
-    .pill{
-      text-decoration:none;padding:8px 12px;border-radius:999px;
-      color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px
-    }
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
     .pill:hover{background:#fff;border-color:#d8d8d8}
     .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
 
     /* Contenido */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
-    h1{margin:0 0 8px;font-size:28px;color:#000}
-    h2{margin:24px 0 12px;font-size:20px}
-    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:8px 0 18px}
+    h1{margin:0 0 6px;font-size:28px;color:#000}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 18px}
     .back:hover{text-decoration:underline}
 
-    /* Tarjetas contenedor */
-    .card{
-      background:#fff;border:1px solid var(--borde);border-radius:14px;overflow:hidden
+    /* Subtítulo morado bajo el H1 */
+    .subline{display:flex;align-items:center;gap:10px;margin:0 0 6px}
+    .tag{
+      background:var(--morado); color:#fff; font-weight:800; font-size:13px;
+      padding:4px 10px; border-radius:999px; line-height:1;
+      box-shadow:0 0 0 3px var(--morado-10);
     }
+    .hint{font-size:13.5px;color:#555}
+    .hint a{color:var(--morado);font-weight:800;text-decoration:none}
+    .hint a:hover{text-decoration:underline}
+
+    /* Tarjetas contenedor */
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+
+    .card{background:#fff;border:1px solid var(--borde);border-radius:14px;overflow:hidden}
     .card-head{
       display:flex;align-items:center;gap:10px;padding:12px 16px;font-weight:800;background:#fafafa;border-bottom:1px solid var(--borde)
     }
-    .chip{margin-left:auto;background:#eef1f3;border:1px solid var(--borde);padding:2px 8px;border-radius:999px;font-size:12px;color:#555;font-weight:700}
-
-    /* Lista con filas (iguales para links o divs) */
     .list{display:grid}
     .row{
       display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;
@@ -54,12 +63,11 @@
     .arrow{margin-left:auto;opacity:.5}
     .arrow svg{display:block}
 
-    /* Grid de secciones */
-    .grid{display:grid;gap:16px;grid-template-columns:1fr}
-    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
-
-    /* Footer */
-    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
+    /* Políticas públicas: estilo a juego */
+    .pp-body{padding:8px 14px 14px}
+    .pp-body ul{margin:0;padding-left:18px;line-height:1.5}
+    .pp-body li{margin:6px 0}
+    .chip{margin-left:auto;background:#eef1f3;border:1px solid var(--borde);padding:2px 8px;border-radius:999px;font-size:12px;color:#555;font-weight:700}
   </style>
 </head>
 <body>
@@ -84,6 +92,13 @@
   <!-- Contenido -->
   <main class="wrap" role="main">
     <h1>Proyecto de inversión 8225</h1>
+
+    <!-- Subtítulo morado + link a procesos -->
+    <div class="subline">
+      <span class="tag">Direccionamiento Estratégico</span>
+      <span class="hint">(ver <a href="gestion_proyectos.html">Procesos estratégicos</a>)</span>
+    </div>
+
     <a class="back" href="index.html">← Volver a Funciones</a>
 
     <section class="grid">
@@ -122,26 +137,16 @@
         </div>
       </article>
 
-      <!-- POLÍTICAS PÚBLICAS (mismo estilo) -->
+      <!-- POLÍTICAS PÚBLICAS -->
       <article class="card" aria-label="Políticas públicas">
         <div class="card-head">Políticas públicas</div>
-        <div class="list">
-          <div class="row">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Líder PPMYEG</b>
-          </div>
-          <div class="row">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Líder PP ASP</b>
-          </div>
-          <div class="row">
-            <span class="dot" aria-hidden="true"></span>
-            <span><b>Responsable en 27 PP</b> <span class="chip">167 productos</span></span>
-          </div>
-          <div class="row">
-            <span class="dot" aria-hidden="true"></span>
-            <span><b>Corresponsable en 23 PP</b> <span class="chip">138 productos</span></span>
-          </div>
+        <div class="pp-body">
+          <ul>
+            <li>Líder PPMYEG</li>
+            <li>Líder PP ASP</li>
+            <li>Responsable en 27 PP, 167 productos</li>
+            <li>Corresponsable en 23 PP, 138 productos</li>
+          </ul>
         </div>
       </article>
     </section>
@@ -150,11 +155,6 @@
   <footer class="footer" role="contentinfo">
     <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
   </footer>
-
-  <script>
-    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-  </script>
 </body>
 </html>
-
 
