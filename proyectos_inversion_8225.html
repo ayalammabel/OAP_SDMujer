@@ -32,7 +32,7 @@
     .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 18px}
     .back:hover{text-decoration:underline}
 
-    /* Subtítulo y acción secundaria */
+    /* Subtítulo + acción secundaria */
     .subline{display:flex;align-items:center;gap:8px;margin:0 0 6px}
     .tag{
       background:var(--morado); color:#fff; font-weight:800; font-size:13px;
@@ -55,6 +55,8 @@
     .card-head{
       display:flex;align-items:center;gap:10px;padding:12px 16px;font-weight:800;background:#fafafa;border-bottom:1px solid var(--borde)
     }
+
+    /* Lista de filas (igual para ambas cajas) */
     .list{display:grid}
     .row{
       display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;
@@ -66,10 +68,11 @@
     .arrow{margin-left:auto;opacity:.5}
     .arrow svg{display:block}
 
-    /* Políticas públicas */
-    .pp-body{padding:8px 14px 14px}
-    .pp-body ul{margin:0;padding-left:18px;line-height:1.5}
-    .pp-body li{margin:6px 0}
+    /* Variante estática para la caja de políticas (no link, sin hover/chevron) */
+    .row.static{cursor:default}
+    .row.static:hover{background:#fff}
+    .row .meta{margin-left:auto;color:#666;font-size:13px;font-weight:600}
+
   </style>
 </head>
 <body>
@@ -95,7 +98,6 @@
   <main class="wrap" role="main">
     <h1>Proyecto de inversión 8225</h1>
 
-    <!-- Subtítulo + acción secundaria (sin paréntesis) -->
     <div class="subline">
       <span class="tag">Direccionamiento Estratégico</span>
       <a class="tag-out" href="gestion_proyectos.html" aria-label="Ver procesos estratégicos">
@@ -109,7 +111,7 @@
     <a class="back" href="index.html">← Volver a Funciones</a>
 
     <section class="grid">
-      <!-- PLANES -->
+      <!-- PLANES (con links) -->
       <article class="card" aria-label="Planes relacionados">
         <div class="card-head">Planes</div>
         <div class="list">
@@ -144,16 +146,28 @@
         </div>
       </article>
 
-      <!-- POLÍTICAS PÚBLICAS -->
+      <!-- POLÍTICAS PÚBLICAS (misma caja/filas, versión estática) -->
       <article class="card" aria-label="Políticas públicas">
         <div class="card-head">Políticas públicas</div>
-        <div class="pp-body">
-          <ul>
-            <li>Líder PPMYEG</li>
-            <li>Líder PP ASP</li>
-            <li>Responsable en 27 PP, 167 productos</li>
-            <li>Corresponsable en 23 PP, 138 productos</li>
-          </ul>
+        <div class="list">
+          <div class="row static">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Líder PPMYEG</b>
+          </div>
+          <div class="row static">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Líder PP ASP</b>
+          </div>
+          <div class="row static">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Responsable</b>
+            <span class="meta">27 PP • 167 productos</span>
+          </div>
+          <div class="row static">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Corresponsable</b>
+            <span class="meta">23 PP • 138 productos</span>
+          </div>
         </div>
       </article>
     </section>
@@ -164,5 +178,4 @@
   </footer>
 </body>
 </html>
-
 
