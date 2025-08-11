@@ -54,3 +54,90 @@
   </header>
 
   <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill">Funciones</a>
+      <span class="pill active" aria-current="page">Organigrama</span>
+    </div>
+  </nav>
+
+  <main class="wrap" role="main">
+    <h1>¿Quiénes somos?</h1>
+
+    <div class="org-wrap">
+      <svg viewBox="0 0 1600 600" role="img" aria-label="Organigrama OAP">
+        <!-- ===== LÍNEAS ===== -->
+        <line class="line" x1="700" y1="100" x2="700" y2="300"/>
+        <line class="line" x1="700" y1="180" x2="900" y2="180"/>
+        <line class="line" x1="350" y1="200" x2="700" y2="200"/>
+        <line class="line" x1="350" y1="200" x2="350" y2="220"/>
+        <line class="line" x1="550" y1="200" x2="550" y2="220"/>
+        <line class="line" x1="350" y1="300" x2="1110" y2="300"/>
+        <line class="line" x1="350" y1="300" x2="350" y2="320"/>
+        <line class="line" x1="550" y1="300" x2="550" y2="320"/>
+        <line class="line" x1="1110" y1="300" x2="1110" y2="320"/>
+        <line class="line" x1="920"  y1="360" x2="920"  y2="380"/>
+        <line class="line" x1="1100" y1="360" x2="1100" y2="380"/>
+        <line class="line" x1="1280" y1="360" x2="1280" y2="380"/>
+        <line class="line" x1="1460" y1="360" x2="1460" y2="380"/>
+        <line class="line" x1="920" y1="430" x2="920" y2="470"/>
+
+        <!-- ===== CAJAS ===== -->
+        <!-- Raíz -->
+        <rect class="darkRect round" x="610" y="60" width="180" height="40"/>
+        <text class="label t-dark" x="700" y="80">
+          <tspan x="700" dy="-2">Jefe de la</tspan>
+          <tspan x="700" dy="14">Oficina</tspan>
+        </text>
+
+        <!-- Transversales OAP -->
+        <rect class="darkRect round" x="900" y="160" width="180" height="40"/>
+        <text class="label t-dark" x="990" y="180">
+          <tspan x="990" dy="-2">Transversales</tspan>
+          <tspan x="990" dy="14">OAP</tspan>
+        </text>
+
+        <!-- Superiores izquierda (oscuro) -->
+        <rect class="darkRect round" x="260" y="220" width="180" height="40"/>
+        <text class="label t-dark" x="350" y="240">
+          <tspan x="350" dy="-2">Coordinación de</tspan>
+          <tspan x="350" dy="14">equipos</tspan>
+        </text>
+
+        <rect class="darkRect round" x="460" y="220" width="180" height="40"/>
+        <text class="label t-dark" x="550" y="240">
+          <tspan x="550" dy="-2">Gestión del</tspan>
+          <tspan x="550" dy="14">conocimiento</tspan>
+        </text>
+
+        <!-- Inferiores izquierda (oscuro) -->
+        <rect class="darkRect round" x="260" y="320" width="180" height="40"/>
+        <text class="label t-dark" x="350" y="340">Equipo 4P</text>
+
+        <rect class="darkRect round" x="460" y="320" width="180" height="40"/>
+        <text class="label t-dark" x="550" y="340">Equipo MIPG</text>
+
+        <!-- Riel derecho: Equipo TI -->
+        <rect class="railRect round" x="840" y="320" width="640" height="40"/>
+        <text class="label t-dark label-lg" x="1160" y="340">Equipo TI</text>
+
+        <!-- Subcajas (claras) -->
+        <rect class="lightRect round" x="860"  y="380" width="120" height="40"/>
+        <text class="label t-light" x="920" y="400">Infraestructura</text>
+
+        <rect class="lightRect round" x="1040" y="380" width="120" height="40"/>
+        <text class="label t-light" x="1100" y="400">Desarrollo</text>
+
+        <rect class="lightRect round" x="1220" y="380" width="120" height="40"/>
+        <text class="label t-light" x="1280" y="400">Seguridad</text>
+
+        <rect class="lightRect round" x="1400" y="380" width="120" height="40"/>
+        <text class="label t-light" x="1460" y="400">SiMisional</text>
+
+        <!-- Soporte (bajo Infraestructura) -->
+        <rect class="lightRect round" x="860" y="470" width="120" height="40"/>
+        <text class="label t-light" x="920" y="490">Soporte</text>
+      </svg>
+    </div>
+  </main>
+</body>
+</html>
