@@ -7,11 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --rosa:#e5706e;      /* barra superior */
-      --morado:#6d28d9;    /* morado oscuro */
-      --light:#ede9fe;     /* morado claro */
-      --light-b:#d7ccff;   /* borde morado claro */
-      --line:#cfd6dc;      /* líneas */
+      --rosa:#e5706e;
+      --morado:#6d28d9;
+      --light:#ede9fe;
+      --light-b:#d7ccff;
+      --line:#cfd6dc;
       --maxw:1100px;
     }
     *{box-sizing:border-box}
@@ -57,41 +57,33 @@
     <h1>¿Quiénes somos?</h1>
 
     <div class="org-wrap">
-      <!-- Amplié el ancho a 1600 para evitar recortes del último nodo -->
       <svg viewBox="0 0 1600 600" role="img" aria-label="Esquema del organigrama sin textos">
         <!-- ===== LÍNEAS ===== -->
         <!-- Tronco principal -->
         <line class="line" x1="700" y1="100" x2="700" y2="300"/>
-
-        <!-- Rama lateral derecha (caja media) -->
+        <!-- Rama lateral derecha -->
         <line class="line" x1="700" y1="180" x2="900" y2="180"/>
 
-        <!-- NUEVA barra horizontal superior que une las dos cajas izq. con el tronco -->
+        <!-- Barra superior izquierda -->
         <line class="line" x1="350" y1="200" x2="700" y2="200"/>
-        <!-- Caídas cortas desde esa barra a cada caja superior -->
         <line class="line" x1="350" y1="200" x2="350" y2="220"/>
         <line class="line" x1="550" y1="200" x2="550" y2="220"/>
 
-        <!-- Línea base inferior -->
-        <line class="line" x1="200" y1="300" x2="1500" y2="300"/>
+        <!-- Línea base (recortada para que termine bajo el riel) -->
+        <line class="line" x1="200" y1="300" x2="1480" y2="300"/>
 
-        <!-- (Quitadas) líneas amarillas que bajaban de las dos cajas superiores a la base -->
-        <!--
-        <line class="line" x1="350" y1="300" x2="350" y2="320"/>
-        <line class="line" x1="550" y1="300" x2="550" y2="320"/>
-        -->
-        <!-- Conectores desde la base a las dos cajas inferiores izquierdas -->
+        <!-- Conectores base -> cajas inferiores izquierda -->
         <line class="line" x1="350" y1="300" x2="350" y2="320"/>
         <line class="line" x1="550" y1="300" x2="550" y2="320"/>
 
-        <!-- Conector desde la base al riel derecho -->
+        <!-- Conector base -> riel -->
         <line class="line" x1="1110" y1="300" x2="1110" y2="320"/>
 
-        <!-- Conectores riel -> subcajas -->
+        <!-- Conectores riel -> subcajas (centrados) -->
         <line class="line" x1="920"  y1="360" x2="920"  y2="380"/>
-        <line class="line" x1="1080" y1="360" x2="1080" y2="380"/>
-        <line class="line" x1="1240" y1="360" x2="1240" y2="380"/>
-        <line class="line" x1="1400" y1="360" x2="1400" y2="380"/>
+        <line class="line" x1="1100" y1="360" x2="1100" y2="380"/>
+        <line class="line" x1="1280" y1="360" x2="1280" y2="380"/>
+        <line class="line" x1="1460" y1="360" x2="1460" y2="380"/>
 
         <!-- Conector subcaja 1 -> caja inferior -->
         <line class="line" x1="920" y1="430" x2="920" y2="470"/>
@@ -103,18 +95,18 @@
         <!-- Caja media derecha -->
         <rect class="darkRect round" x="900" y="160" width="180" height="40"/>
 
-        <!-- Superiores izquierda (2) -->
+        <!-- Superiores izquierda -->
         <rect class="lightRect round" x="260" y="220" width="180" height="40"/>
         <rect class="lightRect round" x="460" y="220" width="180" height="40"/>
 
-        <!-- Inferiores izquierda (2) -->
+        <!-- Inferiores izquierda -->
         <rect class="lightRect round" x="260" y="320" width="180" height="40"/>
         <rect class="lightRect round" x="460" y="320" width="180" height="40"/>
 
-        <!-- Riel derecho -->
-        <rect class="railRect round" x="840" y="320" width="540" height="40"/>
+        <!-- Riel derecho (anchura extendida para cubrir la 4ª subcaja) -->
+        <rect class="railRect round" x="840" y="320" width="640" height="40"/>
 
-        <!-- Subcajas del riel -->
+        <!-- Subcajas -->
         <rect class="lightRect round" x="860"  y="380" width="120" height="40"/>
         <rect class="lightRect round" x="1040" y="380" width="120" height="40"/>
         <rect class="lightRect round" x="1220" y="380" width="120" height="40"/>
@@ -127,6 +119,7 @@
   </main>
 </body>
 </html>
+
 
 
 
