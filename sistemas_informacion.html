@@ -63,5 +63,134 @@
     }
     .dot{
       width:10px;height:10px;border-radius:999px;background:var(--rosa);flex:0 0 10px;
-      box-shadow:0 0 0 2px #fff, 0 0
+      box-shadow:0 0 0 2px #fff, 0 0 0 3px var(--morado-10);
+    }
+    .chev{
+      margin-left:auto;display:inline-grid;place-items:center;
+      width:28px;height:28px;border-radius:999px;border:1px solid var(--morado-24);
+      color:var(--morado); background:#fff;
+    }
+    .chip-static{cursor:default}
+    .chip-static:hover{background:#fff;transform:none;box-shadow:none;border-color:var(--borde)}
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Submenú -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Funciones</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Sistemas de información</h1>
+    <a class="back" href="gestion_tecnologica.html">← Volver a Gestión tecnológica</a>
+
+    <!-- SISTEMAS DE LA ENTIDAD -->
+    <section class="section">
+      <h2>Sistemas de la entidad</h2>
+      <div class="apps">
+        <a class="chip" href="simisional.html">
+          <span class="dot" aria-hidden="true"></span> SIMISIONAL
+          <span class="chev" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="chip" href="kawak.html">
+          <span class="dot" aria-hidden="true"></span> Kawak
+          <span class="chev" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="chip" href="orfeo.html">
+          <span class="dot" aria-hidden="true"></span> Orfeo
+          <span class="chev" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="chip" href="pandora.html">
+          <span class="dot" aria-hidden="true"></span> Pandora
+          <span class="chev" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="chip" href="icops.html">
+          <span class="dot" aria-hidden="true"></span> ICOPS
+          <span class="chev" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="chip" href="repositorio_furag.html">
+          <span class="dot" aria-hidden="true"></span> Repositorio FURAG
+          <span class="chev" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="chip" href="aplicativo_mujeres.html">
+          <span class="dot" aria-hidden="true"></span> Aplicativo web Mujeres
+          <span class="chev" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- EXTERNOS (sin enlace) -->
+    <section class="section">
+      <h2>Externos</h2>
+      <div class="apps">
+        <div class="chip-static">
+          <span class="dot" aria-hidden="true"></span>
+          Aplicativo web Buenas Prácticas – PP
+        </div>
+        <div class="chip-static">
+          <span class="dot" aria-hidden="true"></span>
+          SICapital
+        </div>
+        <div class="chip-static">
+          <span class="dot" aria-hidden="true"></span>
+          Mujeres en riesgo de feminicidio – INMLCF
+        </div>
+        <div class="chip-static">
+          <span class="dot" aria-hidden="true"></span>
+          Interoperabilidad para el bienestar
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
 
