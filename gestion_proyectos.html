@@ -6,7 +6,20 @@
   <title>Gestión por procesos – Oficina Asesora de Planeación</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{ --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea }
+    :root{
+      --rosa:#e5706e;
+      --gris:#f3f5f6;
+      --negro:#111;
+      --maxw:1100px;
+      --borde:#e5e7ea;
+
+      /* Morados solicitados */
+      --morado:#8d5497;                  /* principal */
+      --morado-ink:#5b3561;              /* para texto sobre fondos suaves */
+      --morado-10: rgba(141,84,151,.10); /* suaves para fondos */
+      --morado-16: rgba(141,84,151,.16);
+      --morado-24: rgba(141,84,151,.24);
+    }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
 
@@ -42,38 +55,63 @@
     .dot{width:10px;height:10px;border-radius:999px;background:var(--rosa)}
     .card b{font-size:15px}
 
-    /* Tarjeta desplegable */
-    details.card{ padding:0; overflow:hidden; }
+    /* Tarjeta desplegable: base */
+    details.card{ padding:0; overflow:hidden; border:1px solid var(--borde); }
     details.card > summary{
       list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
       padding:14px 16px;font-weight:700
     }
     details.card > summary::-webkit-details-marker{display:none}
+    /* + redondo */
     .plus{
       margin-left:auto;display:inline-grid;place-items:center;width:28px;height:28px;
-      border:1px solid var(--borde);border-radius:999px;background:#fff;
-      transition:transform .2s ease;
-      font-weight:800;
+      border:1.5px solid var(--morado);color:var(--morado);
+      border-radius:999px;background:#fff;font-weight:800;
+      transition:transform .2s ease, background .2s ease, color .2s ease;
     }
-    details[open] .plus{transform:rotate(45deg)} /* + -> × visual */
+    details[open] .plus{transform:rotate(45deg);background:var(--morado);color:#fff}
 
-    .panel{ border-top:1px solid var(--borde);background:#fff;padding:12px 14px }
-    .group{ margin-bottom:12px }
+    /* Panel morado elegante */
+    .panel{
+      background:linear-gradient(0deg,#fff, #fff), var(--morado-10);
+      border-top:1px solid var(--borde);
+      padding:0;
+    }
+    .panel-body{
+      display:grid; gap:12px; padding:14px;
+      border-left:4px solid var(--morado);
+      background:
+        radial-gradient(120% 60% at 0% 0%, var(--morado-10), transparent 60%);
+      border-bottom-left-radius:14px;
+    }
+
+    /* Secciones dentro del panel */
+    .group{margin:2px 0 8px}
     .group-title{
-      font-size:12px; color:#667085; font-weight:800; letter-spacing:.02em;
-      text-transform:uppercase; margin:0 2px 6px;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px;border-radius:999px;
+      font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+      color:#fff;background:var(--morado);font-weight:800;
     }
-    .link-list, .index-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+
+    /* Listas estilo “botón” */
+    .link-list, .index-list{display:grid;gap:8px;margin:8px 0 0;padding:0;list-style:none}
     .link-item, .index-item{
-      background:#fafafa;border:1px solid var(--borde);border-radius:12px;
-      padding:10px 12px;font-weight:600;display:flex;align-items:center;gap:8px;
-      text-decoration:none;color:inherit;
+      background:#fff;border:1px solid var(--borde);border-radius:12px;
+      padding:12px 14px;font-weight:700;display:flex;align-items:center;gap:10px;
+      text-decoration:none;color:#1f2430;
+      transition:box-shadow .15s ease, border-color .15s ease, transform .06s ease;
     }
-    .link-item:hover{background:#fff}
-    .arrow{margin-left:auto;opacity:.55}
+    .link-item:hover, .index-item:hover{
+      border-color:var(--morado);
+      box-shadow:0 0 0 3px var(--morado-10);
+      transform:translateY(-1px);
+    }
+    .arrow{margin-left:auto;opacity:.65}
     .badge{
-      margin-left:8px;background:#eef1f3;border:1px solid var(--borde);
-      padding:2px 8px;border-radius:999px;font-size:12px;color:#555;font-weight:700
+      margin-left:8px;background:var(--morado-10);
+      border:1px solid var(--morado-24);
+      padding:2px 8px;border-radius:999px;font-size:12px;color:var(--morado-ink);font-weight:800
     }
 
     /* Footer */
@@ -107,7 +145,7 @@
     <h2>Roles</h2>
     <section class="stack" aria-label="Roles de gestión por procesos">
 
-      <!-- 1 (desplegable con procesos) -->
+      <!-- 1: con procesos -->
       <details class="card">
         <summary>
           <span class="dot" aria-hidden="true"></span>
@@ -115,66 +153,68 @@
           <span class="plus" aria-label="Desplegar">+</span>
         </summary>
         <div class="panel">
-          <div class="group">
-            <div class="group-title">Procesos estratégicos</div>
-            <ul class="link-list">
-              <li>
-                <a class="link-item" href="proyectos_inversion_8225.html">
-                  Direccionamiento Estratégico
-                  <span class="arrow" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a class="link-item" href="gestion_conocimiento.html">
-                  Gestión de Conocimiento e Innovación
-                  <span class="arrow" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a class="link-item" href="arquitectura_empresarial.html">
-                  Arquitectura Empresarial
-                  <span class="arrow" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a class="link-item" href="mejoramiento_institucional.html">
-                  Mejoramiento Institucional
-                  <span class="arrow" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
+          <div class="panel-body">
+            <div class="group">
+              <span class="group-title">Procesos estratégicos</span>
+              <ul class="link-list">
+                <li>
+                  <a class="link-item" href="proyectos_inversion_8225.html">
+                    Direccionamiento Estratégico
+                    <span class="arrow" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a class="link-item" href="gestion_conocimento.html">
+                    Gestión de Conocimiento e Innovación
+                    <span class="arrow" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a class="link-item" href="arquietectura_empresarial.html">
+                    Arquitectura Empresarial
+                    <span class="arrow" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a class="link-item" href="mejoramiento_insiticuional.html">
+                    Mejoramiento Institucional
+                    <span class="arrow" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          <div class="group">
-            <div class="group-title">Proceso de apoyo</div>
-            <ul class="link-list">
-              <li>
-                <a class="link-item" href="gestion_tecnologica.html">
-                  Gestión tecnológica
-                  <span class="arrow" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </a>
-              </li>
-            </ul>
+            <div class="group">
+              <span class="group-title">Proceso de apoyo</span>
+              <ul class="link-list">
+                <li>
+                  <a class="link-item" href="gestion_tecnologica.html">
+                    Gestión tecnológica
+                    <span class="arrow" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </details>
@@ -185,7 +225,7 @@
         <b>Responsable gestión ambiental</b>
       </div>
 
-      <!-- 3 (desplegable de índices) -->
+      <!-- 3: Índices, con mismo estilo morado -->
       <details class="card">
         <summary>
           <span class="dot" aria-hidden="true"></span>
@@ -193,16 +233,20 @@
           <span class="plus" aria-label="Desplegar">+</span>
         </summary>
         <div class="panel">
-          <ul class="index-list" aria-label="Índices asociados">
-            <li class="index-item">Desarrollo Institucional <span class="badge">FURAG</span></li>
-            <li class="index-item">Gestión Pública <span class="badge">IGP</span></li>
-            <li class="index-item">Transparencia <span class="badge">ITA</span></li>
-            <li class="index-item">Transparencia por Bogotá <span class="badge">ITB</span></li>
-            <li class="index-item">Innovación Pública <span class="badge">IIP</span></li>
-            <li class="index-item">Gobierno Abierto <span class="badge">IGA</span></li>
-          </ul>
+          <div class="panel-body">
+            <span class="group-title">Índices asociados</span>
+            <ul class="index-list" aria-label="Índices asociados">
+              <li class="index-item">Desarrollo Institucional <span class="badge">FURAG</span></li>
+              <li class="index-item">Gestión Pública <span class="badge">IGP</span></li>
+              <li class="index-item">Transparencia <span class="badge">ITA</span></li>
+              <li class="index-item">Transparencia por Bogotá <span class="badge">ITB</span></li>
+              <li class="index-item">Innovación Pública <span class="badge">IIP</span></li>
+              <li class="index-item">Gobierno Abierto <span class="badge">IGA</span></li>
+            </ul>
+          </div>
         </div>
       </details>
+
     </section>
   </main>
 
@@ -215,3 +259,4 @@
   </script>
 </body>
 </html>
+
