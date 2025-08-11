@@ -35,17 +35,22 @@
     /* Secciones */
     .section{margin-top:6px}
     .section h2{
-      margin:0 0 12px;
+      margin:0 0 14px;
       font-size:12.5px; letter-spacing:.10em; text-transform:uppercase;
       color:#5b3561; background:var(--morado-10);
       display:inline-flex; padding:6px 12px; border-radius:999px; font-weight:800;
       border:1px solid var(--morado-24);
     }
 
-    /* Grilla de apps */
-    .apps{
-      display:grid; gap:12px;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    /* Grilla de apps: 2 por fila y centrado */
+    .apps{display:grid; gap:16px}
+    .apps.two{
+      grid-template-columns:repeat(2,minmax(360px,1fr));
+      max-width:920px;   /* centra y limita el ancho de la grilla */
+      margin:0 auto;
+    }
+    @media (max-width:760px){
+      .apps.two{grid-template-columns:1fr; max-width:560px}
     }
 
     /* Botoncitos / chips */
@@ -101,7 +106,7 @@
     <!-- SISTEMAS DE LA ENTIDAD -->
     <section class="section">
       <h2>Sistemas de la entidad</h2>
-      <div class="apps">
+      <div class="apps two">
         <a class="chip" href="simisional.html">
           <span class="dot" aria-hidden="true"></span> SIMISIONAL
           <span class="chev" aria-hidden="true">
@@ -170,7 +175,7 @@
     <!-- EXTERNOS (sin enlace) -->
     <section class="section">
       <h2>Externos</h2>
-      <div class="apps">
+      <div class="apps two">
         <div class="chip-static">
           <span class="dot" aria-hidden="true"></span>
           Aplicativo web Buenas Prácticas – PP
