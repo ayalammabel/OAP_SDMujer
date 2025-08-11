@@ -1,1 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repositorio FURAG – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e;
+      --gris:#f7f8f9;
+      --borde:#e5e7ea;
+      --maxw:1100px;
+
+      --morado:#8d5497;
+      --morado-soft:rgba(141,84,151,.10);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
+
+    /* Barra superior */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Submenú */
+    .subnav{background:#fafafa;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+
+    /* Contenido */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 6px;font-size:30px}
+    .back{display:inline-flex;gap:8px;align-items:center;margin:6px 0 22px;color:#444;text-decoration:none;font-size:14px}
+    .back:hover{text-decoration:underline}
+
+    /* Tarjetas */
+    .card{
+      background:#fff;border:1px solid var(--borde);border-radius:14px;padding:16px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02)
+    }
+    .card h2{
+      margin:0 0 14px;font-size:18px;font-weight:800;
+      display:flex;align-items:center;gap:10px
+    }
+    .tag{
+      font-size:12px;font-weight:800;color:#fff;background:var(--morado);
+      padding:4px 10px;border-radius:999px
+    }
+
+    .section-title{
+      margin:10px 0 16px;display:inline-flex;align-items:center;gap:10px;
+      padding:6px 12px;border:1px solid #eadcf1;border-radius:999px;background:var(--morado-soft);
+      font-weight:800;color:#5a2f63;font-size:13px
+    }
+
+    .grid2{
+      background:var(--gris);border:1px solid var(--borde);border-radius:12px;padding:12px;
+      display:grid;gap:12px;grid-template-columns:1fr
+    }
+    @media (min-width:820px){ .grid2{grid-template-columns:1fr 1fr} }
+
+    .subpanel{
+      background:#fff;border:1px solid var(--borde);border-radius:12px;padding:14px
+    }
+    .subpanel h3{margin:0 0 8px;font-size:15px}
+    ul{margin:0;padding-left:20px}
+    li{margin:6px 0}
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Submenú -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill">Funciones</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Repositorio FURAG</h1>
+    <a class="back" href="sistemas_informacion.html">← Volver a Sistemas de información</a>
+
+    <div class="section-title">Avances y apuestas</div>
+
+    <article class="card" aria-label="Avances y apuestas en Repositorio FURAG">
+      <h2>Avances y apuestas <span class="tag">FURAG</span></h2>
+
+      <div class="grid2">
+        <!-- Avances -->
+        <div class="subpanel">
+          <h3>Avances</h3>
+          <ul>
+            <li>Consolidado de preguntas.</li>
+            <li>Repositorio de respuestas.</li>
+            <li>Revisión de pendientes.</li>
+            <li>Revisión de avances.</li>
+            <li>Repositorio de vigencias anteriores.</li>
+          </ul>
+        </div>
+
+        <!-- Apuestas -->
+        <div class="subpanel">
+          <h3>Apuestas</h3>
+          <ul>
+            <li>Repositorio de todos los índices institucionales.</li>
+            <li>Comparativo de respuesta por vigencia.</li>
+            <li>Diagramas de mando.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
+
 
