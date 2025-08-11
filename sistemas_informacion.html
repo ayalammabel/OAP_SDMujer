@@ -34,6 +34,9 @@
 
     /* Secciones */
     .section{margin-top:6px}
+    /* MÁS ESPACIO ANTES DE "EXTERNOS" */
+    .section + .section{ margin-top:40px; }
+
     .section h2{
       margin:0 0 14px;
       font-size:12.5px; letter-spacing:.10em; text-transform:uppercase;
@@ -46,14 +49,14 @@
     .apps{display:grid; gap:16px}
     .apps.two{
       grid-template-columns:repeat(2,minmax(360px,1fr));
-      max-width:920px;   /* centra y limita el ancho de la grilla */
+      max-width:920px;
       margin:0 auto;
     }
     @media (max-width:760px){
       .apps.two{grid-template-columns:1fr; max-width:560px}
     }
 
-    /* Botoncitos / chips */
+    /* Chips */
     .chip, .chip-static{
       display:flex; align-items:center; gap:12px;
       background:#fff; border:1px solid var(--borde); border-radius:14px;
@@ -197,5 +200,6 @@
   </main>
 </body>
 </html>
+
 
 
