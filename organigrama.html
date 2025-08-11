@@ -7,12 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --rosa:#e5706e;
-      --morado:#6d28d9;
-      --light:#ede9fe;
-      --light-b:#d7ccff;
-      --line:#cfd6dc;
-      --maxw:1100px;
+      --rosa:#e5706e; --morado:#6d28d9; --light:#ede9fe; --light-b:#d7ccff;
+      --line:#cfd6dc; --maxw:1100px;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
@@ -58,7 +54,6 @@
 
     <div class="org-wrap">
       <svg viewBox="0 0 1600 600" role="img" aria-label="Esquema del organigrama sin textos">
-        <!-- ===== LÍNEAS ===== -->
         <!-- Tronco principal -->
         <line class="line" x1="700" y1="100" x2="700" y2="300"/>
         <!-- Rama lateral derecha -->
@@ -69,8 +64,8 @@
         <line class="line" x1="350" y1="200" x2="350" y2="220"/>
         <line class="line" x1="550" y1="200" x2="550" y2="220"/>
 
-        <!-- Línea base (recortada para que termine bajo el riel) -->
-        <line class="line" x1="200" y1="300" x2="1480" y2="300"/>
+        <!-- LÍNEA BASE recortada (solo entre conectores útiles) -->
+        <line class="line" x1="350" y1="300" x2="1110" y2="300"/>
 
         <!-- Conectores base -> cajas inferiores izquierda -->
         <line class="line" x1="350" y1="300" x2="350" y2="320"/>
@@ -91,7 +86,6 @@
         <!-- ===== CAJAS ===== -->
         <!-- Raíz -->
         <rect class="darkRect round" x="610" y="60" width="180" height="40"/>
-
         <!-- Caja media derecha -->
         <rect class="darkRect round" x="900" y="160" width="180" height="40"/>
 
@@ -103,7 +97,7 @@
         <rect class="lightRect round" x="260" y="320" width="180" height="40"/>
         <rect class="lightRect round" x="460" y="320" width="180" height="40"/>
 
-        <!-- Riel derecho (anchura extendida para cubrir la 4ª subcaja) -->
+        <!-- Riel derecho (cubre 4 subcajas) -->
         <rect class="railRect round" x="840" y="320" width="640" height="40"/>
 
         <!-- Subcajas -->
