@@ -1,1 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIMISIONAL – Sistemas de información</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e;
+      --gris:#f7f8f9;
+      --negro:#111;
+      --borde:#e5e7ea;
+      --maxw:1100px;
+
+      /* morados institucionales que veníamos usando */
+      --morado:#8d5497;
+      --morado-ink:#5b3561;
+      --morado-08:rgba(141,84,151,.08);
+      --morado-12:rgba(141,84,151,.12);
+      --morado-16:rgba(141,84,151,.16);
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+
+    /* Topbar */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Subnav */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{
+      text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;
+      border:1px solid #e2e2e2;font-weight:600;font-size:14px
+    }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+    /* Main container */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 6px;font-size:28px;color:#000}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 22px}
+    .back:hover{text-decoration:underline}
+
+    /* Badges/chips */
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--morado);color:#fff;border-radius:999px;
+      padding:6px 12px;font-weight:800;font-size:12.5px
+    }
+    .hint{
+      display:inline-flex;align-items:center;gap:6px;margin-left:10px;
+      font-weight:700;font-size:12.5px;color:var(--morado-ink);
+      background:var(--morado-08);border:1px solid var(--morado-16);
+      padding:6px 10px;border-radius:999px;text-decoration:none;
+    }
+    .hint:hover{background:var(--morado-12)}
+
+    /* Chips de features */
+    .chips{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));margin:16px 0 26px}
+    .chip{
+      display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--borde);
+      border-radius:12px;padding:12px 14px;font-weight:700;
+      box-shadow:0 1px 0 rgba(0,0,0,.02)
+    }
+    .dot{width:8px;height:8px;background:var(--rosa);border-radius:999px}
+    
+    /* Acordeones */
+    details.section{
+      margin:16px 0;border:1px solid var(--borde);border-radius:14px;overflow:hidden;background:#fff
+    }
+    summary.head{
+      list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+      padding:14px 16px;background:#fcfcfd;font-weight:800;border-bottom:1px solid var(--borde)
+    }
+    summary.head::-webkit-details-marker{display:none}
+    .head .mark{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:30px;height:30px;border-radius:999px;background:var(--morado-08);
+      color:var(--morado);font-weight:900
+    }
+    details[open] .head .mark{transform:rotate(45deg)}
+    .sec-body{padding:16px;background:linear-gradient(0deg,#fff,#fff),var(--morado-08)}
+
+    /* Comparativa 1.0 vs 2.0 */
+    .comp-grid{display:grid;gap:14px;grid-template-columns:1fr; }
+    @media (min-width:800px){ .comp-grid{grid-template-columns:1fr 1fr} }
+    .comp-card{
+      background:#fff;border:1px solid var(--borde);border-radius:12px;padding:14px
+    }
+    .comp-title{
+      display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:13px;font-weight:800;color:#555
+    }
+    .tag{padding:2px 7px;border-radius:999px;border:1px solid var(--morado-16);background:var(--morado-08);color:var(--morado-ink);font-size:11px;font-weight:800}
+    .sub{font-weight:800;margin:8px 0 6px;font-size:13.5px}
+    .list{margin:0;padding-left:18px}
+    .list li{margin:6px 0}
+
+    /* Footer */
+    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Subnav -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Funciones</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <main class="wrap" role="main">
+    <h1>SIMISIONAL</h1>
+    <div>
+      <span class="badge">Sistema de la entidad</span>
+      <a class="hint" href="sistemas_informacion.html">← Volver a Sistemas de información</a>
+    </div>
+
+    <!-- Chips/Features principales -->
+    <section class="chips" aria-label="Componentes principales">
+      <div class="chip"><span class="dot"></span>Integración Chat atención a la ciudadanía</div>
+      <div class="chip"><span class="dot"></span>Acuerdos de intercambio de información</div>
+      <div class="chip"><span class="dot"></span>SAAT</div>
+      <div class="chip"><span class="dot"></span>Línea Púrpura Distrital</div>
+    </section>
+
+    <!-- Sección 1: Generación y Producción -->
+    <details class="section" open>
+      <summary class="head"><span class="mark">+</span> Generación y producción</summary>
+      <div class="sec-body">
+        <div class="comp-grid">
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">SIMISIONAL 1.0</span> Limitaciones en trazabilidad y datos</div>
+            <ul class="list">
+              <li>No permitía trazabilidad por mujer atendida, dificultando el seguimiento personalizado.</li>
+              <li>Sin repositorio integrado para centralizar la información.</li>
+              <li>Calidad de datos baja, afectando la confiabilidad.</li>
+              <li>Requerimientos levantados de forma individual, sin coordinación.</li>
+              <li>Sin política interna que articulara procesos y objetivos.</li>
+            </ul>
+          </article>
+
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">SIMISIONAL 2.0</span> Mejora en la trazabilidad y estandarización</div>
+            <ul class="list">
+              <li>Trazabilidad específica por mujer atendida, mejorando control y seguimiento.</li>
+              <li>Repositorio unificado para almacenar y gestionar los datos.</li>
+              <li>Estandarización de datos que asegura uniformidad y calidad.</li>
+              <li>Requerimientos articulados entre las partes, con coordinación.</li>
+              <li>Política de arquitectura empresarial que orienta la gestión.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </details>
+
+    <!-- Sección 2: Herramientas de uso y apropiación -->
+    <details class="section">
+      <summary class="head"><span class="mark">+</span> Herramientas de uso y apropiación</summary>
+      <div class="sec-body">
+        <div class="comp-grid">
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">Hardware 1.0</span> Infraestructura insuficiente y desactualizada</div>
+            <ul class="list">
+              <li>Política de privacidad desactualizada.</li>
+              <li>Bajos niveles de seguridad informática.</li>
+              <li>Dispositivos inadecuados para las necesidades.</li>
+              <li>Datos alojados localmente con limitaciones de acceso y seguridad.</li>
+              <li>Servidores de prueba y producción compartían la misma estructura.</li>
+              <li>Respaldos de información no eran seguros ni confiables.</li>
+            </ul>
+
+            <div class="sub">Software 1.0 – Diseño básico y limitaciones funcionales</div>
+            <ul class="list">
+              <li>Módulos independientes sin integración efectiva.</li>
+              <li>Servicios útiles para la gestión limitados o ausentes.</li>
+              <li>Interfaz poco intuitiva que dificultaba el uso.</li>
+              <li>Lenguaje de programación obsoleto.</li>
+              <li>Desarrollo y pruebas directamente en ambientes de producción.</li>
+              <li>Sin licencias que aseguraran soporte y legalidad.</li>
+            </ul>
+          </article>
+
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">Hardware 2.0</span> Modernización y seguridad reforzada</div>
+            <ul class="list">
+              <li>Política de privacidad y tratamiento de datos actualizada a normativas.</li>
+              <li>Refuerzo de la seguridad digital para proteger información sensible.</li>
+              <li>Equipos acordes a necesidades técnicas.</li>
+              <li>Almacenamiento en la nube que mejora accesibilidad y seguridad.</li>
+              <li>Servidores diferenciados para pruebas y producción.</li>
+            </ul>
+
+            <div class="sub">Software 2.0 – Diseño modular escalable e integrado</div>
+            <ul class="list">
+              <li>Arquitectura modular que facilita incorporar componentes.</li>
+              <li>Servicios integrados orientados a la gestión eficiente.</li>
+              <li>Interfaz intuitiva y amigable para el usuario final.</li>
+              <li>Lenguaje moderno y soportado.</li>
+              <li>Fases claras: desarrollo, pruebas/entrenamiento y producción.</li>
+              <li>Licencias que garantizan soporte y legalidad.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </details>
+
+    <!-- Sección 3: Analítica -->
+    <details class="section">
+      <summary class="head"><span class="mark">+</span> Analítica</summary>
+      <div class="sec-body">
+        <div class="comp-grid">
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">SIMISIONAL 1.0</span> Difusión desarticulada y poco accesible</div>
+            <ul class="list">
+              <li>Mediciones desarticuladas que dificultaban la comparación.</li>
+              <li>Sin visualización territorial que apoyara el análisis local.</li>
+              <li>Accesibilidad a la información no era prioridad.</li>
+            </ul>
+
+            <div class="sub">Recursos y procesos limitados</div>
+            <ul class="list">
+              <li>Bajo recurso humano especializado en analítica.</li>
+              <li>Sin instancia articuladora que coordinara la analítica.</li>
+            </ul>
+          </article>
+
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">SIMISIONAL 2.0</span> Estandarización y accesibilidad mejoradas</div>
+            <ul class="list">
+              <li>Estandarización de mediciones para coherencia institucional.</li>
+              <li>Visualizaciones diversas (territoriales, transversales y estratégicas).</li>
+              <li>Difusión accesible para público interno y externo.</li>
+            </ul>
+
+            <div class="sub">Recursos especializados y procesos institucionalizados</div>
+            <ul class="list">
+              <li>Vinculación de talento especializado y creación de un grupo de analítica.</li>
+              <li>Herramientas modernas para procesamiento y análisis.</li>
+              <li>Reportes integrados que facilitan toma de decisiones.</li>
+              <li>Actualización constante de procesos, manuales y guías.</li>
+              <li>Priorización consciente de la visualización de información clave.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </details>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+</body>
+</html>
 
