@@ -25,6 +25,118 @@
     /* Topbar */
     .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
     .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
-    .logo{height:40px;width:
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Subnav */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+    /* Main */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 6px;font-size:28px;color:#000}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 22px}
+    .back:hover{text-decoration:underline}
+
+    /* Badges */
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;background:var(--morado);color:#fff;
+      border-radius:999px;padding:6px 12px;font-weight:800;font-size:12.5px
+    }
+    .hint{
+      display:inline-flex;align-items:center;gap:6px;margin-left:10px;font-weight:700;font-size:12.5px;
+      color:var(--morado-ink);background:var(--morado-08);border:1px solid var(--morado-16);
+      padding:6px 10px;border-radius:999px;text-decoration:none;
+    }
+    .hint:hover{background:var(--morado-12)}
+
+    /* Section / accordion */
+    details.section{ margin:16px 0;border:1px solid var(--borde);border-radius:14px;overflow:hidden;background:#fff }
+    summary.head{
+      list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+      padding:14px 16px;background:#fcfcfd;font-weight:800;border-bottom:1px solid var(--borde)
+    }
+    summary.head::-webkit-details-marker{display:none}
+    .head .mark{
+      display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;
+      background:var(--morado-08);color:var(--morado);font-weight:900
+    }
+    details[open] .head .mark{transform:rotate(45deg)}
+    .sec-body{padding:16px;background:linear-gradient(0deg,#fff,#fff),var(--morado-08)}
+
+    /* Grid pares */
+    .grid2{display:grid;gap:14px;grid-template-columns:1fr}
+    @media (min-width:800px){ .grid2{grid-template-columns:1fr 1fr} }
+    .card{ background:#fff;border:1px solid var(--borde);border-radius:12px;padding:14px }
+    .muted{display:inline-flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13px;font-weight:800;color:#555}
+    .tag{padding:2px 7px;border-radius:999px;border:1px solid var(--morado-16);background:var(--morado-08);color:var(--morado-ink);font-size:11px;font-weight:800}
+    ul{margin:0;padding-left:18px} li{margin:6px 0}
+
+    /* Footer */
+    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Subnav -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Funciones</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <main class="wrap" role="main">
+    <h1>Kawak</h1>
+    <div>
+      <span class="badge">Sistema de la entidad</span>
+      <a class="hint" href="sistemas_informacion.html">← Volver a Sistemas de información</a>
+    </div>
+
+    <!-- Avances y Apuestas -->
+    <details class="section" open>
+      <summary class="head"><span class="mark">+</span> Avances y apuestas</summary>
+      <div class="sec-body">
+        <div class="grid2">
+          <!-- SIG / Avances -->
+          <article class="card">
+            <p class="muted"><span class="tag">SIG</span> Avances</p>
+            <ul>
+              <li>Permite contar con un sistema de gestión, pero es deficiente en riesgos, mejora continua e indicadores.</li>
+              <li>Construcción de repositorio de documentos obsoletos.</li>
+            </ul>
+          </article>
+
+          <!-- Mejora continua / Apuestas -->
+          <article class="card">
+            <p class="muted"><span class="tag">Mejora continua</span> Apuestas</p>
+            <ul>
+              <li>Integrar un único sistema de información que contenga módulo SIG.</li>
+              <li>Identificación de riesgos de seguridad de la información.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </details>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+</body>
+</html>
+
 
 
