@@ -30,21 +30,13 @@
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 6px;font-size:30px;color:#000}
 
-    /* Subtítulo y acción secundaria */
+    /* Subtítulo */
     .subline{display:flex;align-items:center;gap:10px;margin:0 0 8px}
     .tag{
-      background:var(--morado); color:#fff; font-weight:800; font-size:13px;
-      padding:4px 10px; border-radius:999px; line-height:1;
+      background:var(--morado); color:#fff; font-weight:800; font-size:14px;
+      padding:6px 12px; border-radius:999px; line-height:1;
       box-shadow:0 0 0 3px var(--morado-10);
     }
-    .tag.tag-lg{font-size:14px;padding:6px 12px}
-    .tag-out{
-      display:inline-flex; align-items:center; gap:6px;
-      font-weight:700; font-size:13px; color:var(--morado);
-      padding:4px 10px; border-radius:999px; line-height:1;
-      border:1px solid var(--morado-24); background:#fff; text-decoration:none;
-    }
-    .tag-out:hover{background:var(--morado-10); border-color:var(--morado)}
 
     .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 18px}
     .back:hover{text-decoration:underline}
@@ -96,21 +88,16 @@
   <main class="wrap" role="main">
     <h1>Gestión de Conocimiento e Innovación</h1>
 
-    <!-- etiqueta morada + botón de procesos -->
+    <!-- Solo el subtítulo -->
     <div class="subline">
-      <span class="tag tag-lg">Proceso estratégico</span>
-      <a class="tag-out" href="gestion_proyectos.html">
-        Ver procesos estratégicos
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+      <span class="tag">Proceso estratégico</span>
     </div>
 
+    <!-- Único botón de navegación -->
     <a class="back" href="gestion_proyectos.html">← Volver a Procesos</a>
 
     <section class="grid">
-      <!-- Componentes / líneas -->
+      <!-- Componentes -->
       <article class="card">
         <div class="card-head">Componentes</div>
         <div class="list">
@@ -133,11 +120,11 @@
         </div>
       </article>
 
-      <!-- Herramientas / enlaces relacionados -->
+      <!-- Herramientas -->
       <article class="card">
         <div class="card-head">Herramientas</div>
         <div class="list">
-          <a class="row" href="#" title="Ir al Diccionario de datos">
+          <a class="row" href="#">
             <span class="dot" aria-hidden="true"></span>
             <b>Diccionario de datos</b>
             <span class="arrow" aria-hidden="true">
@@ -146,7 +133,7 @@
               </svg>
             </span>
           </a>
-          <a class="row" href="#" title="Ir al Grupo gestión de datos">
+          <a class="row" href="#">
             <span class="dot" aria-hidden="true"></span>
             <b>Grupo gestión de datos</b>
             <span class="arrow" aria-hidden="true">
@@ -161,4 +148,3 @@
   </main>
 </body>
 </html>
-
