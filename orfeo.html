@@ -12,31 +12,33 @@
       --borde:#e5e7ea;
       --maxw:1100px;
 
-      --morado:#8d5497;            /* acento */
+      --morado:#8d5497;
       --morado-soft:rgba(141,84,151,.10);
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
 
-    /* Barra superior */
+    /* Topbar */
     .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
     .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
     .logo{height:40px;width:auto;display:block}
     .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
 
-    /* Submenú (coherente con el sitio) */
+    /* Subnav */
     .subnav{background:#fafafa;border-bottom:1px solid #ececec}
     .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
     .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
     .pill:hover{background:#fff;border-color:#d8d8d8}
 
-    /* Contenido */
+    /* Content */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
     h1{margin:0 0 6px;font-size:30px}
     .back{display:inline-flex;gap:8px;align-items:center;margin:6px 0 22px;color:#444;text-decoration:none;font-size:14px}
     .back:hover{text-decoration:underline}
 
-    /* Tarjetas */
+    /* Cards */
+    .grid{display:grid;gap:16px}
+    @media (min-width:860px){ .grid{grid-template-columns:1fr 1fr} }
     .card{
       background:#fff;border:1px solid var(--borde);border-radius:14px;padding:16px;
       box-shadow:0 1px 0 rgba(0,0,0,.02)
@@ -45,17 +47,11 @@
       margin:0 0 10px;font-size:18px;font-weight:800;
       display:flex;align-items:center;gap:10px
     }
-    .tag{
-      font-size:12px;font-weight:800;color:#fff;background:var(--morado);
-      padding:4px 10px;border-radius:999px
-    }
-    .panel{
-      border:1px solid var(--borde);border-radius:12px;padding:14px;background:var(--gris)
-    }
+    .tag{font-size:12px;font-weight:800;color:#fff;background:var(--morado);padding:4px 10px;border-radius:999px}
+    .panel{border:1px solid var(--borde);border-radius:12px;padding:14px;background:var(--gris)}
     ul{margin:0;padding-left:20px}
     li{margin:6px 0}
 
-    /* Aviso superior de sección */
     .section-title{
       margin:10px 0 16px;display:inline-flex;align-items:center;gap:10px;
       padding:6px 12px;border:1px solid #eadcf1;border-radius:999px;background:var(--morado-soft);
@@ -65,7 +61,7 @@
 </head>
 <body>
 
-  <!-- Barra superior -->
+  <!-- Topbar -->
   <header class="topbar" role="banner">
     <div class="wrap">
       <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
@@ -74,7 +70,7 @@
     </div>
   </header>
 
-  <!-- Submenú -->
+  <!-- Subnav -->
   <nav class="subnav" aria-label="Navegación secundaria">
     <div class="wrap">
       <a href="index.html" class="pill">Temas</a>
@@ -82,26 +78,38 @@
     </div>
   </nav>
 
-  <!-- Contenido -->
+  <!-- Main -->
   <main class="wrap" role="main">
     <h1>Orfeo</h1>
     <a class="back" href="sistemas_informacion.html">← Volver a Sistemas de información</a>
 
     <div class="section-title">Avances y apuestas</div>
 
-    <article class="card" aria-label="Avances y apuestas en Orfeo">
-      <h2>Avances y apuestas <span class="tag">Orfeo</span></h2>
-      <div class="panel">
-        <ul>
-          <li>Versionamiento de tipologías documentales.</li>
-          <li>Integración con el sistema Pandora.</li>
-          <li>Interoperabilidad con el sistema distrital <em>Bogotá te Escucha</em>.</li>
-          <li>Programa de migración de las dos versiones de Orfeo.</li>
-          <li>Versionamiento de la matriz TRD.</li>
-          <li>Modificación de revisores y aprobadores en borradores de radicados.</li>
-        </ul>
-      </div>
-    </article>
+    <section class="grid">
+      <!-- Avances -->
+      <article class="card" aria-label="Avances en Orfeo">
+        <h2>Avances <span class="tag">Orfeo</span></h2>
+        <div class="panel">
+          <ul>
+            <li>Versionamiento de tipologías documentales.</li>
+            <li>Integración con el sistema Pandora.</li>
+            <li>Interoperabilidad con el sistema distrital <em>Bogotá te Escucha</em>.</li>
+            <li>Versionamiento de la matriz TRD.</li>
+            <li>Modificación de revisores y aprobadores en borradores de radicados.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Apuestas -->
+      <article class="card" aria-label="Apuestas en Orfeo">
+        <h2>Apuestas <span class="tag">Orfeo</span></h2>
+        <div class="panel">
+          <ul>
+            <li>Programa de migración de las dos versiones de Orfeo.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
   </main>
 </body>
 </html>
