@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Direccionamiento estratégico – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea;
+      --morado:#8d5497; --morado-ink:#5b3561; --morado-10:rgba(141,84,151,.10);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+
+    /* top bar */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* subnav */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+    /* content */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 8px;font-size:32px;color:#000}
+    .meta{display:flex;gap:12px;align-items:center;margin:6px 0 14px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:var(--morado);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12.5px}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:var(--morado-ink);background:var(--morado-10);border:1px solid #e7d9ec;padding:6px 10px;border-radius:999px}
+    .back:hover{background:#f4eaf7}
+
+    /* grid */
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+
+    /* cards contenedores */
+    .card{background:#fff;border:1px solid var(--borde);border-radius:14px;overflow:hidden}
+    .card-head{display:flex;align-items:center;gap:10px;padding:12px 16px;font-weight:800;background:#fafafa;border-bottom:1px solid var(--borde)}
+    .list{display:grid}
+
+    /* filas clickables */
+    .row, .row-like{display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;border-top:1px solid var(--borde);text-decoration:none;color:inherit}
+    .row:first-child{border-top:none}
+    .row:hover, .row-like:hover{background:#f9fbfc}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--rosa)}
+    .arrow{margin-left:auto;opacity:.55}
+    .arrow svg{display:block}
+
+    /* detalles en lista (para Proyectos) */
+    details.listitem{border-top:1px solid var(--borde)}
+    details.listitem[open]{background:#fcfcfd}
+    details.listitem > summary{
+      list-style:none;display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;font-weight:700
+    }
+    details.listitem > summary::-webkit-details-marker{display:none}
+    .chev{margin-left:auto;opacity:.6;transition:transform .18s ease}
+    details[open] .chev{transform:rotate(90deg)}
+    .sublist{margin:0;padding:8px 0 12px 52px;display:grid;gap:6px}
+    .sublist a{display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2430;font-weight:600;padding:8px 10px;border:1px solid var(--borde);border-radius:10px;background:#fff}
+    .sublist a:hover{border-color:var(--morado);box-shadow:0 0 0 3px var(--morado-10)}
+
+    /* Right list bullets for Políticas públicas */
+    .policy-row{display:flex;align-items:center;gap:12px;min-height:48px;padding:12px 16px;border-top:1px solid var(--borde)}
+    .policy-row:first-child{border-top:none}
+    .bullet{width:6px;height:6px;border-radius:999px;background:#e25d59}
+    .muted{margin-left:auto;color:#666;font-size:13px}
+  </style>
+</head>
+<body>
+  <!-- topbar -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- subnav -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Temas</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <main class="wrap" role="main">
+    <h1>Direccionamiento estratégico</h1>
+    <div class="meta">
+      <span class="badge">Proceso estratégico</span>
+      <a class="back" href="gestion_proyectos.html">← Volver a Procesos</a>
+    </div>
+
+    <section class="grid">
+      <!-- PLANES -->
+      <article class="card" aria-label="Planes relacionados">
+        <div class="card-head">Planes</div>
+        <div class="list">
+          <a class="row" href="#">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Plan Distrital de Desarrollo</b>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a class="row" href="#">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Programas</b>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <!-- Proyectos: DESPLEGABLE -->
+          <details class="listitem">
+            <summary>
+              <span class="dot" aria-hidden="true"></span>
+              <b>Proyectos</b>
+              <span class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <div class="sublist">
+              <a href="proyectos_inversion_8225.html">
+                <span class="dot" aria-hidden="true" style="background:var(--morado)"></span>
+                Proyecto de inversión 8225
+              </a>
+            </div>
+          </details>
+
+          <a class="row" href="#">
+            <span class="dot" aria-hidden="true"></span>
+            <b>Presupuesto</b>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </article>
+
+      <!-- POLÍTICAS PÚBLICAS -->
+      <article class="card" aria-label="Políticas públicas">
+        <div class="card-head">Políticas públicas</div>
+        <div>
+          <div class="policy-row">
+            <span class="bullet" aria-hidden="true"></span>
+            <b>Líder PPMYEG</b>
+          </div>
+          <div class="policy-row">
+            <span class="bullet" aria-hidden="true"></span>
+            <b>Líder PP ASP</b>
+          </div>
+          <div class="policy-row">
+            <span class="bullet" aria-hidden="true"></span>
+            <b>Responsable</b>
+            <span class="muted">27 PP • 167 productos</span>
+          </div>
+          <div class="policy-row">
+            <span class="bullet" aria-hidden="true"></span>
+            <b>Corresponsable</b>
+            <span class="muted">23 PP • 138 productos</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo" style="margin-top:32px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+</body>
+</html>
+
