@@ -1,1 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secretaría Distrital de Planeación (SDP) – Articulación interinstitucional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e; --gris:#f6f8f9; --borde:#e5e7ea; --negro:#111; --maxw:1100px;
+      --morado:#8d5497; --morado-10:rgba(141,84,151,.10); --morado-24:rgba(141,84,151,.24);
+      --verde:#2e7d32; --azul:#1e88e5; --violeta:#5e35b1;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+
+    /* Topbar */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Subnav */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+    /* Main */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 6px;font-size:28px}
+    .subtle{display:inline-flex;align-items:center;gap:8px;margin:8px 0 22px}
+    .badge{background:var(--morado);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin-left:8px}
+    .back:hover{text-decoration:underline}
+
+    /* Grid 2 por fila */
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:780px){ .grid{grid-template-columns:1fr 1fr} }
+
+    /* Tarjetas */
+    .card{
+      background:var(--gris);border:1px solid var(--borde);border-radius:14px;
+      padding:16px;display:flex;gap:12px;align-items:flex-start;
+      transition:transform .08s ease, box-shadow .08s ease, border-color .08s ease;
+    }
+    .card:hover{transform:translateY(-1px);box-shadow:0 2px 10px rgba(0,0,0,.05);border-color:#d8dde2;background:#fff}
+    .avatar{
+      flex:0 0 36px;height:36px;display:grid;place-items:center;background:#fff;border:1px solid var(--borde);border-radius:10px;
+    }
+    .card h3{margin:0 0 4px;font-size:16px}
+    .who{font-weight:800}
+    .role{color:#555}
+    .desc{margin:6px 0 0;color:#555;font-size:14px;line-height:1.5}
+
+    /* Chips/etiquetas */
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+    .tag{font-size:11.5px;font-weight:800;border-radius:999px;padding:3px 8px;border:1px solid var(--morado-24);background:var(--morado-10);color:#5b3561}
+    .tag.apr{border-color:#c8e6c9;background:#e8f5e9;color:var(--verde)}         /* Aprobación   */
+    .tag.rev{border-color:#bbdefb;background:#e3f2fd;color:var(--azul)}         /* Revisión     */
+    .tag.rec{border-color:#f8bbd0;background:#fce4ec;color:#ad1457}             /* Recepción/Trámite */
+    .tag.ase{border-color:#d1c4e9;background:#ede7f6;color:var(--violeta)}      /* Asesoría     */
+
+    h2{margin:26px 0 10px;font-size:18px}
+    .note{font-size:13px;color:#666;margin-top:6px}
+
+    /* Footer */
+    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Subnav -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Temas</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <main class="wrap" role="main">
+    <h1>Secretaría Distrital de Planeación (SDP)</h1>
+    <div class="subtle">
+      <span class="badge">Articulación interinstitucional</span>
+      <a class="back" href="articulacion_interinstitucional.html">← Volver a Articulación interinstitucional</a>
+    </div>
+
+    <h2>Autoridades y roles</h2>
+    <section class="grid" aria-label="Autoridades y roles SDP">
+      <article class="card">
+        <div class="avatar" aria-hidden="true">👤</div>
+        <div>
+          <h3><span class="who">Úrsula Ablanque Mejía</span> · <span class="role">Secretaria Distrital de Planeación</span></h3>
+          <p class="desc">Máxima autoridad de la SDP; lidera la planificación y el seguimiento de la inversión y del Plan de Desarrollo. Firmante de la circular conjunta.</p>
+          <div class="tags"><span class="tag apr">Aprobación</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar" aria-hidden="true">👤</div>
+        <div>
+          <h3><span class="who">Julio Alejandro Abril Tabares</span> · <span class="role">Subsecretario de Planeación de la Inversión</span></h3>
+          <p class="desc">Cargo de aprobación dentro de la SDP.</p>
+          <div class="tags"><span class="tag apr">Aprobación</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar" aria-hidden="true">👤</div>
+        <div>
+          <h3><span class="who">Iván Darío Rodríguez Murillo</span> · <span class="role">Director Distrital de Programación, Seguimiento a la Inversión y Plan de Desarrollo</span></h3>
+          <p class="desc">Emite concepto previo sobre modificaciones presupuestales de inversión y asesora en el proceso SEGPLAN.</p>
+          <div class="tags"><span class="tag apr">Aprobación</span></div>
+        </div>
+      </article>
+    </section>
+
+    <h2>Subdirecciones (revisión)</h2>
+    <section class="grid" aria-label="Subdirecciones revisión">
+      <article class="card">
+        <div class="avatar" aria-hidden="true">🏛️</div>
+        <div>
+          <h3><span class="who">Dora Alicia Sarmiento Mancipe</span> · <span class="role">Subdirectora de Infraestructura y Localidades (E)</span></h3>
+          <p class="desc">Cargo de revisión dentro de la SDP.</p>
+          <div class="tags"><span class="tag rev">Revisión</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar" aria-hidden="true">🏛️</div>
+        <div>
+          <h3><span class="who">Mónica Diana Parada</span> · <span class="role">Subdirectora de Desarrollo Social</span></h3>
+          <p class="desc">Cargo de revisión dentro de la SDP.</p>
+          <div class="tags"><span class="tag rev">Revisión</span></div>
+        </div>
+      </article>
+    </section>
+
+    <h2>Equipos y puntos de contacto</h2>
+    <section class="grid" aria-label="Equipos SDP">
+      <article class="card">
+        <div class="avatar" aria-hidden="true">📥</div>
+        <div>
+          <h3><span class="who">Dirección de Inversiones Estratégicas</span></h3>
+          <p class="desc">Profesionales que <b>reciben informes</b> de seguimiento a <b>vigencias futuras</b>.</p>
+          <div class="tags"><span class="tag rec">Recepción/Trámite</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar" aria-hidden="true">🧭</div>
+        <div>
+          <h3><span class="who">Dirección Distrital de Programación, Seguimiento a la Inversión y Plan de Desarrollo</span></h3>
+          <p class="desc">Profesionales que <b>asesoran</b> a las entidades en programación y <b>registro en SEGPLAN</b>.</p>
+          <div class="tags"><span class="tag ase">Asesoría</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar" aria-hidden="true">✉️</div>
+        <div>
+          <h3><span class="who">Edward Daza Díaz</span> · <span class="role">Punto de contacto – SEGPLAN</span></h3>
+          <p class="desc">Correo: <a href="mailto:edaza@sdp.gov.co">edaza@sdp.gov.co</a></p>
+          <div class="tags"><span class="tag ase">Asesoría</span></div>
+        </div>
+      </article>
+    </section>
+
+    <p class="note">Información operativa para coordinación y trámites de inversión entre la SDMujer y la SDP.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+</body>
+</html>
 
