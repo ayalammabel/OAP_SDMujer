@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página web – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e;
+      --gris:#f7f8f9;
+      --borde:#e5e7ea;
+      --maxw:1100px;
+
+      --morado:#8d5497;
+      --morado-soft:rgba(141,84,151,.10);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
+
+    /* Topbar */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Subnav */
+    .subnav{background:#fafafa;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+
+    /* Main */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 6px;font-size:30px}
+    .back{display:inline-flex;gap:8px;align-items:center;margin:6px 0 22px;color:#444;text-decoration:none;font-size:14px}
+    .back:hover{text-decoration:underline}
+
+    .section-title{
+      margin:10px 0 16px;display:inline-flex;align-items:center;gap:10px;
+      padding:6px 12px;border:1px solid #eadcf1;border-radius:999px;background:var(--morado-soft);
+      font-weight:800;color:#5a2f63;font-size:13px
+    }
+
+    /* Cards */
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+
+    .card{
+      background:#fff;border:1px solid var(--borde);border-radius:14px;padding:16px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02)
+    }
+    .card h2{
+      margin:0 0 10px;font-size:18px;font-weight:800;
+      display:flex;align-items:center;gap:10px
+    }
+    .tag{
+      font-size:12px;font-weight:800;color:#fff;background:var(--morado);
+      padding:4px 10px;border-radius:999px
+    }
+    .panel{
+      border:1px solid var(--borde);border-radius:12px;padding:14px;background:var(--gris)
+    }
+    ul{margin:0;padding-left:20px}
+    li{margin:6px 0}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Subnav -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill">Temas</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Página web</h1>
+    <a class="back" href="sistemas_informacion.html">← Volver a Sistemas de información</a>
+
+    <div class="section-title">Avances y apuestas</div>
+
+    <section class="grid" aria-label="Avances y Apuestas de la página web">
+      <!-- Avances -->
+      <article class="card">
+        <h2><span class="tag">Avances</span></h2>
+        <div class="panel">
+          <ul>
+            <li>Se estableció una nueva paleta de colores más moderna y sobria, acorde con el manual de marca y directrices distritales.</li>
+            <li>Se definieron los elementos a utilizar según los lineamientos del Kit GOV.CO.</li>
+            <li>Reorganización de módulos y temas del servidor para simplificar y robustecer el sistema de actualizaciones.</li>
+            <li>Mapa de navegación basado en los principales servicios de la entidad y la información más consultada.</li>
+            <li>Diseño y desarrollo de interfaces visuales principales con apoyo y lineamientos del Área de Comunicaciones.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Apuestas -->
+      <article class="card">
+        <h2><span class="tag">Apuestas</span></h2>
+        <div class="panel">
+          <ul>
+            <li>Fortalecer la navegabilidad del portal para un acceso ágil y ordenado a información y servicios.</li>
+            <li>Vincular el sitio institucional al Portal Único del Estado Colombiano GOV.CO según su biblioteca normativa.</li>
+            <li>Garantizar cumplimiento de la Ley 1519 de 2020 en accesibilidad web, asegurando un sitio inclusivo.</li>
+            <li>Optimizar la presentación de la información institucional con interfaz moderna, clara e intuitiva.</li>
+            <li>Mejorar la experiencia de uso en computadores, tabletas y móviles (diseño responsive).</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
