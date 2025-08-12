@@ -1,1 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mejoramiento Institucional – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e;
+      --gris:#f7f8f9;
+      --borde:#e5e7ea;
+      --maxw:1100px;
 
+      --morado:#8d5497;
+      --morado-ink:#5b3561;
+      --morado-10:rgba(141,84,151,.10);
+      --morado-16:rgba(141,84,151,.16);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+
+    /* Topbar */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Subnav */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+
+    /* Main */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 10px;font-size:32px}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;background:var(--morado);
+      color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12.5px
+    }
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 22px}
+    .back:hover{text-decoration:underline}
+
+    /* People / responsibilities */
+    .people{display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:780px){ .people{grid-template-columns:1fr 1fr} }
+    .card{
+      background:#fff;border:1px solid var(--borde);border-radius:14px;padding:14px 16px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02)
+    }
+    .name{font-weight:800;margin:2px 0 6px}
+    .role{margin:0;color:#5b5b5b;font-size:14px;line-height:1.55}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--rosa);display:inline-block;margin-right:8px}
+    .section-title{
+      margin:10px 0 8px;font-weight:800;color:#555;font-size:13px;letter-spacing:.02em;
+      background:var(--morado-10);border:1px solid var(--morado-16);display:inline-block;
+      padding:4px 10px;border-radius:999px
+    }
+
+    /* Footer */
+    .footer{margin-top:40px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" alt="" class="logo">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Subnav -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Temas</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <main class="wrap" role="main">
+    <h1>Mejoramiento Institucional</h1>
+    <div class="badge">Proceso estratégico</div>
+    <div>
+      <a class="back" href="gestion_proyectos.html">← Volver a Procesos</a>
+    </div>
+
+    <div class="section-title">Equipo y responsabilidades</div>
+
+    <section class="people" aria-label="Equipo de Mejoramiento Institucional">
+      <article class="card">
+        <div class="name">Diana Hernandez</div>
+        <p class="role"><span class="dot" aria-hidden="true"></span>Procesos de apoyo y riesgos.</p>
+      </article>
+
+      <article class="card">
+        <div class="name">Luz Angela</div>
+        <p class="role"><span class="dot" aria-hidden="true"></span>Procesos de apoyo y transparencia.</p>
+      </article>
+
+      <article class="card">
+        <div class="name">Zareth Doncel</div>
+        <p class="role"><span class="dot" aria-hidden="true"></span>Procesos misionales y planes de mejora.</p>
+      </article>
+
+      <article class="card">
+        <div class="name">Adriana Blanco</div>
+        <p class="role"><span class="dot" aria-hidden="true"></span>Procesos estratégicos y rendición de cuentas y OPA.</p>
+      </article>
+
+      <article class="card">
+        <div class="name">Paula Sosa</div>
+        <p class="role"><span class="dot" aria-hidden="true"></span>Apoyo a todos los procesos, PTEP y PAI.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+</body>
+</html>
