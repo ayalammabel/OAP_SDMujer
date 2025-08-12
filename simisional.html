@@ -13,7 +13,7 @@
       --borde:#e5e7ea;
       --maxw:1100px;
 
-      /* morados institucionales que veníamos usando */
+      /* morados institucionales */
       --morado:#8d5497;
       --morado-ink:#5b3561;
       --morado-08:rgba(141,84,151,.08);
@@ -33,10 +33,7 @@
     /* Subnav */
     .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
     .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
-    .pill{
-      text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;
-      border:1px solid #e2e2e2;font-weight:600;font-size:14px
-    }
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
     .pill:hover{background:#fff;border-color:#d8d8d8}
     .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
 
@@ -138,7 +135,7 @@
       <div class="chip"><span class="dot"></span>Línea Púrpura Distrital</div>
     </section>
 
-    <!-- Sección 1: Generación y Producción -->
+    <!-- 1. Generación y Producción -->
     <details class="section" open>
       <summary class="head"><span class="mark">+</span> Generación y producción</summary>
       <div class="sec-body">
@@ -168,7 +165,7 @@
       </div>
     </details>
 
-    <!-- Sección 2: Herramientas de uso y apropiación -->
+    <!-- 2. Herramientas de uso y apropiación -->
     <details class="section">
       <summary class="head"><span class="mark">+</span> Herramientas de uso y apropiación</summary>
       <div class="sec-body">
@@ -219,7 +216,7 @@
       </div>
     </details>
 
-    <!-- Sección 3: Analítica -->
+    <!-- 3. Analítica -->
     <details class="section">
       <summary class="head"><span class="mark">+</span> Analítica</summary>
       <div class="sec-body">
@@ -259,6 +256,34 @@
         </div>
       </div>
     </details>
+
+    <!-- 4. Compartir y difundir (nuevo) -->
+    <details class="section">
+      <summary class="head"><span class="mark">+</span> Compartir y difundir</summary>
+      <div class="sec-body">
+        <div class="comp-grid">
+          <!-- 1.0 -->
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">SIMISIONAL 1.0</span> Difusión desarticulada y poco accesible</div>
+            <ul class="list">
+              <li>Las mediciones estaban desarticuladas, lo que dificultaba su comparación.</li>
+              <li>No contaba con visualización territorial que apoyara el análisis local.</li>
+              <li>La accesibilidad a la información no era una prioridad, limitando su uso.</li>
+            </ul>
+          </article>
+
+          <!-- 2.0 -->
+          <article class="comp-card">
+            <div class="comp-title"><span class="tag">SIMISIONAL 2.0</span> Estandarización y accesibilidad a mejoras</div>
+            <ul class="list">
+              <li>Estandarización de las mediciones para asegurar su coherencia.</li>
+              <li>Visualizaciones diversificadas: territorial, transversal y estratégica.</li>
+              <li>Difusión accesible para todo público, facilitando la transparencia y uso.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </details>
   </main>
 
   <footer class="footer">
@@ -266,4 +291,5 @@
   </footer>
 </body>
 </html>
+
 
