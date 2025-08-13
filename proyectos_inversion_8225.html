@@ -45,29 +45,18 @@
     .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:8px 0 18px}
     .back:hover{text-decoration:underline}
 
-    /* Chips */
+    /* Chips / botón externo */
     .badge{
       display:inline-flex;align-items:center;gap:8px;margin:6px 0 14px;
       background:var(--morado);color:#fff;border-radius:999px;
       padding:6px 12px;font-weight:800;font-size:12.5px
     }
-
-    /* Botón externo */
-    .btn-externo {
-      display: inline-block;
-      margin: 12px 0 20px;
-      background: var(--rosa);
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: background 0.3s ease;
+    .btn-link{
+      display:inline-flex;align-items:center;gap:8px;margin:6px 0 14px 8px;
+      background:var(--rosa);color:#fff;border-radius:999px;padding:6px 12px;
+      font-weight:800;font-size:12.5px;text-decoration:none;border:1px solid var(--rosa)
     }
-    .btn-externo:hover {
-      background: #d45f5d;
-    }
+    .btn-link:hover{ background:#d45b59; }
 
     /* Tabla grande */
     .table-wrap{
@@ -136,16 +125,135 @@
     <h1>Proyecto de inversión 8225</h1>
     <a class="back" href="index.html">← Volver a Temas</a>
 
-    <div class="badge">Direccionamiento Estratégico</div>
-
-    <!-- Botón externo -->
-    <a class="btn-externo" href="https://www.sdmujer.gov.co/ley-de-transparencia-y-acceso-a-la-informacion-publica/planeacion/proyectos-de-inversion" target="_blank" rel="noopener">
-      Ver proyectos de inversión
-    </a>
+    <div>
+      <span class="badge">Direccionamiento Estratégico</span>
+      <a href="https://www.sdmujer.gov.co/ley-de-transparencia-y-acceso-a-la-informacion-publica/planeacion/proyectos-de-inversion" target="_blank" rel="noopener" class="btn-link">Ver proyectos de inversión</a>
+    </div>
 
     <div class="table-wrap" role="region" aria-label="Tabla de seguimiento presupuestal del proyecto 8225">
-      <!-- aquí sigue la tabla tal cual la tenías -->
-      <!-- ... -->
+      <table>
+        <thead>
+          <tr>
+            <th>Proyecto</th>
+            <th>Objetivo Estratégico</th>
+            <th>Programa</th>
+            <th>Meta Plan de Desarrollo</th>
+            <th>Actividad MGA</th>
+            <th>Responsable</th>
+            <th class="num">PRESUPUESTO<br>PROGRAMADO PA</th>
+            <th class="num bg-corte">PROGRAMADO<br>AL CORTE</th>
+            <th class="num bg-corte-pct">%</th>
+            <th class="num bg-ejecutado">EJECUTADO ACUMULADA A<br>CIERRE MENSUAL</th>
+            <th class="num">%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="8"><b>Mejoramiento del modelo de operación por procesos de la Secretaría Distrital de la Mujer en Bogotá D.C.</b></td>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>1 - Implementar el 100 Porciento de los planes de gestión para el cierre de brechas FURAG</td>
+            <td>Oficina Asesora de Planeación (CPS MIPG)</td>
+            <td class="num">5.397.404.836,00</td>
+            <td class="num bg-corte">5.519.188.133,00</td>
+            <td class="bg-corte-pct">102,26%</td>
+            <td class="num bg-ejecutado">4.434.628.437,00</td>
+            <td class="num">82,16%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>2 - implementar al 92 Porciento la Política de Gestión Documental institucional</td>
+            <td>Dirección Administrativa y Financiera (GD)</td>
+            <td class="num">710.219.000,00</td>
+            <td class="num bg-corte">725.519.000,00</td>
+            <td class="bg-corte-pct">102,15%</td>
+            <td class="num bg-ejecutado">683.759.326,00</td>
+            <td class="num">96,27%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>3 - Implementar el 100 Porciento del plan de acción de la Política de Gobierno Digital</td>
+            <td>Oficina Asesora de Planeación (CPS TI)</td>
+            <td class="num">1.157.254.016,00</td>
+            <td class="num bg-corte">1.118.870.057,00</td>
+            <td class="bg-corte-pct">96,68%</td>
+            <td class="num bg-ejecutado">1.086.384.399,00</td>
+            <td class="num">93,88%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>4 - Implementar 1 Plan(es) de fortalecimiento de la gestión de conocimiento e innovación alineado con la apuesta distrital</td>
+            <td>Oficina Asesora de Planeación (CPS GC)</td>
+            <td class="num">317.445.000,00</td>
+            <td class="num bg-corte">317.445.000,00</td>
+            <td class="bg-corte-pct">100,00%</td>
+            <td class="num bg-ejecutado">301.792.667,00</td>
+            <td class="num">95,07%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>5 - Implementar 1 Plan(es) Estratégico de Tecnologías de la Información</td>
+            <td>Oficina Asesora de Planeación (PROCESOS TI)</td>
+            <td class="num">2.762.254.148,00</td>
+            <td class="num bg-corte">2.858.192.323,00</td>
+            <td class="bg-corte-pct">103,47%</td>
+            <td class="num bg-ejecutado">1.354.756.669,00</td>
+            <td class="num">49,05%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>6 - Implementar 1 Estrategia(s) para el fortalecimiento de la gestión contractual institucional</td>
+            <td>Dirección de Contratación</td>
+            <td class="num">1.300.257.000,00</td>
+            <td class="num bg-corte">1.180.432.357,00</td>
+            <td class="bg-corte-pct">90,78%</td>
+            <td class="num bg-ejecutado">1.172.399.157,00</td>
+            <td class="num">90,17%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>7 - Fortalecer el 100 Porciento de los controles asociados al proceso de gestión financiera.</td>
+            <td>Dirección Administrativa y Financiera (GF)</td>
+            <td class="num">677.187.000,00</td>
+            <td class="num bg-corte">677.187.000,00</td>
+            <td class="bg-corte-pct">100,00%</td>
+            <td class="num bg-ejecutado">675.170.812,00</td>
+            <td class="num">99,70%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>8 - Fortalecer el 100 Porciento de las herramientas para el seguimiento a de los planes, políticas públicas, proyectos y presupuesto asociados a la inversión de la entidad</td>
+            <td>Oficina Asesora de Planeación (CPS 4P)</td>
+            <td class="num">495.102.000,00</td>
+            <td class="num bg-corte">490.756.000,00</td>
+            <td class="bg-corte-pct">99,12%</td>
+            <td class="num bg-ejecutado">442.949.992,00</td>
+            <td class="num">89,47%</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <p class="note">Nota: Información a corte del 10 de agosto de 2025.</p>
@@ -156,5 +264,6 @@
   </footer>
 </body>
 </html>
+
 
 
