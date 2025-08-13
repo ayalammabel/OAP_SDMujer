@@ -3,84 +3,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Presupuesto – Oficina Asesora de Planeación – SDMujer</title>
+  <title>Presupuesto – Oficina Asesora de Planeación</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --rosa:#e5706e;
-      --gris:#c3caca;
-      --negro:#111;
-      --maxw:1100px;
+      --rosa:#e5706e; --gris:#f7f8f9; --negro:#111; --borde:#e5e7ea; --maxw:1100px;
+      --morado:#8d5497; --morado-soft:rgba(141,84,151,.10); --morado-ink:#5a2f63;
     }
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:#fff;
-      color:#222;
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
+
+    /* Topbar */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Subnav */
+    .subnav{background:#fafafa;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+
+    /* Main */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 8px;font-size:28px;color:#000}
+    .back{display:inline-flex;gap:8px;align-items:center;margin:8px 0 18px;color:#444;text-decoration:none;font-size:14px}
+    .back:hover{text-decoration:underline}
+
+    /* Card imagen */
+    .img-card{
+      background:#fff;border:1px solid var(--borde);border-radius:16px;padding:14px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02)
     }
-    header{
-      background:var(--rosa);
-      color:#fff;
-      padding:1rem;
-      text-align:center;
+    .header-row{
+      display:flex;align-items:center;gap:10px;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap
     }
-    main{
-      max-width:var(--maxw);
-      margin:2rem auto;
-      padding:1rem;
-      text-align:center;
+    .hint{
+      display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;
+      background:var(--morado-soft);border:1px solid #e5d3ee;font-weight:800;color:var(--morado-ink);font-size:12.5px
     }
-    img{
-      max-width:100%;
-      height:auto;
-      border:1px solid var(--gris);
-      border-radius:8px;
+
+    /* Toggle de vistas */
+    .segmented{display:flex;gap:8px;flex-wrap:wrap}
+    .seg-btn, .link-btn{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      border:1px solid var(--morado); color:var(--morado-ink); background:#fff; font-weight:800; font-size:13px;
+      text-decoration:none; cursor:pointer;
     }
-    .botones{
-      margin-bottom:1.5rem;
-    }
-    button, .link-btn{
-      background:var(--rosa);
-      color:#fff;
-      border:none;
-      padding:0.6rem 1.2rem;
-      margin:0 0.5rem;
-      border-radius:6px;
-      font-size:1rem;
-      cursor:pointer;
-      transition:background 0.3s ease;
+    .seg-btn:hover, .link-btn:hover{box-shadow:0 0 0 3px var(--morado-soft)}
+    .seg-btn.active{background:var(--morado);color:#fff;border-color:var(--morado)}
+
+    /* Acciones (abrir/descargar) */
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      border:1px solid var(--morado); color:var(--morado-ink); background:#fff; font-weight:800; font-size:13px;
       text-decoration:none;
-      display:inline-block;
     }
-    button:hover, .link-btn:hover{
-      background:#d45b59;
+    .btn:hover{box-shadow:0 0 0 3px var(--morado-soft)}
+    .btn svg{display:block}
+
+    figure{margin:0}
+    .img-wrap{
+      background:var(--gris);
+      border:1px solid var(--borde);
+      border-radius:12px;
+      overflow:hidden;
     }
+    .img-wrap img{display:block;width:100%;height:auto}
+    figcaption{margin-top:8px;color:#6b7280;font-size:12.5px}
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Presupuesto</h1>
-</header>
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
 
-<main>
-  <div class="botones">
-    <button onclick="mostrarImagen('presupuesto_tablero.jpeg')">Ejecución Presupuestal</button>
-    <button onclick="mostrarImagen('linea_tiempo.jpeg')">Línea de tiempo</button>
-    <a class="link-btn" href="https://www.sdmujer.gov.co/ley-de-transparencia-y-acceso-a-la-informacion-publica/presupuesto/ejecucion-presupuestal-historica-anual" target="_blank">
-      Ejecución Presupuestal histórica
-    </a>
-  </div>
-  <img id="imagen-principal" src="presupuesto_tablero.jpeg" alt="Ejecución Presupuestal">
-</main>
+  <!-- Submenú -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Temas</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
 
-<script>
-  function mostrarImagen(nombreImagen) {
-    const img = document.getElementById("imagen-principal");
-    img.src = nombreImagen;
-    img.alt = nombreImagen.includes('presupuesto_tablero') ? "Ejecución Presupuestal" : "Línea de tiempo";
-  }
-</script>
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Presupuesto</h1>
+    <a class="back" href="proyectos_inversion_8225.html">← Volver a Proyecto de inversión 8225</a>
 
+    <div class="img-card">
+      <div class="header-row">
+        <div class="segmented" role="tablist" aria-label="Seleccionar vista">
+          <button class="seg-btn active" role="tab" aria-selected="true" id="btn-ejec" onclick="cambiarVista('ejecucion')">Ejecución Presupuestal</button>
+          <button class="seg-btn" role="tab" aria-selected="false" id="btn-linea" onclick="cambiarVista('linea')">Línea de tiempo</button>
+          <a class="link-btn" href="https://www.sdmujer.gov.co/ley-de-transparencia-y-acceso-a-la-informacion-publica/presupuesto/ejecucion-presupuestal-historica-anual" target="_blank" rel="noopener">
+            Ejecución Presupuestal histórica
+          </a>
+        </div>
+        <div class="actions" role="toolbar" aria-label="Acciones de la imagen">
+          <a class="btn" id="btn-abrir" href="presupuesto_tablero.jpeg" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 3h7v7M21 3l-9 9" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Abrir
+          </a>
+          <a class="btn" id="btn-descargar" href="presupuesto_tablero.jpeg" download="Presupuesto_OAP_2025.jpg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Descargar
+          </a>
+        </div>
+      </div>
+
+      <figure class="img-wrap" aria-label="Imagen de presupuesto">
+        <img id="imagen-principal" src="presupuesto_tablero.jpeg" alt="Ejecución Presupuestal">
+      </figure>
+      <figcaption id="figcap">Imagen: tablero de ejecución presupuestal.</figcaption>
+    </div>
+  </main>
+
+  <script>
+    const RUTAS = {
+      ejecucion: { src: 'presupuesto_tablero.jpeg', alt: 'Ejecución Presupuestal', cap: 'Imagen: tablero de ejecución presupuestal.' },
+      linea:     { src: 'presupuesto.jpeg',         alt: 'Línea de tiempo',         cap: 'Imagen: línea de tiempo del proceso presupuestal.' }
+    };
+
+    function cambiarVista(vista){
+      const img = document.getElementById('imagen-principal');
+      const cap = document.getElementById('figcap');
+      const abrir = document.getElementById('btn-abrir');
+      const descargar = document.getElementById('btn-descargar');
+
+      // activar/desactivar botones
+      document.getElementById('btn-ejec').classList.toggle('active', vista==='ejecucion');
+      document.getElementById('btn-linea').classList.toggle('active', vista==='linea');
+      document.getElementById('btn-ejec').setAttribute('aria-selected', vista==='ejecucion');
+      document.getElementById('btn-linea').setAttribute('aria-selected', vista==='linea');
+
+      // cambiar imagen, alt, figcaption y targets de abrir/descargar
+      img.src = RUTAS[vista].src;
+      img.alt = RUTAS[vista].alt;
+      cap.textContent = RUTAS[vista].cap;
+      abrir.href = RUTAS[vista].src;
+      descargar.href = RUTAS[vista].src;
+    }
+
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  </script>
 </body>
 </html>
