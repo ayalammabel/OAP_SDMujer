@@ -3,118 +3,117 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Presupuesto – Oficina Asesora de Planeación</title>
+  <title>Oficina Asesora de Planeación – SDMujer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --rosa:#e5706e; --gris:#f7f8f9; --negro:#111; --borde:#e5e7ea; --maxw:1100px;
-      --morado:#8d5497; --morado-soft:rgba(141,84,151,.10); --morado-ink:#5a2f63;
+      --rosa:#e5706e;
+      --gris:#c3caca;
+      --negro:#111;
+      --maxw:1100px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
-
-    /* Topbar */
-    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
-    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
-    .logo{height:40px;width:auto;display:block}
-    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
-
-    /* Subnav */
-    .subnav{background:#fafafa;border-bottom:1px solid #ececec}
-    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
-    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
-    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-    .pill:hover{background:#fff;border-color:#d8d8d8}
-
-    /* Main */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
-    h1{margin:0 0 8px;font-size:28px;color:#000}
-    .back{display:inline-flex;gap:8px;align-items:center;margin:8px 0 18px;color:#444;text-decoration:none;font-size:14px}
-    .back:hover{text-decoration:underline}
-
-    /* Image card */
-    .img-card{
-      background:#fff;border:1px solid var(--borde);border-radius:16px;padding:14px;
-      box-shadow:0 1px 0 rgba(0,0,0,.02)
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+    /* Barra superior */
+    .topbar{
+      background:var(--rosa);
+      color:#fff;
+      padding:10px;
+      font-weight:600;
+      text-align:center;
     }
-    .header-row{
-      display:flex;align-items:center;gap:10px;justify-content:space-between;margin-bottom:10px
+    /* Contenedor principal */
+    .container{
+      max-width:var(--maxw);
+      margin:20px auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
     }
-    .hint{
-      display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;
-      background:var(--morado-soft);border:1px solid #e5d3ee;font-weight:800;color:var(--morado-ink);font-size:12.5px
-    }
-    .actions{display:flex;gap:8px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
-      border:1px solid var(--morado); color:var(--morado-ink); background:#fff; font-weight:800; font-size:13px;
-      text-decoration:none;
-    }
-    .btn:hover{box-shadow:0 0 0 3px var(--morado-soft)}
-    .btn svg{display:block}
-
-    figure{margin:0}
-    .img-wrap{
-      background:var(--gris);
-      border:1px solid var(--borde);
+    /* Tarjetas */
+    .card{
+      border:1px solid var(--gris);
       border-radius:12px;
       overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:transform 0.2s ease;
+      background:#fff;
     }
-    .img-wrap img{display:block;width:100%;height:auto}
-    figcaption{margin-top:8px;color:#6b7280;font-size:12.5px}
+    .card:hover{transform:scale(1.02)}
+    .card img{width:100%;height:160px;object-fit:cover}
+    .card-content{padding:15px;flex:1;display:flex;flex-direction:column}
+    .card h3{margin:0 0 10px;font-size:1.2em}
+    .card p{flex:1;margin:0 0 15px;color:#555}
+    .card a{
+      background:var(--rosa);
+      color:#fff;
+      text-decoration:none;
+      padding:10px;
+      text-align:center;
+      border-radius:8px;
+      font-weight:600;
+    }
+    .card a:hover{background:#d35b59}
   </style>
 </head>
 <body>
+  <div class="topbar">
+    Oficina Asesora de Planeación – SDMujer
+  </div>
 
-  <!-- Topbar -->
-  <header class="topbar" role="banner">
-    <div class="wrap">
-      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
-      <div class="title">Oficina Asesora de Planeación</div>
-      <div style="width:40px" aria-hidden="true"></div>
-    </div>
-  </header>
-
-  <!-- Submenú -->
-  <nav class="subnav" aria-label="Navegación secundaria">
-    <div class="wrap">
-      <a href="index.html" class="pill active">Temas</a>
-      <a href="organigrama.html" class="pill">Organigrama</a>
-    </div>
-  </nav>
-
-  <!-- Contenido -->
-  <main class="wrap" role="main">
-    <h1>Presupuesto</h1>
-    <a class="back" href="proyectos_inversion_8225.html">← Volver a Proyecto de inversión 8225</a>
-
-    <div class="img-card">
-      <div class="header-row">
-        <div class="hint">Visual</div>
-        <div class="actions" role="toolbar" aria-label="Acciones de la imagen">
-          <!-- Abrir en pestaña nueva -->
-          <a class="btn" href="presupuesto.jpeg" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 3h7v7M21 3l-9 9" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Abrir
-          </a>
-          <!-- Descargar imagen -->
-          <a class="btn" href="presupuesto.jpeg" download="Presupuesto_OAP_2025.jpg">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Descargar
-          </a>
-        </div>
+  <div class="container">
+    <!-- Tarjeta 1 -->
+    <div class="card">
+      <img src="img/proyectos.jpg" alt="Proyectos">
+      <div class="card-content">
+        <h3>Proyectos</h3>
+        <p>Consulta los proyectos estratégicos y acciones prioritarias que lidera la Oficina Asesora de Planeación.</p>
+        <a href="proyectos.html">Ver más</a>
       </div>
-
-      <figure class="img-wrap" aria-label="Imagen de presupuesto">
-        <img src="presupuesto.jpeg" alt="Detalle de ejecución y programación presupuestal de la OAP">
-      </figure>
-      <figcaption>Imagen: esquema visual del proceso presupuestal.</figcaption>
     </div>
-  </main>
 
-  <script>
-    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-  </script>
+    <!-- Tarjeta 2 -->
+    <div class="card">
+      <img src="img/responsabilidades.jpg" alt="Responsabilidades">
+      <div class="card-content">
+        <h3>Responsabilidades</h3>
+        <p>Conoce las funciones y responsabilidades de la Oficina Asesora de Planeación.</p>
+        <a href="responsabilidades.html">Ver más</a>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="card">
+      <img src="img/planes.jpg" alt="Planes">
+      <div class="card-content">
+        <h3>Planes</h3>
+        <p>Accede a los planes estratégicos y documentos de planeación institucional.</p>
+        <a href="planes.html">Ver más</a>
+      </div>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="card">
+      <img src="img/indicadores.jpg" alt="Indicadores">
+      <div class="card-content">
+        <h3>Indicadores</h3>
+        <p>Visualiza indicadores y métricas de seguimiento a la gestión institucional.</p>
+        <a href="indicadores.html">Ver más</a>
+      </div>
+    </div>
+
+    <!-- Nuevo botón: Ejecución Presupuestal histórica -->
+    <div class="card">
+      <img src="img/presupuesto.jpg" alt="Ejecución Presupuestal Histórica">
+      <div class="card-content">
+        <h3>Ejecución Presupuestal histórica</h3>
+        <p>Consulta la ejecución presupuestal histórica anual de la Secretaría Distrital de la Mujer.</p>
+        <a href="https://www.sdmujer.gov.co/ley-de-transparencia-y-acceso-a-la-informacion-publica/presupuesto/ejecucion-presupuestal-historica-anual" target="_blank">Ir al sitio</a>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
-
