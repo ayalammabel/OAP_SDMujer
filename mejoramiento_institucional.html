@@ -29,7 +29,9 @@
     /* Subnav */
     .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
     .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
-    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill{
+      text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px
+    }
     .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
     .pill:hover{background:#fff;border-color:#d8d8d8}
 
@@ -42,6 +44,14 @@
     }
     .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 22px}
     .back:hover{text-decoration:underline}
+
+    /* Intro text */
+    .intro{
+      margin:10px 0 20px;
+      font-size:15px;
+      line-height:1.6;
+      color:#333;
+    }
 
     /* People / responsibilities */
     .people{display:grid;gap:16px;grid-template-columns:1fr}
@@ -89,6 +99,12 @@
       <a class="back" href="gestion_proyectos.html">← Volver a Procesos</a>
     </div>
 
+    <p class="intro">
+      Gestionamos las acciones que necesita la entidad para su operación, como la actualización documental
+      (Políticas, Caracterizaciones, procedimientos, manuales, guías, instructivos, indicadores, entre otros),
+      así como las acciones para la mejora continua de los procesos.
+    </p>
+
     <div class="section-title">Equipo y responsabilidades</div>
 
     <section class="people" aria-label="Equipo de Mejoramiento Institucional">
@@ -124,3 +140,5 @@
   </footer>
 </body>
 </html>
+
+
