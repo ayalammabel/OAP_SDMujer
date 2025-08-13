@@ -57,13 +57,13 @@
       margin-top:10px;
       border:1px solid var(--borde);
       border-radius:14px;
-      overflow:auto;            /* scroll horizontal si es necesario */
+      overflow:auto;
       background:#fff;
     }
     table{
       border-collapse:separate;
       border-spacing:0;
-      min-width:1000px;
+      min-width:1100px;
       width:100%;
       font-size:14px;
     }
@@ -82,12 +82,10 @@
       padding:10px 12px;
       vertical-align:top;
     }
-    /* Colores inspirados en el insumo */
-    .bg-corte{ background:#fff5d6; }         /* Programado al corte (amarillo suave) */
-    .bg-corte-pct{ background:#ffebeb; color:#941b1b; font-weight:800; text-align:right;} /* % (rojo) */
-    .bg-ejecutado{ background:#eaf5ea; }     /* Ejecutado acumulado (verde suave) */
+    .bg-corte{ background:#fff5d6; }
+    .bg-corte-pct{ background:#ffebeb; color:#941b1b; font-weight:800; text-align:right;}
+    .bg-ejecutado{ background:#eaf5ea; }
     .num{ text-align:right; white-space:nowrap; }
-    /* Borde y radios de la caja tabla */
     thead th:first-child{border-top-left-radius:14px}
     thead th:last-child{border-top-right-radius:14px}
     tbody tr:last-child td:first-child{border-bottom-left-radius:14px}
@@ -131,7 +129,8 @@
             <th>Objetivo Estratégico</th>
             <th>Programa</th>
             <th>Meta Plan de Desarrollo</th>
-            <th>Meta proyecto de inversión</th>
+            <th>Actividad MGA</th>
+            <th>Responsable</th>
             <th class="num">PRESUPUESTO<br>PROGRAMADO PA</th>
             <th class="num bg-corte">PROGRAMADO<br>AL CORTE</th>
             <th class="num bg-corte-pct">%</th>
@@ -146,90 +145,91 @@
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>1 - Implementar el 100 Porciento de los planes de gestión para el cierre de brechas FURAG</td>
+            <td>Oficina Asesora de Planeación (CPS MIPG)</td>
             <td class="num">5.397.404.836,00</td>
             <td class="num bg-corte">5.519.188.133,00</td>
             <td class="bg-corte-pct">102,26%</td>
             <td class="num bg-ejecutado">4.434.628.437,00</td>
             <td class="num">82,16%</td>
           </tr>
-
           <tr>
             <td>05 Bogotá confía en su gobierno</td>
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>2 - implementar al 92 Porciento la Política de Gestión Documental institucional</td>
+            <td>Dirección Administrativa y Financiera (GD)</td>
             <td class="num">710.219.000,00</td>
             <td class="num bg-corte">725.519.000,00</td>
             <td class="bg-corte-pct">102,15%</td>
             <td class="num bg-ejecutado">683.759.326,00</td>
             <td class="num">96,27%</td>
           </tr>
-
           <tr>
             <td>05 Bogotá confía en su gobierno</td>
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>3 - Implementar el 100 Porciento del plan de acción de la Política de Gobierno Digital</td>
+            <td>Oficina Asesora de Planeación (CPS TI)</td>
             <td class="num">1.157.254.016,00</td>
             <td class="num bg-corte">1.118.870.057,00</td>
             <td class="bg-corte-pct">96,68%</td>
             <td class="num bg-ejecutado">1.086.384.399,00</td>
             <td class="num">93,88%</td>
           </tr>
-
           <tr>
             <td>05 Bogotá confía en su gobierno</td>
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>4 - Implementar 1 Plan(es) de fortalecimiento de la gestión de conocimiento e innovación alineado con la apuesta distrital</td>
+            <td>Oficina Asesora de Planeación (CPS GC)</td>
             <td class="num">317.445.000,00</td>
             <td class="num bg-corte">317.445.000,00</td>
             <td class="bg-corte-pct">100,00%</td>
             <td class="num bg-ejecutado">301.792.667,00</td>
             <td class="num">95,07%</td>
           </tr>
-
           <tr>
             <td>05 Bogotá confía en su gobierno</td>
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>5 - Implementar 1 Plan(es) Estratégico de Tecnologías de la Información</td>
+            <td>Oficina Asesora de Planeación (PROCESOS TI)</td>
             <td class="num">2.762.254.148,00</td>
             <td class="num bg-corte">2.858.192.323,00</td>
             <td class="bg-corte-pct">103,47%</td>
             <td class="num bg-ejecutado">1.354.756.669,00</td>
             <td class="num">49,05%</td>
           </tr>
-
           <tr>
             <td>05 Bogotá confía en su gobierno</td>
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>6 - Implementar 1 Estrategia(s) para el fortalecimiento de la gestión contractual institucional</td>
+            <td>Dirección de Contratación</td>
             <td class="num">1.300.257.000,00</td>
             <td class="num bg-corte">1.180.432.357,00</td>
             <td class="bg-corte-pct">90,78%</td>
             <td class="num bg-ejecutado">1.172.399.157,00</td>
             <td class="num">90,17%</td>
           </tr>
-
           <tr>
             <td>05 Bogotá confía en su gobierno</td>
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>7 - Fortalecer el 100 Porciento de los controles asociados al proceso de gestión financiera.</td>
+            <td>Dirección Administrativa y Financiera (GF)</td>
             <td class="num">677.187.000,00</td>
             <td class="num bg-corte">677.187.000,00</td>
             <td class="bg-corte-pct">100,00%</td>
             <td class="num bg-ejecutado">675.170.812,00</td>
             <td class="num">99,70%</td>
           </tr>
-
           <tr>
             <td>05 Bogotá confía en su gobierno</td>
             <td>33 Fortalecimiento institucional para un gobierno confiable</td>
             <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
             <td>8 - Fortalecer el 100 Porciento de las herramientas para el seguimiento a de los planes, políticas públicas, proyectos y presupuesto asociados a la inversión de la entidad</td>
+            <td>Oficina Asesora de Planeación (CPS 4P)</td>
             <td class="num">495.102.000,00</td>
             <td class="num bg-corte">490.756.000,00</td>
             <td class="bg-corte-pct">99,12%</td>
