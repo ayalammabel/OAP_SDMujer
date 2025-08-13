@@ -82,8 +82,9 @@
       background:radial-gradient(120% 60% at 0% 0%, var(--morado-10), transparent 60%);
       border-bottom-left-radius:14px;
     }
+    .panel-body p{margin:0 0 4px;color:#333}
 
-    /* Secciones en Title Case y tamaño consistente */
+    /* Secciones con título chip */
     .group{margin:2px 0 8px}
     .group-title{
       display:inline-flex;align-items:center;gap:8px;
@@ -218,11 +219,29 @@
         </div>
       </details>
 
-      <!-- 2 -->
-      <div class="card">
-        <span class="dot" aria-hidden="true"></span>
-        <b>Responsable gestión ambiental</b>
-      </div>
+      <!-- 2: Gestión ambiental (ahora desplegable con +) -->
+      <details class="card">
+        <summary>
+          <span class="dot" aria-hidden="true"></span>
+          <b>Responsable de la gestión ambiental</b>
+          <span class="plus" aria-label="Desplegar">+</span>
+        </summary>
+        <div class="panel">
+          <div class="panel-body">
+            <span class="group-title">Gestión ambiental</span>
+            <p>
+              La gestión ambiental enmarca acciones encaminadas a la construcción del
+              <b>Plan Institucional de Gestión Ambiental (PIGA)</b> y a la austeridad del gasto.
+            </p>
+            <ul class="link-list">
+              <li class="index-item">Uso eficiente del agua y la energía</li>
+              <li class="index-item">Gestión adecuada de residuos sólidos y peligrosos</li>
+              <li class="index-item">Sensibilización y capacitación del personal</li>
+              <li class="index-item">Consumo responsable y seguimiento a huella de carbono</li>
+            </ul>
+          </div>
+        </div>
+      </details>
 
       <!-- 3: Índices con enlaces -->
       <details class="card">
@@ -271,4 +290,5 @@
   </script>
 </body>
 </html>
+
 
