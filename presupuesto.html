@@ -1,1 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e; --gris:#f7f8f9; --negro:#111; --borde:#e5e7ea; --maxw:1100px;
+      --morado:#8d5497; --morado-soft:rgba(141,84,151,.10);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
 
+    /* Topbar */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Subnav */
+    .subnav{background:#fafafa;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+
+    /* Main */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 8px;font-size:28px;color:#000}
+    .back{display:inline-flex;gap:8px;align-items:center;margin:8px 0 18px;color:#444;text-decoration:none;font-size:14px}
+    .back:hover{text-decoration:underline}
+
+    /* Image card */
+    .img-card{
+      background:#fff;border:1px solid var(--borde);border-radius:16px;padding:14px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02)
+    }
+    figure{margin:0}
+    .img-wrap{
+      background:var(--gris);
+      border:1px solid var(--borde);
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .img-wrap img{display:block;width:100%;height:auto}
+    .hint{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;
+          background:var(--morado-soft);border:1px solid #e5d3ee;font-weight:800;color:#5a2f63;font-size:12.5px}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Submenú -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Temas</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Presupuesto</h1>
+    <a class="back" href="proyectos_inversion_8225.html">← Volver a Proyecto de inversión 8225</a>
+
+    <div class="img-card">
+      <div class="hint">Visual</div>
+      <figure class="img-wrap" aria-label="Imagen de presupuesto">
+        <img src="presupuesto.jpeg" alt="Detalle de ejecución y programación presupuestal de la OAP">
+      </figure>
+    </div>
+  </main>
+
+  <script>
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  </script>
+</body>
+</html>
