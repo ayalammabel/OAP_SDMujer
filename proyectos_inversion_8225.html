@@ -7,11 +7,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea;
-      --morado:#8d5497; --morado-10:rgba(141,84,151,.10); --morado-24:rgba(141,84,151,.24);
+      --rosa:#e5706e;
+      --gris:#f3f5f6;
+      --negro:#111;
+      --maxw:1100px;
+      --borde:#e5e7ea;
+
+      /* Morados institucionales */
+      --morado:#8d5497;
+      --morado-ink:#5b3561;
+      --morado-10:rgba(141,84,151,.10);
+      --morado-16:rgba(141,84,151,.16);
     }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
 
     /* Barra superior */
     .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
@@ -22,57 +32,69 @@
     /* Submenú */
     .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
     .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
-    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill{
+      text-decoration:none;padding:8px 12px;border-radius:999px;
+      color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px
+    }
     .pill:hover{background:#fff;border-color:#d8d8d8}
     .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
 
     /* Contenido */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
-    h1{margin:0 0 6px;font-size:28px;color:#000}
-    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:10px 0 18px}
+    h1{margin:0 0 8px;font-size:28px;color:#000}
+    .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:#444;margin:8px 0 18px}
     .back:hover{text-decoration:underline}
 
-    /* Subtítulo + acción secundaria */
-    .subline{display:flex;align-items:center;gap:8px;margin:0 0 6px}
-    .tag{
-      background:var(--morado); color:#fff; font-weight:800; font-size:13px;
-      padding:4px 10px; border-radius:999px; line-height:1;
-      box-shadow:0 0 0 3px var(--morado-10);
-    }
-    .tag-out{
-      display:inline-flex; align-items:center; gap:6px;
-      font-weight:700; font-size:13px; color:var(--morado);
-      padding:4px 10px; border-radius:999px; line-height:1;
-      border:1px solid var(--morado-24); background:#fff; text-decoration:none;
-    }
-    .tag-out:hover{background:var(--morado-10); border-color:var(--morado)}
-
-    /* Tarjetas contenedor */
-    .grid{display:grid;gap:16px;grid-template-columns:1fr}
-    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
-
-    .card{background:#fff;border:1px solid var(--borde);border-radius:14px;overflow:hidden}
-    .card-head{
-      display:flex;align-items:center;gap:10px;padding:12px 16px;font-weight:800;background:#fafafa;border-bottom:1px solid var(--borde)
+    /* Chips */
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;margin:6px 0 14px;
+      background:var(--morado);color:#fff;border-radius:999px;
+      padding:6px 12px;font-weight:800;font-size:12.5px
     }
 
-    /* Lista de filas (igual para ambas cajas) */
-    .list{display:grid}
-    .row{
-      display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;
-      border-top:1px solid var(--borde);text-decoration:none;color:inherit
+    /* Tabla grande */
+    .table-wrap{
+      margin-top:10px;
+      border:1px solid var(--borde);
+      border-radius:14px;
+      overflow:auto;            /* scroll horizontal si es necesario */
+      background:#fff;
     }
-    .row:first-child{border-top:none}
-    .row:hover{background:#f9fbfc}
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--rosa)}
-    .arrow{margin-left:auto;opacity:.5}
-    .arrow svg{display:block}
+    table{
+      border-collapse:separate;
+      border-spacing:0;
+      min-width:1000px;
+      width:100%;
+      font-size:14px;
+    }
+    thead th{
+      position:sticky; top:0;
+      background:#faf7fc;
+      color:#3a2b40;
+      border-bottom:1px solid var(--borde);
+      font-weight:800;
+      text-align:left;
+      padding:10px 12px;
+      z-index:1;
+    }
+    tbody td{
+      border-top:1px solid #eef0f2;
+      padding:10px 12px;
+      vertical-align:top;
+    }
+    /* Colores inspirados en el insumo */
+    .bg-corte{ background:#fff5d6; }         /* Programado al corte (amarillo suave) */
+    .bg-corte-pct{ background:#ffebeb; color:#941b1b; font-weight:800; text-align:right;} /* % (rojo) */
+    .bg-ejecutado{ background:#eaf5ea; }     /* Ejecutado acumulado (verde suave) */
+    .num{ text-align:right; white-space:nowrap; }
+    /* Borde y radios de la caja tabla */
+    thead th:first-child{border-top-left-radius:14px}
+    thead th:last-child{border-top-right-radius:14px}
+    tbody tr:last-child td:first-child{border-bottom-left-radius:14px}
+    tbody tr:last-child td:last-child{border-bottom-right-radius:14px}
 
-    /* Variante estática para la caja de políticas (no link, sin hover/chevron) */
-    .row.static{cursor:default}
-    .row.static:hover{background:#fff}
-    .row .meta{margin-left:auto;color:#666;font-size:13px;font-weight:600}
-
+    /* Nota */
+    .note{color:#6b7280;font-size:12.5px;margin-top:8px}
   </style>
 </head>
 <body>
@@ -97,85 +119,134 @@
   <!-- Contenido -->
   <main class="wrap" role="main">
     <h1>Proyecto de inversión 8225</h1>
-
-    <div class="subline">
-      <span class="tag">Direccionamiento Estratégico</span>
-      <a class="tag-out" href="gestion_proyectos.html" aria-label="Ver procesos estratégicos">
-        Ver procesos estratégicos
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M9 6l6 6-6 6" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-
     <a class="back" href="index.html">← Volver a Temas</a>
 
-    <section class="grid">
-      <!-- PLANES (con links) -->
-      <article class="card" aria-label="Planes relacionados">
-        <div class="card-head">Planes</div>
-        <div class="list">
-          <a class="row" href="#">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Plan Distrital de Desarrollo</b>
-            <span class="arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </a>
-          <a class="row" href="#">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Programas</b>
-            <span class="arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </a>
-          <a class="row" href="#">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Proyectos</b>
-            <span class="arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </a>
-          <a class="row" href="#">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Presupuesto</b>
-            <span class="arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </a>
-        </div>
-      </article>
+    <div class="badge">Direccionamiento Estratégico</div>
 
-      <!-- POLÍTICAS PÚBLICAS (misma caja/filas, versión estática) -->
-      <article class="card" aria-label="Políticas públicas">
-        <div class="card-head">Políticas públicas</div>
-        <div class="list">
-          <div class="row static">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Líder PPMYEG</b>
-          </div>
-          <div class="row static">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Líder PP ASP</b>
-          </div>
-          <div class="row static">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Responsable</b>
-            <span class="meta">27 PP • 167 productos</span>
-          </div>
-          <div class="row static">
-            <span class="dot" aria-hidden="true"></span>
-            <b>Corresponsable</b>
-            <span class="meta">23 PP • 138 productos</span>
-          </div>
-        </div>
-      </article>
-    </section>
+    <div class="table-wrap" role="region" aria-label="Tabla de seguimiento presupuestal del proyecto 8225">
+      <table>
+        <thead>
+          <tr>
+            <th>Proyecto</th>
+            <th>Objetivo Estratégico</th>
+            <th>Programa</th>
+            <th>Meta Plan de Desarrollo</th>
+            <th>Meta proyecto de inversión</th>
+            <th class="num">PRESUPUESTO<br>PROGRAMADO PA</th>
+            <th class="num bg-corte">PROGRAMADO<br>AL CORTE</th>
+            <th class="num bg-corte-pct">%</th>
+            <th class="num bg-ejecutado">EJECUTADO ACUMULADA A<br>CIERRE MENSUAL</th>
+            <th class="num">%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="8"><b>Mejoramiento del modelo de operación por procesos de la Secretaría Distrital de la Mujer en Bogotá D.C.</b></td>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>1 - Implementar el 100 Porciento de los planes de gestión para el cierre de brechas FURAG</td>
+            <td class="num">5.397.404.836,00</td>
+            <td class="num bg-corte">5.519.188.133,00</td>
+            <td class="bg-corte-pct">102,26%</td>
+            <td class="num bg-ejecutado">4.434.628.437,00</td>
+            <td class="num">82,16%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>2 - implementar al 92 Porciento la Política de Gestión Documental institucional</td>
+            <td class="num">710.219.000,00</td>
+            <td class="num bg-corte">725.519.000,00</td>
+            <td class="bg-corte-pct">102,15%</td>
+            <td class="num bg-ejecutado">683.759.326,00</td>
+            <td class="num">96,27%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>3 - Implementar el 100 Porciento del plan de acción de la Política de Gobierno Digital</td>
+            <td class="num">1.157.254.016,00</td>
+            <td class="num bg-corte">1.118.870.057,00</td>
+            <td class="bg-corte-pct">96,68%</td>
+            <td class="num bg-ejecutado">1.086.384.399,00</td>
+            <td class="num">93,88%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>4 - Implementar 1 Plan(es) de fortalecimiento de la gestión de conocimiento e innovación alineado con la apuesta distrital</td>
+            <td class="num">317.445.000,00</td>
+            <td class="num bg-corte">317.445.000,00</td>
+            <td class="bg-corte-pct">100,00%</td>
+            <td class="num bg-ejecutado">301.792.667,00</td>
+            <td class="num">95,07%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>5 - Implementar 1 Plan(es) Estratégico de Tecnologías de la Información</td>
+            <td class="num">2.762.254.148,00</td>
+            <td class="num bg-corte">2.858.192.323,00</td>
+            <td class="bg-corte-pct">103,47%</td>
+            <td class="num bg-ejecutado">1.354.756.669,00</td>
+            <td class="num">49,05%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>6 - Implementar 1 Estrategia(s) para el fortalecimiento de la gestión contractual institucional</td>
+            <td class="num">1.300.257.000,00</td>
+            <td class="num bg-corte">1.180.432.357,00</td>
+            <td class="bg-corte-pct">90,78%</td>
+            <td class="num bg-ejecutado">1.172.399.157,00</td>
+            <td class="num">90,17%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>7 - Fortalecer el 100 Porciento de los controles asociados al proceso de gestión financiera.</td>
+            <td class="num">677.187.000,00</td>
+            <td class="num bg-corte">677.187.000,00</td>
+            <td class="bg-corte-pct">100,00%</td>
+            <td class="num bg-ejecutado">675.170.812,00</td>
+            <td class="num">99,70%</td>
+          </tr>
+
+          <tr>
+            <td>05 Bogotá confía en su gobierno</td>
+            <td>33 Fortalecimiento institucional para un gobierno confiable</td>
+            <td>Lograr al menos 92 puntos del índice de Gestión Pública Distrital</td>
+            <td>8 - Fortalecer el 100 Porciento de las herramientas para el seguimiento a de los planes, políticas públicas, proyectos y presupuesto asociados a la inversión de la entidad</td>
+            <td class="num">495.102.000,00</td>
+            <td class="num bg-corte">490.756.000,00</td>
+            <td class="bg-corte-pct">99,12%</td>
+            <td class="num bg-ejecutado">442.949.992,00</td>
+            <td class="num">89,47%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">Nota: colores de referencia — amarillo (programado al corte), rojo (% del programado), y verde (ejecutado acumulado al cierre mensual).</p>
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer" role="contentinfo" style="border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px">
     <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
   </footer>
 </body>
 </html>
+
 
