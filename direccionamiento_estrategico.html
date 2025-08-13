@@ -8,7 +8,8 @@
   <style>
     :root{
       --rosa:#e5706e; --gris:#f3f5f6; --negro:#111; --maxw:1100px; --borde:#e5e7ea;
-      --morado:#8d5497; --morado-ink:#5b3561; --morado-10:rgba(141,84,151,.10);
+      --morado:#8d5497; --morado-ink:#5b3561;
+      --morado-10:rgba(141,84,151,.10); --morado-16:rgba(141,84,151,.16);
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
@@ -44,9 +45,9 @@
     .list{display:grid}
 
     /* filas clickables */
-    .row, .row-like{display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;border-top:1px solid var(--borde);text-decoration:none;color:inherit}
-    .row:first-child{border-top:none}
-    .row:hover, .row-like:hover{background:#f9fbfc}
+    .row, .row-like, .policy-link{display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 16px;border-top:1px solid var(--borde);text-decoration:none;color:inherit}
+    .row:first-child, .policy-link:first-child{border-top:none}
+    .row:hover, .row-like:hover, .policy-link:hover{background:#f9fbfc}
     .dot{width:8px;height:8px;border-radius:999px;background:var(--rosa)}
     .arrow{margin-left:auto;opacity:.55}
     .arrow svg{display:block}
@@ -64,11 +65,16 @@
     .sublist a{display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2430;font-weight:600;padding:8px 10px;border:1px solid var(--borde);border-radius:10px;background:#fff}
     .sublist a:hover{border-color:var(--morado);box-shadow:0 0 0 3px var(--morado-10)}
 
-    /* Right list bullets for Políticas públicas */
-    .policy-row{display:flex;align-items:center;gap:12px;min-height:48px;padding:12px 16px;border-top:1px solid var(--borde)}
-    .policy-row:first-child{border-top:none}
-    .bullet{width:6px;height:6px;border-radius:999px;background:#e25d59}
-    .muted{margin-left:auto;color:#666;font-size:13px}
+    /* chips/resúmenes */
+    .chips{display:flex;flex-wrap:wrap;gap:6px;margin-left:6px}
+    .chip{
+      display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;
+      background:#fff;border:1px solid var(--borde);font-size:12.5px;font-weight:700;color:#3a2b40
+    }
+    .chips.right{margin-left:auto}
+
+    /* Políticas públicas */
+    .policy-link .bullet{width:6px;height:6px;border-radius:999px;background:#e25d59}
   </style>
 </head>
 <body>
@@ -117,12 +123,16 @@
             </span>
           </a>
 
-          <!-- Proyectos: DESPLEGABLE con resumen en gris -->
+          <!-- Proyectos con chips de resumen -->
           <details class="listitem">
             <summary>
               <span class="dot" aria-hidden="true"></span>
               <b>Proyectos</b>
-              <span class="muted">13 Proyectos de inversión • 5 Objetivos estratégicos • 6 Programas</span>
+              <span class="chips" aria-hidden="true">
+                <span class="chip">13 Proyectos de inversión</span>
+                <span class="chip">5 Objetivos estratégicos</span>
+                <span class="chip">6 Programas</span>
+              </span>
               <span class="chev" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
@@ -135,7 +145,7 @@
             </div>
           </details>
 
-          <!-- Presupuesto: enlaza a presupuesto.html -->
+          <!-- Presupuesto -->
           <a class="row" href="presupuesto.html">
             <span class="dot" aria-hidden="true"></span>
             <b>Presupuesto</b>
@@ -149,25 +159,46 @@
       <!-- POLÍTICAS PÚBLICAS -->
       <article class="card" aria-label="Políticas públicas">
         <div class="card-head">Políticas públicas</div>
-        <div>
-          <div class="policy-row">
+        <div class="list">
+          <a class="policy-link" href="#">
             <span class="bullet" aria-hidden="true"></span>
             <b>Líder PPMYEG</b>
-          </div>
-          <div class="policy-row">
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a class="policy-link" href="#">
             <span class="bullet" aria-hidden="true"></span>
             <b>Líder PP ASP</b>
-          </div>
-          <div class="policy-row">
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a class="policy-link" href="#">
             <span class="bullet" aria-hidden="true"></span>
             <b>Responsable</b>
-            <span class="muted">27 PP • 167 productos</span>
-          </div>
-          <div class="policy-row">
+            <span class="chips right" aria-hidden="true">
+              <span class="chip">27 PP</span>
+              <span class="chip">167 productos</span>
+            </span>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a class="policy-link" href="#">
             <span class="bullet" aria-hidden="true"></span>
             <b>Corresponsable</b>
-            <span class="muted">23 PP • 138 productos</span>
-          </div>
+            <span class="chips right" aria-hidden="true">
+              <span class="chip">23 PP</span>
+              <span class="chip">138 productos</span>
+            </span>
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#9aa2a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
         </div>
       </article>
     </section>
@@ -178,6 +209,5 @@
   </footer>
 </body>
 </html>
-
 
 
