@@ -1,1 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secretaría Distrital de Ambiente (SDA) – Oficina Asesora de Planeación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#e5706e; --gris:#f7f8f9; --negro:#111; --maxw:1100px; --borde:#e5e7ea;
+      --morado:#8d5497; --morado-ink:#5b3561; --morado-10:rgba(141,84,151,.10); --morado-24:rgba(141,84,151,.24);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
+
+    /* Barra superior */
+    .topbar{background:var(--rosa);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10}
+    .topbar .wrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
+    .logo{height:40px;width:auto;display:block}
+    .title{flex:1;text-align:center;font-weight:800;font-size:22px;letter-spacing:.2px}
+
+    /* Submenú */
+    .subnav{background:#f8f8f8;border-bottom:1px solid #ececec}
+    .subnav .wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 16px}
+    .pill{ text-decoration:none;padding:8px 12px;border-radius:999px;color:#333;border:1px solid #e2e2e2;font-weight:600;font-size:14px }
+    .pill:hover{background:#fff;border-color:#d8d8d8}
+    .pill.active{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+    /* Contenido */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px}
+    h1{margin:0 0 10px;font-size:32px;color:#000}
+
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 12px;border-radius:999px;background:var(--morado);color:#fff;
+      font-weight:800;font-size:12.5px
+    }
+    .back{display:inline-flex;gap:8px;align-items:center;margin-left:10px;
+      color:#444;text-decoration:none;font-size:14px}
+    .back:hover{text-decoration:underline}
+
+    /* Cards de personas / roles */
+    .grid{display:grid;gap:16px;margin-top:18px}
+    @media (min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+    .card{
+      background:#fff;border:1px solid var(--borde);border-radius:14px;padding:16px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02)
+    }
+    .row{display:flex;gap:12px}
+    .avatar{
+      width:40px;height:40px;border-radius:10px;border:1px solid var(--morado-24);
+      display:inline-grid;place-items:center;background:#fff;color:#5b3561;flex:0 0 40px
+    }
+    .name{font-weight:800}
+    .subtitle{color:#4a4f58}
+    .desc{margin:8px 0 10px;color:#5e6470}
+    .chip-light{
+      display:inline-flex;align-items:center;gap:8px;background:var(--morado-10);
+      color:#5b3561;border:1px solid var(--morado-24);border-radius:999px;
+      font-weight:800;font-size:12px;padding:4px 10px
+    }
+    .mailto{color:#5b3561;font-weight:700;text-decoration:none;border-bottom:1px dotted #bfa6c6}
+    .mailto:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <img src="logo_sdmujer_2.png" class="logo" alt="Logo Secretaría Distrital de la Mujer">
+      <div class="title">Oficina Asesora de Planeación</div>
+      <div style="width:40px" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Submenú -->
+  <nav class="subnav" aria-label="Navegación secundaria">
+    <div class="wrap">
+      <a href="index.html" class="pill active">Temas</a>
+      <a href="organigrama.html" class="pill">Organigrama</a>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="wrap" role="main">
+    <h1>Secretaría Distrital de Ambiente (SDA)</h1>
+    <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+      <span class="badge">Articulación interinstitucional</span>
+      <a class="back" href="articulacion_interinstitucional.html">← Volver a Articulación interinstitucional</a>
+    </div>
+
+    <section class="grid" aria-label="Contacto y roles SDA">
+      <!-- Tarjeta principal con el enlace PIGA -->
+      <article class="card">
+        <div class="row">
+          <div class="avatar" aria-hidden="true">
+            <!-- ícono persona -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="7.5" r="3.5" stroke="#8d5497" stroke-width="2"/>
+              <path d="M4 20c0-3.2 3.6-5 8-5s8 1.8 8 5" stroke="#8d5497" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="name">Diego Andrés Neira Gama</div>
+            <div class="subtitle">Enlace PIGA – Subdirección de Políticas Públicas, SDA</div>
+            <p class="desc">
+              Con la Subdirección se tramita todo el tema de <b>concertación</b> y
+              <b>reportes de seguimiento al PIGA</b>, según la temporalidad de cada reporte:
+              algunos son <b>semestrales</b> y otros <b>anuales</b>.
+            </p>
+            <div class="chip-light">PIGA</div>
+            &nbsp;·&nbsp;
+            <a class="mailto" href="mailto:diego.neira@ambientebogota.gov.co">diego.neira@ambientebogota.gov.co</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo" style="margin-top:32px;border-top:1px solid #eee;padding:18px 0 40px;color:#666;font-size:14px">
+    <div class="wrap">Oficina Asesora de Planeación – Secretaría Distrital de la Mujer</div>
+  </footer>
+</body>
+</html>
 
