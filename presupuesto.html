@@ -8,7 +8,7 @@
   <style>
     :root{
       --rosa:#e5706e; --gris:#f7f8f9; --negro:#111; --borde:#e5e7ea; --maxw:1100px;
-      --morado:#8d5497; --morado-soft:rgba(141,84,151,.10);
+      --morado:#8d5497; --morado-soft:rgba(141,84,151,.10); --morado-ink:#5a2f63;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430;background:#fff}
@@ -37,6 +37,22 @@
       background:#fff;border:1px solid var(--borde);border-radius:16px;padding:14px;
       box-shadow:0 1px 0 rgba(0,0,0,.02)
     }
+    .header-row{
+      display:flex;align-items:center;gap:10px;justify-content:space-between;margin-bottom:10px
+    }
+    .hint{
+      display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;
+      background:var(--morado-soft);border:1px solid #e5d3ee;font-weight:800;color:var(--morado-ink);font-size:12.5px
+    }
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      border:1px solid var(--morado); color:var(--morado-ink); background:#fff; font-weight:800; font-size:13px;
+      text-decoration:none;
+    }
+    .btn:hover{box-shadow:0 0 0 3px var(--morado-soft)}
+    .btn svg{display:block}
+
     figure{margin:0}
     .img-wrap{
       background:var(--gris);
@@ -45,8 +61,7 @@
       overflow:hidden;
     }
     .img-wrap img{display:block;width:100%;height:auto}
-    .hint{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;
-          background:var(--morado-soft);border:1px solid #e5d3ee;font-weight:800;color:#5a2f63;font-size:12.5px}
+    figcaption{margin-top:8px;color:#6b7280;font-size:12.5px}
   </style>
 </head>
 <body>
@@ -74,10 +89,26 @@
     <a class="back" href="proyectos_inversion_8225.html">← Volver a Proyecto de inversión 8225</a>
 
     <div class="img-card">
-      <div class="hint">Visual</div>
+      <div class="header-row">
+        <div class="hint">Visual</div>
+        <div class="actions" role="toolbar" aria-label="Acciones de la imagen">
+          <!-- Abrir en pestaña nueva -->
+          <a class="btn" href="presupuesto.jpeg" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 3h7v7M21 3l-9 9" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Abrir
+          </a>
+          <!-- Descargar imagen -->
+          <a class="btn" href="presupuesto.jpeg" download="Presupuesto_OAP_2025.jpg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke="#8d5497" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Descargar
+          </a>
+        </div>
+      </div>
+
       <figure class="img-wrap" aria-label="Imagen de presupuesto">
         <img src="presupuesto.jpeg" alt="Detalle de ejecución y programación presupuestal de la OAP">
       </figure>
+      <figcaption>Imagen: esquema visual del proceso presupuestal.</figcaption>
     </div>
   </main>
 
@@ -86,3 +117,4 @@
   </script>
 </body>
 </html>
+
