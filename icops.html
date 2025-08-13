@@ -52,6 +52,9 @@
     .panel{
       border:1px solid var(--borde);border-radius:12px;padding:14px;background:var(--gris)
     }
+    .panel + .panel{ margin-top:12px; } /* separación entre cajones */
+    .panel h3{margin:0 0 8px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+
     ul{margin:0;padding-left:20px}
     li{margin:6px 0}
 
@@ -91,18 +94,31 @@
 
     <article class="card" aria-label="Avances y apuestas en ICOPS">
       <h2>Avances y apuestas <span class="tag">ICOPS</span></h2>
+
+      <!-- Avances -->
       <div class="panel">
+        <h3><span class="tag">Avances</span></h3>
         <ul>
           <li>Creación de contratos de proveedores.</li>
           <li>Información exógena LIMAY.</li>
           <li>Formulario Reforma 467 – Seguridad Social.</li>
-          <li>Adjuntos y evidencias integrados con Orfeo.</li>
           <li>Categoría tributaria.</li>
           <li>Creación de terceros – proveedores.</li>
+        </ul>
+      </div>
+
+      <!-- Apuestas -->
+      <div class="panel">
+        <h3><span class="tag">Apuestas</span></h3>
+        <ul>
+          <li>Liquidación de terceros contratistas con nuevas normas.</li>
+          <li>Radicación de toda la documentación en Orfeo.</li>
+          <li>Módulo de radicación de cuentas de terceros.</li>
         </ul>
       </div>
     </article>
   </main>
 </body>
 </html>
+
 
